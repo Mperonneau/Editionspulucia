@@ -1,0 +1,441 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- for icon documentation: https://materializecss.com/icons.html-->
+{% endblock %}
+
+<!-- for displaying link, headline and image of the article-->
+{% block extra_head %}
+<meta property="og:title" content="Rodlin Christolin en résidence dans la cité d’Alcibiade Pommayrac" />
+<meta property="og:description" content="Le comédien, dramaturge et poète Rodlin Christolin dépose ses 
+bagages à Jacmel. Sous la férule des Éditions Pulucia, il a été accueilli vendredi 29 dans le 
+calme du centre culturel Charles Moravia situé dans la localité de Breman pour un séjour de deux 
+semaines. " />
+<meta property="og:image" content="/static/img/slide/slide-1.jpg" />
+{% endblock %}
+
+
+
+{% block content %}
+
+<style>
+.shadow-card{
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.6);
+}
+.img-source img{
+    position: relative;
+
+}
+
+.img-source small{
+    position:absolute;
+    top:100%;
+}
+.margin-article{
+    margin-left:6%;
+    margin-right: 6%;
+}
+
+@media (max-width: 991px){
+.margin-article {
+    margin-left:0;
+    margin-right:0;
+}
+}
+</style>
+
+<!--  display headline, link, image  when the article is shared on social medial: META TAG, OPEN GRAPH META TAGS   
+    1200x630:og:image(size of image recommanded)-->
+<section >
+    <div class="">
+        <img src="/static/img/citadelle.jpg" style="width: 100%">
+    </div>
+</section>
+<main>
+
+    <div class="container mb-5">
+
+        <!--Grid row-->
+        <div class="row " style="margin-top: -150px;">
+
+            <!--Grid column-->
+            <div class="col-md-12 px-lg-5">
+                <!--Card-->
+                <div class="card pb-5 mx-md-5 shadow-card" >
+                    <div class="card-body margin-article">
+
+                        <div class="container-fluid">
+
+                            <!--Section heading-->
+                            <h1 class="text-center h1 pt-4 mb-3">
+                                <strong>Rodlin Christolin en résidence dans la cité d’Alcibiade Pommayrac</strong>
+                            </h1>
+
+                            <div class="row">
+                                <div class="col-md-12 col-xl-12 d-flex justify-content-center">
+                                    <p class="font-small dark-grey-text mb-1">
+                                        <strong>Auteur:</strong> Pierre Paul Anccion</p>
+                                    <p class="font-small grey-text mb-0 ml-3">
+                                        <i class="far fa-clock-o dark-grey-text"></i> 15/09/2017</p>
+                                </div>
+                            </div>
+
+                            <!--Grid row-->
+                            <div class="row pt-lg-5 pt-3 ml-5 mr-5 text-justify ">
+
+                                <!--Grid column-->
+                                <div class="col-md-12 col-xl-12 ">
+
+                                    <div class="row"> <!--image article-->
+                                        <div class="col-md-12 col-xl-12 d-flex justify-content-center mb-5 img-source">
+                                            <img class="img-fluid" src="/static/img/slide/slide-1.jpg" alt="Responsive image">
+                                            <small style="font-style: italic;">Moliere Peronneau sur scene en Janvier 2014</small>
+                                        </div>
+                                       </div>
+                                    </div>
+                                   
+
+                                        <!--Grid row-->
+                                        <div class="row mt-3">
+                                            
+
+                                            <p class="dark-grey-text article">Le comédien, dramaturge et poète Rodlin Christolin dépose ses 
+                                                bagages à Jacmel. Sous la férule des Éditions Pulucia, il a été accueilli vendredi 29 dans le 
+                                                calme du centre culturel Charles Moravia situé dans la localité de Breman pour un séjour de deux 
+                                                semaines. C’était à deux jours de la Saint Jacques et Saint-Philippe. Et il a pu découvrir, en 
+                                                bon pèlerin, quelques-uns des multiples charmes dont trépide cette ville, l’une des plus 
+                                                hospitalières du pays.<br><br>
+
+                                                « Jacmel est un endroit magnifique. Il y a tout pour faire venir l’inspiration »,
+                                                 a-t-il déclaré, le regard balayant l’écran de son computer. L’auteur de « Symphonie de 
+                                                 l’ombre » publié chez les Éditions Miroir ne cache pas son coup de cœur pour la ville qui a
+                                                  vu grandir René Depestre. En plus de peaufiner son recueil de poèmes « Quand j’ai mal de ma 
+                                                  négrité » dont les premiers vers ont été inspirés par la candeur de Jacmel, Rodlin Christolin 
+                                                  aura à travailler sur la mise en scène d’un texte de Raymond Gousse intitulé « Enfantillages ».<br><br>
+                                                
+                                                 
+                                                
+                                                Interrogé sur son œuvre en gestation, plus particulièrement sur le titre « J’ai mal de ma 
+                                                négrité », il n’est pas allé par quatre chemins pour déballer les raisons qui l’ont conduit à 
+                                                épouser un intitulé aussi évocateur que provocateur. « Je suis parti du point de vue de Léopold 
+                                                Sédar Senghor qui disait : — Je dis négrité et non négritude puisqu’il s’agit de l’esprit nègre 
+                                                plutôt que du vécu nègre —. Les sujets qui y sont développés sont multiples. Car il s’agit d’une 
+                                                vision globale d’un personnage qui donne voix à des dizaines d’autres autour des problèmes qui les 
+                                                concernent  tous. D’ailleurs, le plus grand dilemme que j’aie avec ce texte je ne sais pas ce que 
+                                                ce va être au final peut-être un roman, peut être un essai, de la poésie ou juste une pièce avec 
+                                                des dialogues non titrés. Peut-être, c’est l’éditeur qui va le classifier. Une chose est sûre, 
+                                                l’œuvre ne sera pas une utopie, car le point central sera l’existence en elle-même. »<br><br>
+                                                
+                                                 
+                                                
+                                                Pour le PDG des Éditions Pulucia, Pierre-Paul Ancion, accorder une résidence à un poète, un 
+                                                dramaturge ou un romancier, rentre dans le cadre des innovations. « C’est important pour nous 
+                                                d’accompagner les créateurs et de promouvoir la création artistique ; et ce n’est que peu de ce 
+                                                que nous envisageons », a-t-il souligné. « Dans le cas de Rodlin Christolin, nous sommes heureux 
+                                                de lui accorder cette résidence. Il est bourré de talents et il est promis à un bel avenir », 
+                                                a-t-il conclu tout en saluant la fougue du staff des Éditions Pulucia ainsi que le centre culturel 
+                                                Charles Moravia qui s’assigne l’immense mission d’impulser la dynamique de promotion artistique et
+                                                 littéraire.<br><br>
+                                                
+                                                 
+                                                
+                                                Rodlin Christolin est de ceux qui font d’une pierre plusieurs coups. Durant son séjour,
+                                                 il animera un atelier de théâtre pour les jeunes du centre culturel Charles Moravia. 
+                                                 C’est pour lui, l’occasion de se rendre utile d’abord à lui-même et aussi aux autres 
+                                                 jeunes qui nourrissent une passion dévorante pour le théâtre. Le dramaturge ne compte pas
+                                                  chômer si tôt. Au mois de juillet, il sera en Corse (France) pour un stage à l’occasion 
+                                                  de la 19e rencontre internationale du théâtre organisé par ARIA.<br><br>
+                                                
+                                                </p>
+
+                                        </div>
+                                        <!--Grid row-->
+
+                                </div>
+                                <!--/Grid column-->
+
+                            </div>
+                            <!--/Grid row-->
+
+                        </div>
+                        <!--Grid column-->
+                        <div class="card-footer  text-center">
+                            <ul class="list-inline">
+                                <li><a style="font-size:20px; color:red" href="#1"><i class="fas fa-heart"></i></a> <span style="color: black; font-size:14px">259</span> </li>
+                                <li > <a style="font-size:20px; color:green; text-decoration:none" href="#1"><i class="fas fa-thumbs-up"></i> </a><span style="color: black; font-size:14px">259</span> </li>
+                            </ul>
+    
+                          </div>
+                    </div><!--card-body-->
+                   
+                    <!--Grid row-->
+
+                </div>
+                <!--/Card-->
+            </div>
+            <!--/Grid column-->
+        </div>
+        <!--/Grid row-->
+    </div>
+
+
+
+    <section style="background-color: whitesmoke;">
+        <div class="container-fluid grey lighten-3 mb-0 pb-0">
+            <div class="container">
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-12">
+                        <h6 class="font-weight-bold mt-5 mb-3">ABOUT</h6>
+                        <hr class="mb-5">
+                        <img src="https://mdbootstrap.com/img/Photos/Slides/img (108).jpg" alt="sample image" class="img-fluid z-depth-1">
+                        <p class="mt-4 mb-5">Sed ut in perspiciatis unde omnis iste natus error sit on i tatem accusantium doloremque laudantium,
+                            totam rem aperiam, eaque ipsa quae.</p>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-6">
+                        <h6 class="font-weight-bold mt-5 mb-3">RECENTS POSTS</h6>
+                        <hr class="mb-5">
+                        <!--Grid row-->
+                        <div class="row mt-4">
+
+                            <!--Grid column-->
+                            <div class="col-4">
+
+                                <!--Image-->
+                                <div class="view overlay z-depth-1 mb-3">
+                                    <img src="https://mdbootstrap.com/img/Photos/Others/photo12.jpg" class="img-fluid" alt="Post">
+                                    <a>
+                                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                                    </a>
+                                </div>
+
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Second column-->
+                            <div class="col-8 mb-1">
+
+                                <!--Post data-->
+                                <div class="">
+                                    <p class="mb-1">
+                                        <a href="#!" class="text-hover font-weight-bold">Sed ut in perspiciatis unde omnis</a>
+                                    </p>
+                                    <p class="font-small grey-text">
+                                        <em>July 22, 2017</em>
+                                    </p>
+                                </div>
+
+                            </div>
+                            <!--Second column-->
+
+                        </div>
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-4">
+
+                                <!--Image-->
+                                <div class="view overlay z-depth-1 mb-3">
+                                    <img src="https://mdbootstrap.com/img/Photos/Others/photo11.jpg" class="img-fluid" alt="Post">
+                                    <a>
+                                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                                    </a>
+                                </div>
+
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Second column-->
+                            <div class="col-7 mb-1">
+
+                                <!--Post data-->
+                                <div class="">
+                                    <p class="mb-1">
+                                        <a href="#!" class="text-hover font-weight-bold">At vero eos et accusamus et </a>
+                                    </p>
+                                    <p class="font-small grey-text">
+                                        <em>July 22, 2017</em>
+                                    </p>
+                                </div>
+
+                            </div>
+                            <!--Second column-->
+
+                        </div>
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-4">
+
+                                <!--Image-->
+                                <div class="view overlay z-depth-1 mb-3">
+                                    <img src="https://mdbootstrap.com/img/Photos/Others/photo15.jpg" class="img-fluid" alt="Post">
+                                    <a>
+                                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                                    </a>
+                                </div>
+
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Second column-->
+                            <div class="col-7 mb-1">
+
+                                <!--Post data-->
+                                <div class="">
+                                    <p class="mb-1">
+                                        <a href="#!" class="text-hover font-weight-bold">Nemo enim ipsam voluptatem</a>
+                                    </p>
+                                    <p class="font-small grey-text">
+                                        <em>July 22, 2017</em>
+                                    </p>
+                                </div>
+
+                            </div>
+                            <!--Second column-->
+
+                        </div>
+                        <!--Grid row-->
+
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-6">
+                        <h6 class="font-weight-bold mt-5 mb-3">Anciens blogs</h6>
+                        <hr class="mb-5">
+                        <!--Grid row-->
+                        <div class="row mt-4">
+
+                            <!--Grid column-->
+                            <div class="col-4">
+
+                                <!--Image-->
+                                <div class="view overlay z-depth-1 mb-3">
+                                    <img src="https://mdbootstrap.com/img/Photos/Others/photo1.jpg" class="img-fluid" alt="Post">
+                                    <a>
+                                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                                    </a>
+                                </div>
+
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Second column-->
+                            <div class="col-8 mb-1">
+
+                                <!--Post data-->
+                                <div class="">
+                                    <p class="mb-1">
+                                        <a href="#!" class="text-hover font-weight-bold">Sed ut in perspiciatis unde omnis</a>
+                                    </p>
+                                    <p class="font-small grey-text">
+                                        <em>July 22, 2017</em>
+                                    </p>
+                                </div>
+
+                            </div>
+                            <!--Second column-->
+
+                        </div>
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-4">
+
+                                <!--Image-->
+                                <div class="view overlay z-depth-1 mb-3">
+                                    <img src="https://mdbootstrap.com/img/Photos/Others/photo9.jpg" class="img-fluid" alt="Post">
+                                    <a>
+                                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                                    </a>
+                                </div>
+
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Second column-->
+                            <div class="col-7 mb-1">
+
+                                <!--Post data-->
+                                <div class="">
+                                    <p class="mb-1">
+                                        <a href="#!" class="text-hover font-weight-bold">At vero eos et accusamus et </a>
+                                    </p>
+                                    <p class="font-small grey-text">
+                                        <em>July 22, 2017</em>
+                                    </p>
+                                </div>
+
+                            </div>
+                            <!--Second column-->
+
+                        </div>
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-4">
+
+                                <!--Image-->
+                                <div class="view overlay z-depth-1 mb-3">
+                                    <img src="https://mdbootstrap.com/img/Photos/Others/photo4.jpg" class="img-fluid" alt="Post">
+                                    <a>
+                                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                                    </a>
+                                </div>
+
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Second column-->
+                            <div class="col-7 mb-1">
+
+                                <!--Post data-->
+                                <div class="">
+                                    <p class="mb-1">
+                                        <a href="#!" class="text-hover font-weight-bold">Nemo enim ipsam voluptatem</a>
+                                    </p>
+                                    <p class="font-small grey-text">
+                                        <em>July 22, 2017</em>
+                                    </p>
+                                </div>
+
+                            </div>
+                            <!--Second column-->
+
+                        </div>
+                        <!--Grid row-->
+
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+{% endblock %}

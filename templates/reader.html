@@ -1,0 +1,307 @@
+{% load static %}<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Horizon Economie sociale et solidaire</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/venobox/venobox.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css"></link> <!-- side menu formation dashboard-->
+  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+
+  {% block styles %} <!-- to add an other style css-->
+  {% endblock %}
+
+  <!-- Template Main CSS File -->
+  
+  <link href="{% static 'css/style1.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> 
+
+  <!-- =======================================================
+  * Template Name: Company - v2.1.0
+  * Template URL: https://bootstrapmade.com/company-free-html-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+{% autoescape off %}
+<body>
+<style>
+
+  .nav-menu ul li a, .logo a{
+    text-decoration: none;
+  }
+
+  .logo a:hover{
+    box-shadow: 0 0px 5px 0 rgba(0, 0, 0, .2), 0 2px 2px -11px rgb(102, 115, 252, 0.2);
+  }
+
+  @media (max-width: 991px){
+.login-main {
+  position:relative;
+  left:-22%;
+
+}
+
+}
+
+
+</style>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top" >
+    <div class="container d-flex align-items-center login-main"  style="margin-left:19%">
+ 
+      
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="{% url 'index_page' %}">Accueil</a></li>
+
+          <li class="drop-down"><a href="">A propos</a>
+            <ul>
+              <li><a href="{% url 'a_propos' %}">Mission</a></li>
+              <li><a href="{% url 'a_propos' %}">Vision</a></li>
+              <li><a href="{% url 'a_propos' %}">Valeurs</a></li>
+              <li><a href="{% url 'temoignages' %}">Temoignages</a></li>
+            </ul>
+          </li>
+
+          <li><a href="{% url 'bibliotheque' %}">Bibliothèque</a></li>
+          <li><a href="{% url 'librairie' %}">Librairie</a></li>
+
+          
+          <li><a href="{% url 'evenement-main'%}">Evènements</a>
+            <li><a href="{% url 'projet' %}">Projets</a>
+            
+          </li>
+
+          <li><a href="{% url 'publication' %}">Publication</a></li>
+          <li><a href="{% url 'blog' %}">Blog</a></li>
+
+        </ul>
+      </nav><!-- .nav-menu -->
+
+
+      {% if user.is_authenticated %}
+      <div class="dropdown" style="width:130px;">
+      <div class="header-social-links">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="glyphicon glyphicon-user"></span>
+         {{request.user}}
+        </button>
+        <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#1">Profile</a>
+          <a class="dropdown-item" href="#1">Se deconnecter</a>
+        </div>
+        </div>
+      </div>
+      {% else %}
+     <div class="header-social-links">
+        <a href="{% url 'login' %}" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-user"></span> Login 
+        </a>
+        </div>
+      {% endif %}
+
+    
+  </header><!-- End Header -->
+  <main id="main" style="background-color:white; margin-top:50px">
+    
+
+<style>
+.profile-content {
+overflow: hidden;
+}
+
+
+.page-breadcrumb {
+display: inline-block;
+float: left;
+margin: 0;
+list-style: none;
+background-color: transparent;
+border-radius: 50px;
+background: rgba(220, 208, 208, 0.5);
+padding-left: 20px !important;
+padding-right: 20px !important;
+padding-top: 5px !important;
+padding-bottom: 8px !important;
+}
+
+.page-breadcrumb li a{
+    text-decoration: none;
+}
+
+.page-breadcrumb:hover{
+    background: rgba(220, 208, 208, 0.7);
+
+}
+.home {
+    position: relative;
+    top: 4px;
+    display: inline-block;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1; 
+}
+
+</style>
+
+<div class="container" style="margin-top:20px">
+    <div class="row">
+        <div class="col-md-12">
+           
+                <!--<iframe type="text/html" width="100%" height="750" frameborder="0" allowfullscreen 
+                style="max-width:100%" src="/static/img/pdf_file.pdf#toolbar=0" ></iframe>-->
+
+                <iframe type="text/html" width="100%" height="750" frameborder="0" allowfullscreen style="max-width:100%"
+                     src="https://read.amazon.com/kp/card?asin=B07XFGG8Y4&preview=inline&linkCode=kpe&ref_=cm_sw_r_kb_dp_lnWVFbSCSAQK3" ></iframe>
+
+
+
+        </div>
+    
+    </div>
+</div> <!-- end container-->
+</main>
+
+  
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>horizon</h3>
+            <p>
+              A108 Adam Street <br>
+              New York, NY 535022<br>
+              United States <br><br>
+              <strong>Phone:</strong> +1 929 289 7376<br>
+              <strong>Email:</strong> peronneaumoliere@gmail.com<br>
+              <strong><a class="text-white" href="#1">Contact</a></strong>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Liens utils</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Accueil</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">A propos</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Nos Services aux membres</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Join Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="mr-md-auto text-center text-md-left">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Horizon</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/company-free-html-bootstrap-template/ -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade and Horizon</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top "><i class="icofont-simple-up "></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'vendor/jquery-sticky/jquery.sticky.js' %}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/venobox/venobox.min.js' %}"></script>
+  <script src="{% static 'vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  
+  
+  
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script> <!-- side menu dashboard formation-->
+  {% block js %}
+  {% endblock %}
+</body>
+{% endautoescape %}
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

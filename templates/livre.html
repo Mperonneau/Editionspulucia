@@ -1,0 +1,499 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- for icon documentation: https://materializecss.com/icons.html-->
+{% endblock %}
+{% block content %}
+
+<main id="main" style="background-color:white;">
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+
+           
+        
+
+       
+
+        
+  
+          <div class="d-flex justify-content-between align-items-center">
+              
+          </div>
+  
+        </div>
+      </section><!-- End Breadcrumbs -->
+
+<style>
+.profile-content {
+overflow: hidden;
+}
+
+
+.page-breadcrumb {
+display: inline-block;
+float: left;
+margin: 0;
+list-style: none;
+background-color: transparent;
+border-radius: 50px;
+background: rgba(220, 208, 208, 0.5);
+padding-left: 20px !important;
+padding-right: 20px !important;
+padding-top: 5px !important;
+padding-bottom: 8px !important;
+}
+
+.page-breadcrumb li a{
+    text-decoration: none;
+}
+
+.page-breadcrumb:hover{
+    background: rgba(220, 208, 208, 0.7);
+
+}
+.home {
+    position: relative;
+    top: 4px;
+    display: inline-block;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1; 
+}
+
+.profile-sidebar {
+float: left;
+width: 350px;
+margin-right: 20px;
+}
+
+@media (max-width: 991px){
+.profile-sidebar {
+float: none;
+width: 100% !important;
+margin: 0;
+}
+}
+.card-topline-aqua {
+border-top: 3px solid #00C0EF;
+}
+
+.card {
+position: relative;
+margin-bottom: 24px;
+margin-top: 10px;
+background-color: #ffffff;
+border-radius: 3px;
+-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+}
+
+
+
+.card-body:last-child {
+border-radius: 0 0 2px 2px;
+}
+
+.card-body {
+padding: 10px 24px 14px 24px;
+position: relative;
+}
+
+.profile-userpic {
+float: left;
+width: 100%;
+text-align: center;
+}
+
+.profile-userpic img {
+margin: 0px auto;
+width: 130px;
+padding: 3px;
+border: 3px solid rgb(210, 214, 222);
+border-radius: 50% 50% 50% 50%;
+}
+
+.img-responsive {
+display: block;
+max-width: 100%;
+height: auto;
+}
+
+.profile-usertitle {
+text-align: center;
+margin-top: 5px;
+}
+
+.profile-usertitle-name {
+font-size: 20px;
+margin-bottom: 2px;
+font-weight: bold;
+color: #3a405b;
+}
+
+.profile-usertitle-job {
+color: #777777;
+font-size: 12px;
+margin-bottom: 5px;
+}
+
+.card-body:after {
+clear: both;
+}
+
+.card-body:before, .card-body:after {
+content: " ";
+display: table;
+}
+
+.list-group .list-group-item {
+display: block;
+}
+
+.list-group-unbordered > .list-group-item {
+border-left: 0px none;
+border-right: 0px none;
+border-radius: 0px 0px 0px 0px;
+padding-left: 0px;
+padding-right: 0px;
+}
+
+.pull-right {
+float: right!important;
+}
+
+
+.profile-userbuttons {
+text-align: center;
+margin-top: 10px;
+}
+
+
+.card-body:last-child {
+border-radius: 0 0 2px 2px;
+}
+
+.card-body {
+padding: 10px 24px 14px 24px;
+position: relative;
+}
+
+.profile-userbuttons button {
+text-transform: uppercase;
+font-size: 11px;
+font-weight: 600;
+}
+
+.btn-circle {
+border-radius: 25px!important;
+overflow: hidden;
+outline: 0px !important;
+}
+
+.btn-primary {
+background-color: #188ae2 !important;
+border: 1px solid #188ae2 !important;
+color: #fff !important;
+}
+
+.m-b-10 {
+margin-bottom: 10px !important;
+}
+
+
+.mdl-js-button {
+right: 10px;
+}
+
+.card-head {
+border-radius: 2px 2px 0 0;
+border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
+padding: 2px;
+/* text-transform: uppercase; */
+color: #3a405b;
+font-size: 14px;
+font-weight: 600;
+line-height: 40px;
+min-height: 40px;
+}
+
+.card-topline-aqua {
+border-top: 3px solid #00C0EF;
+}
+
+.card-body:last-child {
+border-radius: 0 0 2px 2px;
+}
+
+.profile-desc {
+text-align: left;
+margin-top: 10px;
+margin-bottom: 25px;
+}
+
+.card-head header {
+display: inline-block;
+padding: 11px 20px;
+vertical-align: middle;
+line-height: 17px;
+font-size: 20px;
+}
+
+.work-monitor .states {
+width: 90%;
+}
+
+.work-progress, .states {
+width: 100%;
+}
+
+.work-monitor .states .info {
+display: inline-block;
+width: 100%;
+font-size: 15px;
+margin: 10px 0 0 0;
+font-weight: 500;
+}
+
+.work-monitor .states .info {
+display: inline-block;
+width: 100%;
+font-size: 13px;
+}
+
+.pull-right {
+float: right!important;
+}
+
+.progress-bar-danger {
+background-color: #d9534f;
+}
+.progress {
+border: 0;
+background-image: none;
+filter: none;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+height: 8px;
+border-radius: 0!important;
+margin: 0;
+}
+
+.profile-content {
+overflow: hidden;
+}
+
+.white-box {
+background: #ffffff;
+padding: 20px;
+margin-top: 10px;
+margin-bottom: 15px;
+}
+
+.customtab {
+border-bottom: 2px solid #f7fafc;
+}
+
+.nav-pills, .nav-tabs {
+margin-bottom: 10px;
+}
+.nav-tabs>li {
+float: left;
+margin-bottom: -1px;
+}
+
+.customtab.nav-tabs .nav-link.active, .customtab.nav-tabs .nav-link.active:focus {
+border-bottom: 0px solid #36c6d3;
+background-color: rgb(102, 115, 252) !important;
+box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .2), 0 13px 24px -11px rgb(102, 115, 252);
+color: #fff;
+border-radius: 30px;
+}
+
+.customtab.nav-tabs .nav-link {
+border-left: 0;
+border-top: 0;
+border-right: 0;
+color: #999;
+}
+
+#biography {
+padding: 0 0;
+}
+#biography ul{
+    padding: 0;
+  
+}
+.text-muted {
+color: #919aa3!important;
+margin-bottom: 10px;
+}
+
+.font-bold {
+font-weight: bold;
+}
+
+.full-width {
+float: left;
+width: 100%;
+}
+#team-social li {
+    list-style-type: none;
+    display: inline-block;
+    margin-left:10px;
+}
+
+#team-social li a{
+    text-decoration: none;
+    font-size:20px;
+}
+
+#team-social{
+    margin-right:38px;
+}
+.expertise li{
+    list-style-type: square;
+    font-weight: 700;
+    margin-bottom: 10px;;
+
+}
+@media (max-width: 991px){
+.img-livre {
+    width: 200px;
+}
+}
+@media (max-width: 991px){
+.livre-container {
+    width: 250px;
+    margin-left: 23%
+    
+}
+}
+</style>
+
+<div class="container" style="margin-top:20px">
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN PROFILE SIDEBAR -->
+            <div class="profile-sidebar">
+                <div class="card card-topline-aqua livre-container">
+                    <div class="card-body no-padding height-9">
+                        <div class="card-img img-livre" >
+                            <img  src="{% static 'img/book-cover.jpg'  %}" alt="" class="img-fluid">
+                          </div>
+                       
+                        <!-- END SIDEBAR USER TITLE -->
+                        <!-- SIDEBAR BUTTONS -->
+                        
+                        <!-- END SIDEBAR BUTTONS -->
+                    </div>
+                    <div class="card-footer">
+                        <div class="post-author">
+                          <a href="#">
+                            <img src="assets/img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
+                            <i class="fas fa-credit-card"></i> <span class="author">Achat en ligne</span>
+                          </a>
+                        </div>
+              
+                      </div>
+                </div>
+                
+                
+                
+               
+            </div>
+            <!-- END BEGIN PROFILE SIDEBAR -->
+            <!-- BEGIN PROFILE CONTENT -->
+            <div class="profile-content">
+               <!-- <iframe src="/static/img/pdf_file.pdf#toolbar=0" width="100%" height="500px">
+                </iframe>
+                <iframe type="text/html" width="336" height="550" frameborder="0" allowfullscreen style="max-width:100%" src="https://read.amazon.com/kp/card?asin=B07XFGG8Y4&preview=inline&linkCode=kpe&ref_=cm_sw_r_kb_dp_lnWVFbSCSAQK3" ></iframe>
+            -->
+                <div class="row">
+                    <div class="card">
+                        <div class="card-topline-aqua">
+                            <header></header>
+                        </div>
+                        <div class="white-box">
+                            <!-- Nav tabs -->
+                            <div class="p-rl-20">
+                                
+                            </div>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane active fontawesome-demo" id="tab1">
+                                    <div id="biography">
+                                        <div class="row">
+                                            <div class="col-md-3 col-6 b-r"> <p style="font-weight: 600;">Auteur</p>
+                                                <br>
+                                                <p class="text-muted">Peronneau Moliere</p>
+                                            </div>
+                                            <div class="col-md-3 col-6 b-r"> <p style="font-weight: 600;">Type</p>
+                                                <br>
+                                                <p class="text-muted">Roman</p>
+                                            </div>
+                                            <div class="col-md-3 col-6 b-r"> <p style="font-weight: 600;">Annee</p>
+                                                <br>
+                                                <p class="text-muted">2021</p>
+                                            </div>
+                                            <div class="col-md-3 col-6"><p style="font-weight: 600;"> Pages</p>
+                                                <br>
+                                                <p class="text-muted">156 pages</p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        {{formateur_data.presentation}}
+                                        <br>
+                                        <h4 class="font-400">A propos du livre </h4>
+                                        <hr>
+                                        <ul class="text-justify">
+                                            France adore laisser ses doigts entortiller les boucles blondes. Elle sait apaiser Romy en caressant ainsi son 
+                                            crâne pour l’entraîner dans un semi-coma où le corps gringalet sera à sa merci.» Toul, 1999. À neuf ans, 
+                                            Romy est abusée pour la première fois par France, une voisine. Son enfance soudain se déchire comme 
+                                            une robe de princesse. Romy entre en guerre. De neuf à dix-neuf ans, nous la voyons se battre contre
+                                             le chaos qui grandit, contre l’attachement invivable qu’elle ressent pour France, contre un ordre social 
+                                             dont elle ne comprend pas les règles, contre ce corps féminin qui va devenir son principal ennemi. 
+                                             La romancière s’attache à peindre, avec un sens exceptionnel de l’observation, un milieu social et géographique 
+                                             que la littérature fréquente rarement : tous les personnages sont des militaires de la base de Toul, des ouvriers
+                                              de chez Kleber, des zonards du canal, toujours décrits avec une empathie discrète. Un premier roman implacable, radical
+                                        </ul>
+                                        <br>
+                                        <h4 class="font-400"> A propos de l'auteur</h4>
+                                        <hr>
+                                        <ul class="text-justify">
+                                            France adore laisser ses doigts entortiller les boucles blondes. Elle sait apaiser Romy en caressant ainsi son 
+                                            crâne pour l’entraîner dans un semi-coma où le corps gringalet sera à sa merci.» Toul, 1999. À neuf ans, 
+                                            Romy est abusée pour la première fois par France, une voisine. Son enfance soudain se déchire comme 
+                                            une robe de princesse. Romy entre en guerre. De neuf à dix-neuf ans, nous la voyons se battre contre
+                                             le chaos qui grandit, contre l’attachement invivable qu’elle ressent pour France, contre un ordre social 
+                                             dont elle ne comprend pas les règles, contre ce corps féminin qui va devenir son principal ennemi. 
+                                             La romancière s’attache à peindre, avec un sens exceptionnel de l’observation, un milieu social et géographique 
+                                             que la littérature fréquente rarement : tous les personnages sont des militaires de la base de Toul, des ouvriers
+                                              de chez Kleber, des zonards du canal, toujours décrits avec une empathie discrète. Un premier roman implacable, radical
+                                        </ul>
+                                        <br>
+                                        <h4 class="font-400"><i class="far fa-building"></i> Points de vente</h4>
+                                        <hr>
+                                        <ul>
+                                            {{formateur_data.autres}}
+                                        </ul>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PROFILE CONTENT -->
+        </div>
+    </div>
+
+
+
+
+</div> <!-- end container-->
+</main>
+
+{% endblock %}

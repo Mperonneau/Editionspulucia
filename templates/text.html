@@ -1,0 +1,272 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- for icon documentation: https://materializecss.com/icons.html-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+{% endblock %}
+{% block extra_head %}
+<meta property="og:title" content="Bèl Nèges" />
+<meta property="og:description" content="Kounya anba pwa lavi, w’ap trepase<br>
+Lontan se te grandizè, fè fèt chak jou
+Tout gason te vle'w, tout t’ap fè jalou
+Gade jan'w te bèl nan lepase " />
+<meta property="og:image" content="/static/img/logo_pulucia.png"/>
+{% endblock %}
+
+{% block content %}
+
+<style>
+.shadow-card{
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.6);
+}
+
+
+@media (min-width: 0) {
+    .g-mr-15 {
+        margin-right: 1.07143rem !important;
+    }
+}
+@media (min-width: 0){
+    .g-mt-3 {
+        margin-top: 0.21429rem !important;
+    }
+}
+
+.g-height-50 {
+    height: 50px;
+}
+
+.g-width-50 {
+    width: 50px !important;
+}
+
+@media (min-width: 0){
+    .g-pa-30 {
+        padding: 2.14286rem !important;
+    }
+}
+
+.g-bg-secondary {
+    background-color: white !important;
+}
+
+.u-shadow-v18 {
+    box-shadow: 0 5px 10px -6px rgba(0, 0, 0, 0.15);
+}
+
+.g-color-gray-dark-v4 {
+    color: #777 !important;
+}
+
+.g-font-size-12 {
+    font-size: 0.85714rem !important;
+}
+
+.media-comment {
+    margin-top:20px
+}
+@media (max-width: 0){
+.m-comment{
+    margin-left:0px;
+
+}
+}
+.m-comment{
+    margin-left: 20px;
+   
+}
+.hover-auteur a:hover{
+    text-shadow: 2px 2px yellow;
+
+}
+</style>
+
+<main style="background-image: url(/static/img/logo_pulucia.png);">
+
+    <div class="container mb-3" style="margin-top:120px">
+
+        <!--Grid row-->
+        <div class="row ">
+
+            <!--Grid column-->
+            <div class="col-md-12 px-lg-5" style="background-image: url(static/img/papyrus.jpg);">
+                <!--Card-->
+                <div class="card pb-5 mx-md-5 shadow-card" >
+                    <div class="card-body " style="background-image: url(/static/img/papyrus.jpg);" >
+
+                        <div class="container-fluid">
+
+                            <!--Section heading-->
+                            <h1 class="text-center h1 pt-4 mb-3">
+                                <strong style="font-family: Pacifico;">Bèl Nègès</strong>
+                            </h1>
+
+                            <div class="row">
+                                <div class="col-md-12 col-xl-12  justify-content-center">
+                                    <p class="font-small dark-grey-text mb-1 text-center">
+                                         Emerson Vilbrun 15/09/2017</p><br>
+                                    
+                                    
+                                        <p class="dark-grey-text article text-center" style="font-family: Pacifico; font-size:17px">Gade jan'w te bèl nan lepase<br>
+                                            Kounya anba pwa lavi, w’ap trepase<br>
+                                            Lontan se te grandizè, fè fèt chak jou<br>
+                                            Tout gason te vle'w, tout t’ap fè jalou<br><br>
+                                            Gade jan'w te bèl nan lepase<br>
+                                            Kounya anba pwa lavi, w’ap trepase<br>
+                                            Lontan se te grandizè, fè fèt chak jou<br>
+                                            Tout gason te vle'w, tout t’ap fè jalou<br><br>
+                                            Gade jan'w te bèl nan lepase<br>
+                                            Kounya anba pwa lavi, w’ap trepase<br>
+                                            Lontan se te grandizè, fè fèt chak jou<br>
+                                            Tout gason te vle'w, tout t’ap fè jalou<br><br>
+                                            Gade jan'w te bèl nan lepase<br>
+                                            Kounya anba pwa lavi, w’ap trepase<br>
+                                            Lontan se te grandizè, fè fèt chak jou<br>
+                                            Tout gason te vle'w, tout t’ap fè jalou<br><br>
+                                            Gade jan'w te bèl nan lepase<br>
+                                            Kounya anba pwa lavi, w’ap trepase<br>
+                                            Lontan se te grandizè, fè fèt chak jou<br>
+                                            Tout gason te vle'w, tout t’ap fè jalou<br><br>
+                                            </p>  
+                                </div>
+                                
+                            </div>
+
+                        </div>
+                    </div> <!--card-body-->
+                    <div class="card-footer text-muted text-center">
+                        <ul class="list-inline">
+                            <li><a style="font-size:20px; color:red" href="#1"><i class="fas fa-heart"></i></a> <span style="color: black; font-size:14px">259</span> </li>
+                            <li > <a style="font-size:20px; color:green; text-decoration:none" href="#1"><i class="fas fa-thumbs-up"></i> </a><span style="color: black; font-size:14px">259</span> </li>
+                        </ul>
+
+                      </div>
+                      
+                      <div class="card-footer bg-white">
+                        <h4 class="text-center" style=" font-family: Pacifico;">Du meme Auteur</h4><hr>
+                         
+                          <div class="row ml-3">
+                              
+                            
+                            <div class="col-3 col-md-2 mt-3" data-aos="zoom-in" style="margin-bottom: 10px;">
+                                <div class="hover-auteur">
+                                    <a  href="#1" style="font-size: 16px; font-family: Pacifico; color:blue; margin-bottom: 0px; padding: 
+                                    2px; text-decoration:none">Fanm Vanyan </a>
+                                  </div>
+                                
+                              </div>
+
+                              <div class="col-3 col-md-2 mt-3" data-aos="zoom-in" style="margin-bottom: 10px;">
+                                <div class="hover-auteur">
+                                    <a  href="#1" style="font-size: 16px; font-family: Pacifico; color:blue; margin-bottom: 0px; padding: 
+                                    2px; text-decoration:none">Fanm Vanyan </a>
+                                  </div>
+                                
+                              </div>
+
+                              <div class="col-3 col-md-2 mt-3" data-aos="zoom-in" style="margin-bottom: 10px;">
+                                <div class="hover-auteur">
+                                    <a  href="#1" style="font-size: 16px; font-family: Pacifico; color:blue; margin-bottom: 0px; padding: 
+                                    2px; text-decoration:none">Fanm Vanyan </a>
+                                  </div>
+                                
+                              </div>
+
+                              <div class="col-3 col-md-2 mt-2" data-aos="zoom-in" style="margin-bottom: 10px;">
+                                <div class="hover-auteur">
+                                    <a href="#1" style="font-size: 16px; font-family: Pacifico; color:red; margin-bottom: 0px; padding: 
+                                    2px; text-decoration:none">Bèl Nègès </a>
+                                  </div>
+                                
+                              </div class="hover-auteur">
+
+                              <div class="col-3 col-md-2 mt-2" data-aos="zoom-in" style="margin-bottom: 10px;">
+                                <div class="hover-auteur"> 
+                                    <a href="#1" style="font-size: 16px; font-family: Pacifico; color:green; margin-bottom: 0px; padding: 
+                                    2px; text-decoration:none">Bèl Nègès </a>
+                                  </div>
+                                
+                              </div>
+
+                              <div class="col-3 col-md-2 mt-2" data-aos="zoom-in" style="margin-bottom: 10px;">
+                                <div>
+                                    <a href="#1" style="font-size: 16px; font-family: Pacifico; color:blue; margin-bottom: 0px; padding: 
+                                    2px; text-decoration:none">Fanm vanyan </a>
+                                  </div>
+                                
+                              </div>
+
+                              <div class="col-3 col-md-2 mt-2" data-aos="zoom-in" style="margin-bottom: 10px;">
+                                <div>
+                                    <a href="#1" style="font-size: 16px; font-family: Pacifico; color:skyblue; margin-bottom: 0px; padding: 
+                                    2px; text-decoration:none">Nwel Lakay </a>
+                                  </div>
+                                
+                              </div>
+                              <div class="col-3 col-md-2 mt-2" data-aos="zoom-in" style="margin-bottom: 10px;">
+                                <div>
+                                    <a href="#1" style="font-size: 16px; font-family: Pacifico; color:skyblue; margin-bottom: 0px; padding: 
+                                    2px; text-decoration:none">Nwel Lakay </a>
+                                  </div>
+                                
+                              </div>
+
+                          </div> 
+                          <hr> 
+                      </div>
+
+                </div> <!-- card-->
+                <!--/Card-->
+            </div>
+            <!--/Grid column-->
+        </div>
+        <!--/Grid row-->
+    </div>
+
+
+
+    <section style="background-color: whitesmoke;">
+        <div class="container grey lighten-3 mb-0 pb-0 ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 mb-3  m-comment">
+                        <div class="media g-mb-30 media-comment" >
+                            <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Image Description">
+                            <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
+                              <div class="g-mb-15">
+                                <h5 class="h5 g-color-gray-dark-v1 mb-0 mt-0 font-weight-bold">John Doe</h5>
+                              </div>
+                        
+                              <p class="mb-0 text-justify">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue
+                                felis in faucibus ras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+                        
+                             
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="col-md-10 m-comment">
+                        <div class="media g-mb-30 media-comment">
+                            <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Image Description">
+                            <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30" >
+                              <div class="g-mb-15">
+                                <h5 class="h5 g-color-gray-dark-v1 mb-0 mt-0">John Doe</h5>
+                              </div>
+                        
+                              <p class="mb-0">Tres bien</p>
+                        
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+
+    </section>
+
+</main>
+
+{% endblock %}

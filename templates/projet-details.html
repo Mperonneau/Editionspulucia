@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- for icon documentation: https://materializecss.com/icons.html-->
+{% endblock %}
+{% block content %}
+
+<style>
+.shadow-card{
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.6);
+}
+.img-source img{
+    position: relative;
+
+}
+
+.img-source small{
+    position:absolute;
+    top:100%;
+}
+.margin-projet{
+    margin-left:10%;
+    margin-right: 10%;
+}
+
+
+</style>
+
+<main style="background-color: whitesmoke">
+    
+
+    <div class="container mb-5">
+
+        <!--Grid row-->
+        <div class="row " style="margin-top: 120px;">
+
+            <!--Grid column-->
+            <div class="col-md-12 px-lg-5">
+                <!--Card-->
+                <div class="card pb-5 mx-md-5 shadow-card" >
+                    <div class="card-body">
+
+                        <div class="container-fluid">
+
+                            <!--Section heading-->
+                            <h1 class="text-center h1 pt-4 mb-3">
+                                <strong> Projet Prix Dominique Batraville</strong>
+                            </h1>
+
+                          
+
+                            <!--Grid row-->
+                            <div class="row pt-lg-5 pt-3  text-justify margin-projet">
+
+                                <!--Grid column-->
+                                <div class="col-md-12 col-xl-12">
+
+                                    <div class="row"> <!--image article-->
+                                        <div class="col-md-12 col-xl-12 d-flex justify-content-center mb-5 img-source">
+                                            <img class="img-fluid" src="/static/img/slide/slide-1.jpg" alt="Responsive image">
+                                            <small style="font-style: italic;">Moliere Peronneau sur scene en Janvier 2014</small>
+                                        </div>
+                                       </div>
+
+                                       <a href="#1" class="container-fluid text-center btn btn-success font-weight-bold" style="font-size:18px; color:white;">
+                                        <i class="fas fa-hand-holding-usd"></i>  Cliquer ici et faire un don!
+
+                                       </a>
+                                    </div>
+                                   
+
+                                        <!--Grid row-->
+                                        <div class="row mt-3">
+                                            <p class="h4" style="border-bottom: 3px solid green; width: 100%; font-weight: bold; background-color:yellow"> 
+                                                <i class="fas fa-clipboard-check" style="color:green"></i> Description du projet</p>
+                                            
+                                            <p class="dark-grey-text article">Le comédien, dramaturge et poète Rodlin Christolin dépose ses 
+                                                bagages à Jacmel. Sous la férule des Éditions Pulucia, il a été accueilli vendredi 29 dans le 
+                                                calme du centre culturel Charles Moravia situé dans la localité de Breman pour un séjour de deux 
+                                                semaines. C’était à deux jours de la Saint Jacques et Saint-Philippe. Et il a pu découvrir, en 
+                                                bon pèlerin, quelques-uns des multiples charmes dont trépide cette ville, l’une des plus 
+                                                hospitalières du pays.<br><br>
+
+                                                « Jacmel est un endroit magnifique. Il y a tout pour faire venir l’inspiration »,
+                                                 a-t-il déclaré, le regard balayant l’écran de son computer. L’auteur de « Symphonie de 
+                                                 l’ombre » publié chez les Éditions Miroir ne cache pas son coup de cœur pour la ville qui a
+                                                  vu grandir René Depestre. En plus de peaufiner son recueil de poèmes « Quand j’ai mal de ma 
+                                                  négrité » dont les premiers vers ont été inspirés par la candeur de Jacmel, Rodlin Christolin 
+                                                  aura à travailler sur la mise en scène d’un texte de Raymond Gousse intitulé « Enfantillages ».</p>
+                                                
+                                                 
+                                                  <p class="h4" style="border-bottom: 3px solid green; width: 100%; font-weight: bold; background-color:yellow"> 
+                                                    <i style="color:green" class="fas fa-clipboard-check"></i> Objectifs du projet</p>
+                                                  <p class="dark-grey-text article">Interrogé sur son œuvre en gestation, plus particulièrement sur le titre 
+                                                      « J’ai mal de ma 
+                                                négrité », il n’est pas allé par quatre chemins pour déballer les raisons qui l’ont conduit à 
+                                                épouser un intitulé aussi évocateur que provocateur. « Je suis parti du point de vue de Léopold 
+                                                Sédar Senghor qui disait : — Je dis négrité et non négritude puisqu’il s’agit de l’esprit nègre 
+                                                plutôt que du vécu nègre —. Les sujets qui y sont développés sont multiples. Car il s’agit d’une 
+                                                vision globale d’un personnage qui donne voix à des dizaines d’autres autour des problèmes qui les 
+                                                concernent  tous. D’ailleurs, le plus grand dilemme que j’aie avec ce texte je ne sais pas ce que 
+                                                ce va être au final peut-être un roman, peut être un essai, de la poésie ou juste une pièce avec 
+                                                des dialogues non titrés. Peut-être, c’est l’éditeur qui va le classifier. Une chose est sûre, 
+                                                l’œuvre ne sera pas une utopie, car le point central sera l’existence en elle-même. »</p>
+                                                
+                                                <p class="h4" style="border-bottom: 3px solid green; width: 100%; font-weight: bold; background-color:yellow"> 
+                                                    <i style="color:green" class="fas fa-clipboard-check"></i> Population cible</p>
+                                                <p class="dark-grey-text article">
+                                                Pour le PDG des Éditions Pulucia, Pierre-Paul Ancion, accorder une résidence à un poète, un 
+                                                dramaturge ou un romancier, rentre dans le cadre des innovations. « C’est important pour nous 
+                                                d’accompagner les créateurs et de promouvoir la création artistique ; et ce n’est que peu de ce 
+                                                que nous envisageons », a-t-il souligné. « Dans le cas de Rodlin Christolin, nous sommes heureux 
+                                                de lui accorder cette résidence. Il est bourré de talents et il est promis à un bel avenir », 
+                                                a-t-il conclu tout en saluant la fougue du staff des Éditions Pulucia ainsi que le centre culturel 
+                                                Charles Moravia qui s’assigne l’immense mission d’impulser la dynamique de promotion artistique et
+                                                 littéraire.</p>
+                                                
+                                                 
+                                                 <p class="h4" style="border-bottom: 3px solid green; width: 100%; font-weight: bold; background-color:yellow"> 
+                                                    <i style="color:green" class="fas fa-clipboard-check"></i> Resulats attendus</p>
+                                                <p class="dark-grey-text article">
+                                                Rodlin Christolin est de ceux qui font d’une pierre plusieurs coups. Durant son séjour,
+                                                 il animera un atelier de théâtre pour les jeunes du centre culturel Charles Moravia. 
+                                                 C’est pour lui, l’occasion de se rendre utile d’abord à lui-même et aussi aux autres 
+                                                 jeunes qui nourrissent une passion dévorante pour le théâtre. Le dramaturge ne compte pas
+                                                  chômer si tôt. Au mois de juillet, il sera en Corse (France) pour un stage à l’occasion 
+                                                  de la 19e rencontre internationale du théâtre organisé par ARIA.
+                                                
+                                                </p>
+
+                                                <p class="h4" style="border-bottom: 3px solid green; width: 100%; font-weight: bold; background-color:yellow"> 
+                                                    <i style="color:green" class="fas fa-clipboard-check"></i> Phases et periode de realisation</p>
+                                                <p class="dark-grey-text article">
+                                                Rodlin Christolin est de ceux qui font d’une pierre plusieurs coups. Durant son séjour,
+                                                 il animera un atelier de théâtre pour les jeunes du centre culturel Charles Moravia. 
+                                                 C’est pour lui, l’occasion de se rendre utile d’abord à lui-même et aussi aux autres 
+                                                 jeunes qui nourrissent une passion dévorante pour le théâtre. Le dramaturge ne compte pas
+                                                  chômer si tôt. Au mois de juillet, il sera en Corse (France) pour un stage à l’occasion 
+                                                  de la 19e rencontre internationale du théâtre organisé par ARIA.
+                                                
+                                                </p>
+
+                                                <p class="h4" style="border-bottom: 3px solid green; width: 100%; font-weight: bold; background-color:yellow"> 
+                                                    <i style="color:green" class="fas fa-clipboard-check"></i> Budget de realisation</p>
+                                                <p class="dark-grey-text article">
+                                                Rodlin Christolin est de ceux qui font d’une pierre plusieurs coups. Durant son séjour,
+                                                 il animera un atelier de théâtre pour les jeunes du centre culturel Charles Moravia. 
+                                                 C’est pour lui, l’occasion de se rendre utile d’abord à lui-même et aussi aux autres 
+                                                 jeunes qui nourrissent une passion dévorante pour le théâtre. Le dramaturge ne compte pas
+                                                  chômer si tôt. Au mois de juillet, il sera en Corse (France) pour un stage à l’occasion 
+                                                  de la 19e rencontre internationale du théâtre organisé par ARIA.
+                                                
+                                                </p>
+
+                                                <p class="h4" style="border-bottom: 3px solid green; width: 100%; font-weight: bold; background-color:yellow"> 
+                                                    <i style="color:green" class="fas fa-clipboard-check"></i> Partenaires</p>
+                                                <p class="dark-grey-text article">
+                                                Rodlin Christolin est de ceux qui font d’une pierre plusieurs coups. Durant son séjour,
+                                                 il animera un atelier de théâtre pour les jeunes du centre culturel Charles Moravia. 
+                                                 C’est pour lui, l’occasion de se rendre utile d’abord à lui-même et aussi aux autres 
+                                                 jeunes qui nourrissent une passion dévorante pour le théâtre. Le dramaturge ne compte pas
+                                                  chômer si tôt. Au mois de juillet, il sera en Corse (France) pour un stage à l’occasion 
+                                                  de la 19e rencontre internationale du théâtre organisé par ARIA.
+                                                
+                                                </p>
+
+                                        </div>
+                                        <!--Grid row-->
+
+                                </div>
+                                <!--/Grid column-->
+
+                            </div>
+                            <!--/Grid row-->
+
+                        </div>
+                        <!--Grid column-->
+                        <div class="card-footer  text-center">
+                            <ul class="list-inline">
+                                <li><a style="font-size:20px; color:red" href="#1"><i class="fas fa-heart"></i></a> <span style="color: black; font-size:14px">259</span> </li>
+                                <li > <a style="font-size:20px; color:green; text-decoration:none" href="#1"><i class="fas fa-thumbs-up"></i> </a><span style="color: black; font-size:14px">259</span> </li>
+                            </ul>
+    
+                          </div>
+                    </div><!--card-body-->
+                   
+                    <!--Grid row-->
+
+                </div>
+                <!--/Card-->
+            </div>
+            <!--/Grid column-->
+        </div>
+        <!--/Grid row-->
+    </div>
+
+
+
+    
+</main>
+
+{% endblock %}

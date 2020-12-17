@@ -1,0 +1,583 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- for icon documentation: https://materializecss.com/icons.html-->
+{% endblock %}
+{% block content %}
+
+<main id="main" style="background-color:white;">
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+
+           
+    
+            <div class="d-flex justify-content-between align-items-center">
+                <h2> <strong>Evènement</strong></h2>
+                <ol>
+                  <li><a href="index.html">Bibliothèque Editions Pulucia</a></li>
+                  
+                </ol>
+              </div>
+  
+        </div>
+      </section><!-- End Breadcrumbs -->
+
+<style>
+.profile-content {
+overflow: hidden;
+}
+
+
+.page-breadcrumb {
+display: inline-block;
+float: left;
+margin: 0;
+list-style: none;
+background-color: transparent;
+border-radius: 50px;
+background: rgba(220, 208, 208, 0.5);
+padding-left: 20px !important;
+padding-right: 20px !important;
+padding-top: 5px !important;
+padding-bottom: 8px !important;
+}
+
+.page-breadcrumb li a{
+    text-decoration: none;
+}
+
+.page-breadcrumb:hover{
+    background: rgba(220, 208, 208, 0.7);
+
+}
+.home {
+    position: relative;
+    top: 4px;
+    display: inline-block;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1; 
+}
+
+.profile-sidebar {
+float: left;
+width: 350px;
+margin-right: 20px;
+}
+
+@media (max-width: 991px){
+.profile-sidebar {
+float: none;
+width: 100% !important;
+margin: 0;
+}
+
+}
+.card-topline-aqua {
+border-top: 3px solid #00C0EF;
+}
+
+.card {
+position: relative;
+margin-bottom: 24px;
+margin-top: 10px;
+background-color: #ffffff;
+border-radius: 3px;
+-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10);
+}
+
+
+
+.card-body:last-child {
+border-radius: 0 0 2px 2px;
+}
+
+.card-body {
+padding: 10px 24px 14px 24px;
+position: relative;
+}
+
+
+
+.img-responsive {
+display: block;
+max-width: 100%;
+height: auto;
+}
+
+
+
+
+
+.card-body:after {
+clear: both;
+}
+
+.card-body:before, .card-body:after {
+content: " ";
+display: table;
+}
+
+.list-group .list-group-item {
+display: block;
+}
+
+.list-group-unbordered > .list-group-item {
+border-left: 0px none;
+border-right: 0px none;
+border-radius: 0px 0px 0px 0px;
+padding-left: 0px;
+padding-right: 0px;
+}
+
+.pull-right {
+float: right!important;
+}
+
+
+.profile-userbuttons {
+text-align: center;
+margin-top: 10px;
+}
+
+
+.card-body:last-child {
+border-radius: 0 0 2px 2px;
+}
+
+.card-body {
+padding: 10px 24px 14px 24px;
+position: relative;
+}
+
+.profile-userbuttons button {
+text-transform: uppercase;
+font-size: 11px;
+font-weight: 600;
+}
+
+.btn-circle {
+border-radius: 25px!important;
+overflow: hidden;
+outline: 0px !important;
+}
+
+.btn-primary {
+background-color: #188ae2 !important;
+border: 1px solid #188ae2 !important;
+color: #fff !important;
+}
+
+.m-b-10 {
+margin-bottom: 10px !important;
+}
+
+
+.mdl-js-button {
+right: 10px;
+}
+
+
+
+.card-topline-aqua {
+border-top: 3px solid #00C0EF;
+}
+
+.card-body:last-child {
+border-radius: 0 0 2px 2px;
+}
+
+.profile-desc {
+text-align: left;
+margin-top: 10px;
+margin-bottom: 25px;
+}
+
+.card-head header {
+display: inline-block;
+padding: 11px 20px;
+vertical-align: middle;
+line-height: 17px;
+font-size: 20px;
+}
+
+.work-monitor .states {
+width: 90%;
+}
+
+.work-progress, .states {
+width: 100%;
+}
+
+.work-monitor .states .info {
+display: inline-block;
+width: 100%;
+font-size: 15px;
+margin: 10px 0 0 0;
+font-weight: 500;
+}
+
+.work-monitor .states .info {
+display: inline-block;
+width: 100%;
+font-size: 13px;
+}
+
+.pull-right {
+float: right!important;
+}
+
+
+.profile-content {
+overflow: hidden;
+}
+
+.white-box {
+background: #ffffff;
+padding: 20px;
+margin-top: 10px;
+margin-bottom: 15px;
+}
+
+.customtab {
+border-bottom: 2px solid #f7fafc;
+}
+
+.nav-pills, .nav-tabs {
+margin-bottom: 10px;
+}
+.nav-tabs>li {
+float: left;
+margin-bottom: -1px;
+}
+
+.customtab.nav-tabs .nav-link.active, .customtab.nav-tabs .nav-link.active:focus {
+border-bottom: 0px solid #36c6d3;
+background-color: rgb(102, 115, 252) !important;
+box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .2), 0 13px 24px -11px rgb(102, 115, 252);
+color: #fff;
+border-radius: 30px;
+}
+
+.customtab.nav-tabs .nav-link {
+border-left: 0;
+border-top: 0;
+border-right: 0;
+color: #999;
+}
+
+#biography {
+padding: 0 20px;
+}
+.text-muted {
+color: #919aa3!important;
+margin-bottom: 10px;
+}
+
+.font-bold {
+font-weight: bold;
+}
+
+.full-width {
+float: left;
+width: 100%;
+}
+#team-social li {
+    list-style-type: none;
+    display: inline-block;
+    margin-left:10px;
+}
+
+#team-social li a{
+    text-decoration: none;
+    font-size:20px;
+}
+
+#team-social{
+    margin-right:38px;
+}
+.expertise li{
+    list-style-type: square;
+    font-weight: 700;
+    margin-bottom: 10px;;
+
+}
+
+</style>
+
+<div class="container-fluid" style="margin-top:20px">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN PROFILE SIDEBAR -->
+            <div class="profile-sidebar">
+                <div class="card card-topline-aqua">
+                    <div class="card-body no-padding height-9" >
+                       
+                        <p class="text-center font-weight-bold h3" style="color: skyblue"> Prix Dominique Batraville 2020</p>
+                       
+                        <div class="profile-usertitle">
+                            
+                        </div>
+                        <hr>
+                        <p class="text-justify"> Nupital is a simple yet elegant clean HTML5 template for event and 
+                          wedding website. It comes with all the necessary features needed for a marriage event site.
+                          Nupital is a simple yet elegant clean HTML5 template for event and wedding website. It comes with all 
+                          the necessary features needed for a marriage event site. Nupital is a simple yet elegant clean HTML5 
+                          template for event and wedding website.
+                           It comes with all the necessary features needed for a marriage event site.</p>
+                        <hr>
+                        
+                        <!-- END SIDEBAR USER TITLE -->
+                        <!-- SIDEBAR BUTTONS -->
+                        
+                        <!-- END SIDEBAR BUTTONS -->
+                    </div>
+                </div>
+                
+               
+            </div>
+            <!-- END BEGIN PROFILE SIDEBAR -->
+            <!-- BEGIN PROFILE CONTENT -->
+            <div class="profile-content">
+              <div class="row"> 
+                <div class="container">
+                  <div class="section-title aos-init aos-animate" data-aos="fade-up">
+                    <h3 style="font-family: Galada; font-size: 50px; font-style: italic;">L'evènement en photos</h3>
+                  </div>
+                </div>
+              </div>
+                  <div class="row" > <!-- row gallery-->
+                          <div class="col-lg-3 col-md-4 col-xs-6 thumb" data-aos="fade-up">
+                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Le gagnant du concours"
+                                 data-image="static/img/evenement.jpg"
+                                 data-target="#image-gallery">
+                                  <img class="img-thumbnail"
+                                       src="static/img/evenement.jpg"
+                                       alt="Another alt text">
+                              </a>
+                          </div>
+                          <div class="col-lg-3 col-md-4 col-xs-6 thumb" data-aos="fade-up">
+                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                                 data-image="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                 data-target="#image-gallery">
+                                  <img class="img-thumbnail"
+                                       src="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                       alt="Another alt text">
+                              </a>
+                          </div>
+              
+                          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                                 data-image="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                 data-target="#image-gallery">
+                                  <img class="img-thumbnail"
+                                       src="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                       alt="Another alt text">
+                              </a>
+                          </div>
+                          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Test1"
+                                 data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                 data-target="#image-gallery">
+                                  <img class="img-thumbnail"
+                                       src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                       alt="Another alt text">
+                              </a>
+                          </div>
+                          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
+                                 data-image="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                 data-target="#image-gallery">
+                                  <img class="img-thumbnail"
+                                       src="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                       alt="Another alt text">
+                              </a>
+                          </div>
+              
+              
+              
+                          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
+                                 data-image="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                 data-target="#image-gallery">
+                                  <img class="img-thumbnail"
+                                       src="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                       alt="Another alt text">
+                              </a>
+                          </div>
+                          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
+                                 data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                 data-target="#image-gallery">
+                                  <img class="img-thumbnail"
+                                       src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                       alt="Another alt text">
+                              </a>
+                          </div>
+                          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
+                                 data-image="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                 data-target="#image-gallery">
+                                  <img class="img-thumbnail"
+                                       src="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                       alt="Another alt text">
+                              </a>
+                          </div>
+              
+              
+              
+                          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
+                                 data-image="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                 data-target="#image-gallery">
+                                  <img class="img-thumbnail"
+                                       src="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                       alt="Another alt text">
+                              </a>
+                          </div>
+                          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
+                                 data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                 data-target="#image-gallery">
+                                  <img class="img-thumbnail"
+                                       src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                       alt="Another alt text">
+                              </a>
+                          </div>
+                          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
+                                 data-image="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                 data-target="#image-gallery">
+                                  <img class="img-thumbnail"
+                                       src="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                                       alt="Another alt text">
+                              </a>
+                          </div>
+                      </div>
+              
+              
+                      <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-lg">
+                              <div class="modal-content">
+                                  <div class="modal-header">
+                                      <h4 class="modal-title" id="image-gallery-title"></h4>
+                                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                      </button>
+                                  </div>
+                                  <div class="modal-body">
+                                      <img id="image-gallery-image" class="img-responsive col-md-12" src="">
+                                  </div>
+                                  <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary float-left" id="show-previous-image"><i class="fa fa-arrow-left"></i>
+                                      </button>
+              
+                                      <button type="button" id="show-next-image" class="btn btn-secondary float-right"><i class="fa fa-arrow-right"></i>
+                                      </button>
+                                  </div>
+                              </div>
+        </div>
+    </div>
+
+
+<script>
+  let modalId = $('#image-gallery');
+
+$(document)
+  .ready(function () {
+
+    loadGallery(true, 'a.thumbnail');
+
+    //This function disables buttons when needed
+    function disableButtons(counter_max, counter_current) {
+      $('#show-previous-image, #show-next-image')
+        .show();
+      if (counter_max === counter_current) {
+        $('#show-next-image')
+          .hide();
+      } else if (counter_current === 1) {
+        $('#show-previous-image')
+          .hide();
+      }
+    }
+
+    /**
+     *
+     * @param setIDs        Sets IDs when DOM is loaded. If using a PHP counter, set to false.
+     * @param setClickAttr  Sets the attribute for the click handler.
+     */
+
+    function loadGallery(setIDs, setClickAttr) {
+      let current_image,
+        selector,
+        counter = 0;
+
+      $('#show-next-image, #show-previous-image')
+        .click(function () {
+          if ($(this)
+            .attr('id') === 'show-previous-image') {
+            current_image--;
+          } else {
+            current_image++;
+          }
+
+          selector = $('[data-image-id="' + current_image + '"]');
+          updateGallery(selector);
+        });
+
+      function updateGallery(selector) {
+        let $sel = selector;
+        current_image = $sel.data('image-id');
+        $('#image-gallery-title')
+          .text($sel.data('title'));
+        $('#image-gallery-image')
+          .attr('src', $sel.data('image'));
+        disableButtons(counter, $sel.data('image-id'));
+      }
+
+      if (setIDs == true) {
+        $('[data-image-id]')
+          .each(function () {
+            counter++;
+            $(this)
+              .attr('data-image-id', counter);
+          });
+      }
+      $(setClickAttr)
+        .on('click', function () {
+          updateGallery($(this));
+        });
+    }
+  });
+
+// build key actions
+$(document)
+  .keydown(function (e) {
+    switch (e.which) {
+      case 37: // left
+        if ((modalId.data('bs.modal') || {})._isShown && $('#show-previous-image').is(":visible")) {
+          $('#show-previous-image')
+            .click();
+        }
+        break;
+
+      case 39: // right
+        if ((modalId.data('bs.modal') || {})._isShown && $('#show-next-image').is(":visible")) {
+          $('#show-next-image')
+            .click();
+        }
+        break;
+
+      default:
+        return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+  });
+
+</script>
+
+
+</div> <!-- end container-->
+</main>
+
+{% endblock %}

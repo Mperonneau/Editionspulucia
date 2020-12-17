@@ -1,0 +1,1 @@
+web: gunicorn pulucia.wsgi --log-file -

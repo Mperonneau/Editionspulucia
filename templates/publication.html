@@ -1,0 +1,240 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- for icon documentation: https://materializecss.com/icons.html-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+{% endblock %}
+{% block content %}
+<style>
+.profile-sidebar {
+float: left;
+width: 350px;
+margin-right: 20px;
+}
+
+@media (max-width: 991px){
+.profile-sidebar {
+float: none;
+width: 100% !important;
+margin: 0;
+}
+
+}
+.profile-content {
+overflow: hidden;
+}
+
+#biography {
+padding: 20px 20px;
+}
+
+.shadow-card{
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+
+
+}
+@media (max-width: 991px){
+.pub-side{
+    font-family: Pacifico; 
+    margin: 5px;
+    font-size:20px;
+   
+}
+}
+.pub-side{
+    font-family: Pacifico; 
+    
+}
+.pub-side a{
+    text-decoration: none;
+}
+
+.pub-side a:hover{
+    color:green;
+}
+body {
+    background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+    background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    font-family: 'Vibur', cursive;
+/*   the main font */
+    font-family: 'Abel', sans-serif;
+    opacity: .95;
+/* background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%); */
+}
+
+.pub-tittle:hover{
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.3);
+}
+</style>
+
+<main >
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center" >
+                <h2> <strong style="font-family: Pacifico;"> Publications</strong></h2>
+                
+                <form class="form-inline justify-content-center md-form form-sm active-cyan-2 mt-2"  >
+                    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Recherche"
+                      aria-label="Search">
+                    <a href="#1"><i style="color:white" class="fas fa-search" aria-hidden="true"></i></a>
+                  </form>
+                
+              </div>
+  
+        </div>
+      </section><!-- End Breadcrumbs -->
+
+
+    <div class="container-fluid" style="margin-top:20px; " >
+        <div class="row" >
+             <div class="col-md-12" >
+                <div class="profile-sidebar" style=" width: 10%;">
+                    <p class="h2 pub-side"><a href="#1">Poesie</a></p>
+                    <p class="h2 pub-side" ><a href="#2">Contes, Nouvelles et Recits</a></p>
+                </div> <!--end profile-sidebar-->
+
+                <div class="profile-content" >
+                    <div class="row">
+                        <div class="card"  style="background: transparent; margin-left:4%; border-left:none; border-right: none; ">
+                            <div class="card-topline-aqua">
+                                <header></header>
+                            </div>
+                            <div class="white-box">
+                                <!-- Nav tabs -->
+                                <div class="p-rl-20">
+                                    
+                                </div>
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div class="tab-pane active fontawesome-demo" id="tab1">
+                                        <div id="biography">
+                                           
+                                            <div>
+                                                
+                                                <div class="row" > <!-- contenu second col-->
+                                                    <div class="col-4 col-md-2  " data-aos="zoom-in"  style="margin-bottom: 15px;">
+                                                        <a href="{% url 'text' %}"  style="text-decoration:none;">
+                                                        <div class="card shadow-card pub-tittle " style="border-top: 4px solid red; 
+                                                        border-bottom:1px solid red;">
+                                                            <p style="font-size: 16px; font-family: Pacifico; color:red; margin-bottom: 0px; padding: 
+                                                            2px;"> Bèl Nègès </p>
+                                                            <p style="padding-left: 3px; margin: 0px; font-size: 11px;"> <i class="fas fa-user"></i> Peronneau Moliere </p>
+                                                          </div>
+                                                          </a>
+                                                    </div>
+
+                                                    
+                                                    <div class="col-4 col-md-2  " data-aos="zoom-in"  style="margin-bottom: 15px;">
+                                                        <a href="{% url 'text' %}"  style="text-decoration:none;">
+                                                        <div class="card shadow-card pub-tittle " style="border-top: 4px solid blue; 
+                                                        border-bottom:1px solid blue;">
+                                                            <p style="font-size: 16px; font-family: Pacifico; color:blue; margin-bottom: 0px; padding: 
+                                                            2px;"> Bèl Nègès </p>
+                                                            <p style="padding-left: 3px; margin: 0px; font-size: 11px;"> <i class="fas fa-user"></i> Peronneau Moliere </p>
+                                                          </div>
+                                                          </a>
+                                                    </div>
+                                                      
+                                                    <div class="col-4 col-md-2  " data-aos="zoom-in"  style="margin-bottom: 15px;">
+                                                        <a href="{% url 'text' %}"  style="text-decoration:none;">
+                                                        <div class="card shadow-card pub-tittle " style="border-top: 4px solid green; 
+                                                        border-bottom:1px solid green;">
+                                                            <p style="font-size: 16px; font-family: Pacifico; color:green; margin-bottom: 0px; padding: 
+                                                            2px;"> Bèl Nègès </p>
+                                                            <p style="padding-left: 3px; margin: 0px; font-size: 11px;"> <i class="fas fa-user"></i> Peronneau Moliere </p>
+                                                          </div>
+                                                          </a>
+                                                    </div>
+
+                                                    <div class="col-4 col-md-2  " data-aos="zoom-in"  style="margin-bottom: 15px;">
+                                                        <a href="{% url 'text' %}"  style="text-decoration:none;">
+                                                        <div class="card shadow-card pub-tittle " style="border-top: 4px solid yellow; 
+                                                        border-bottom:1px solid yellow;">
+                                                            <p style="font-size: 16px; font-family: Pacifico; color:yellow; margin-bottom: 0px; padding: 
+                                                            2px;"> Bèl Nègès </p>
+                                                            <p style="padding-left: 3px; margin: 0px; font-size: 11px;"> <i class="fas fa-user"></i> Peronneau Moliere </p>
+                                                          </div>
+                                                          </a>
+                                                    </div>
+    
+                                                    <div class="col-4 col-md-2  " data-aos="zoom-in"  style="margin-bottom: 15px;">
+                                                        <a href="{% url 'text' %}"  style="text-decoration:none;">
+                                                        <div class="card shadow-card pub-tittle " style="border-top: 4px solid brown; 
+                                                        border-bottom:1px solid brown;">
+                                                            <p style="font-size: 16px; font-family: Pacifico; color:brown; margin-bottom: 0px; padding: 
+                                                            2px;"> Bèl Nègès </p>
+                                                            <p style="padding-left: 3px; margin: 0px; font-size: 11px;"> <i class="fas fa-user"></i> Peronneau Moliere </p>
+                                                          </div>
+                                                          </a>
+                                                    </div>
+
+                                                      <div class="col-4 col-md-2  " data-aos="zoom-in"  style="margin-bottom: 15px;">
+                                                        <a href="{% url 'text' %}"  style="text-decoration:none;">
+                                                        <div class="card shadow-card pub-tittle " style="border-top: 4px solid violet; 
+                                                        border-bottom:1px solid violet;">
+                                                            <p style="font-size: 16px; font-family: Pacifico; color:violet; margin-bottom: 0px; padding: 
+                                                            2px;"> Bèl Nègès </p>
+                                                            <p style="padding-left: 3px; margin: 0px; font-size: 11px;"> <i class="fas fa-user"></i> Peronneau Moliere </p>
+                                                          </div>
+                                                          </a>
+                                                    </div>
+                                                    
+                                                    <div class="col-4 col-md-2  " data-aos="zoom-in"  style="margin-bottom: 15px;">
+                                                        <a href="{% url 'text' %}"  style="text-decoration:none;">
+                                                        <div class="card shadow-card pub-tittle " style="border-top: 4px solid darkorange; 
+                                                        border-bottom:1px solid darkorange;">
+                                                            <p style="font-size: 16px; font-family: Pacifico; color:darkorange; margin-bottom: 0px; padding: 
+                                                            2px;"> Bèl Nègès </p>
+                                                            <p style="padding-left: 3px; margin: 0px; font-size: 11px;"> <i class="fas fa-user"></i> Peronneau Moliere </p>
+                                                          </div>
+                                                          </a>
+                                                    </div>
+
+
+                                                      <div class="col-4 col-md-2  " data-aos="zoom-in"  style="margin-bottom: 15px;">
+                                                        <a href="{% url 'text' %}"  style="text-decoration:none;">
+                                                        <div class="card shadow-card pub-tittle " style="border-top: 4px solid darkolivegreen; 
+                                                        border-bottom:1px solid darkolivegreen;">
+                                                            <p style="font-size: 16px; font-family: Pacifico; color:darkolivegreen; margin-bottom: 0px; padding: 
+                                                            2px;"> Bèl Nègès </p>
+                                                            <p style="padding-left: 3px; margin: 0px; font-size: 11px;"> <i class="fas fa-user"></i> Peronneau Moliere </p>
+                                                          </div>
+                                                          </a>
+                                                    </div>
+                                                  </div> <!--end row-->
+                                                
+    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END PROFILE CONTENT -->
+            </div>
+        </div>
+    
+    
+    
+    
+    </div> <!-- end container-->
+    </main>
+
+{% endblock %}
+
+
+<!--<div class="col-4 col-md-2 " data-aos="zoom-in">
+    <div class="card shadow-card" style="width: 18rem; border-top: 4px solid red; border-bottom:1px solid red; 
+    background:url(static/img/logo_pulucia.png); background-repeat: no-repeat; background-position: right; background-size: 60px; ">
+        <p style="font-size: 16px; font-family: Pacifico; color:red;"> Les gens du nord du nord du nord </p>
+        <p> Peronneau Moliere </p>
+       
+      </div>
+</div>-->
