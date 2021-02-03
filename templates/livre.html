@@ -5,7 +5,13 @@
 {% endblock %}
 {% block content %}
 
-<main id="main" style="background-color:white;">
+{% block extra_head %}
+<meta property="og:title" content="Cahier d'un tour au pays de l'Oncle Sam" />
+<meta property="og:description" content="Un livre de l'auteur Wilbens Jeudi et publié par les Editions Pulucia" />
+<meta property="og:image" content="/static/img/liv_jeudi.jpg" />
+{% endblock %}
+
+<main id="main" style="background-color:white;" class="margin-top-main-page">
     <section id="breadcrumbs" class="breadcrumbs">
         <div class="container">
 
@@ -365,10 +371,39 @@ width: 100%;
 @media (max-width: 991px){
 .livre-container {
     width: 250px;
-    margin-left: 23%
+    margin-left: 18%
     
 }
 }
+
+.p-vente p{
+    line-height: 10px;
+
+}
+@media only screen
+    and (max-device-width : 768px)
+    and (max-device-width : 991px){
+  .mobile-nav-toggle {
+  position:fixed;
+   top:8px
+     
+}}
+
+@media only screen
+            and (min-device-width : 768px)
+            and (min-device-width : 991px){
+        .margin-top-main-page{
+          margin-top:100px
+        
+        }}
+
+    @media only screen
+        and (max-device-width : 768px)
+        and (max-device-width : 991px){
+        .margin-top-main-page{
+          margin-top:-8.7%
+        
+        }} 
 </style>
 
 <div class="container" style="margin-top:20px">
@@ -380,7 +415,7 @@ width: 100%;
                 <div class="card card-topline-aqua livre-container">
                     <div class="card-body no-padding height-9">
                         <div class="card-img img-livre" >
-                            <img  src="{% static 'img/book-cover.jpg'  %}" alt="" class="img-fluid">
+                            <img  src="{{livre.cover_image.url}}" alt="" class="img-fluid">
                           </div>
                        
                         <!-- END SIDEBAR USER TITLE -->
@@ -425,67 +460,69 @@ width: 100%;
                                 <div class="tab-pane active fontawesome-demo" id="tab1">
                                     <div id="biography">
                                         <div class="row">
-                                            <div class="col-md-3 col-6 b-r"> <p style="font-weight: 600;">Auteur</p>
-                                                <br>
-                                                <p class="text-muted">Peronneau Moliere</p>
-                                            </div>
-                                            <div class="col-md-3 col-6 b-r"> <p style="font-weight: 600;">Type</p>
-                                                <br>
-                                                <p class="text-muted">Roman</p>
-                                            </div>
-                                            <div class="col-md-3 col-6 b-r"> <p style="font-weight: 600;">Annee</p>
-                                                <br>
-                                                <p class="text-muted">2021</p>
-                                            </div>
-                                            <div class="col-md-3 col-6"><p style="font-weight: 600;"> Pages</p>
-                                                <br>
-                                                <p class="text-muted">156 pages</p>
-                                            </div>
+                                            <table class="table" style="margin-left:1%; ">
+                                                <thead>
+                                                  <tr>
+                                                    <th scope="col">Categorie</th>
+                                                    <th scope="col">Auteur</th>
+                                                    <th scope="col">Annee</th>
+                                                    <th scope="col">Pages</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <th scope="row" style="font-weight: normal;">{{livre.categorie}}</th>
+                                                    <td>{{livre.auteur}}</td>
+                                                    <td>{{livre.annee}}</td>
+                                                    <td>{{livre.page}}</td>
+                                                  </tr> 
+                                                </tbody>
+                                              </table>
                                         </div>
-                                        <hr>
-                                        {{formateur_data.presentation}}
+                                      
+                                      
                                         <br>
                                         <h4 class="font-400">A propos du livre </h4>
                                         <hr>
                                         <ul class="text-justify">
-                                            France adore laisser ses doigts entortiller les boucles blondes. Elle sait apaiser Romy en caressant ainsi son 
-                                            crâne pour l’entraîner dans un semi-coma où le corps gringalet sera à sa merci.» Toul, 1999. À neuf ans, 
-                                            Romy est abusée pour la première fois par France, une voisine. Son enfance soudain se déchire comme 
-                                            une robe de princesse. Romy entre en guerre. De neuf à dix-neuf ans, nous la voyons se battre contre
-                                             le chaos qui grandit, contre l’attachement invivable qu’elle ressent pour France, contre un ordre social 
-                                             dont elle ne comprend pas les règles, contre ce corps féminin qui va devenir son principal ennemi. 
-                                             La romancière s’attache à peindre, avec un sens exceptionnel de l’observation, un milieu social et géographique 
-                                             que la littérature fréquente rarement : tous les personnages sont des militaires de la base de Toul, des ouvriers
-                                              de chez Kleber, des zonards du canal, toujours décrits avec une empathie discrète. Un premier roman implacable, radical
+                                            {{livre.a_propos_du_livre|linebreaksbr}}
                                         </ul>
                                         <br>
                                         <h4 class="font-400"> A propos de l'auteur</h4>
                                         <hr>
                                         <ul class="text-justify">
-                                            France adore laisser ses doigts entortiller les boucles blondes. Elle sait apaiser Romy en caressant ainsi son 
-                                            crâne pour l’entraîner dans un semi-coma où le corps gringalet sera à sa merci.» Toul, 1999. À neuf ans, 
-                                            Romy est abusée pour la première fois par France, une voisine. Son enfance soudain se déchire comme 
-                                            une robe de princesse. Romy entre en guerre. De neuf à dix-neuf ans, nous la voyons se battre contre
-                                             le chaos qui grandit, contre l’attachement invivable qu’elle ressent pour France, contre un ordre social 
-                                             dont elle ne comprend pas les règles, contre ce corps féminin qui va devenir son principal ennemi. 
-                                             La romancière s’attache à peindre, avec un sens exceptionnel de l’observation, un milieu social et géographique 
-                                             que la littérature fréquente rarement : tous les personnages sont des militaires de la base de Toul, des ouvriers
-                                              de chez Kleber, des zonards du canal, toujours décrits avec une empathie discrète. Un premier roman implacable, radical
+                                           {{livre.a_propos_de_auteur|linebreaksbr}}
                                         </ul>
                                         <br>
                                         <h4 class="font-400"><i class="far fa-building"></i> Points de vente</h4>
                                         <hr>
                                         <ul>
-                                            {{formateur_data.autres}}
+                                            {% for pt_vente in pt_vente %}
+                                            <div class="p-vente">
+                                                <p class="text-uppercase" style="font-weight: 500;">{{pt_vente.local}}</p>    
+                                                <p style="font-weight: 600;"> {{pt_vente.commune}}</p>
+                                                <p class="font-italic"> {{pt_vente.adresse}}</p>
+                                                <p class="font-italic"> {{pt_vente.telephone}}</p>
+                                                <p class="font-italic"> {{pt_vente.email}}</p><br><br>
+                                            </div>
+                                            {% endfor %}
                                         </ul>
                                         <br>
                                     </div>
+                                    
                                 </div>
+                                
                             </div>
+                            
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="sharethis-inline-share-buttons mb-5" style="z-index:0"></div>
+            <script type="text/javascript" 
+    src="https://platform-api.sharethis.com/js/sharethis.js#property=5fe4098abf0cae00128712fb&product=inline-share-buttons" async="async">
+ </script>
+                                   
             <!-- END PROFILE CONTENT -->
         </div>
     </div>
@@ -497,3 +534,5 @@ width: 100%;
 </main>
 
 {% endblock %}
+
+

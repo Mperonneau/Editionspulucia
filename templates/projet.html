@@ -12,7 +12,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <h2> <strong>Nos projets</strong></h2>
                 <ol>
-                  <li><a href="index.html">Projets Editions Pulucia et partenaires</a></li>
+                  <li>Projets Editions Pulucia et partenaires</li>
                   
                 </ol>
               </div>
@@ -23,7 +23,9 @@
     .profile-content {
     overflow: hidden;
     }
-    
+    .row:before, .row::after{
+            display:none !important;
+        }
     
     .page-breadcrumb {
     display: inline-block;
@@ -67,8 +69,31 @@
     text-decoration: none;
 
 }
+.img_size{
+  width: 100%;
+  height: 250px;
+}
 
+@media only screen
+        and (min-device-width : 768px)
+        and (min-device-width : 991px){
+  .margin-video{
+    margin-top:-5%;
+    }}
+  
+  @media only screen
+        and (max-device-width : 768px)
+        and (max-device-width : 991px){
+  .margin-video{
+    margin-top:-20%;
+    }}
 
+    @media (max-width: 991px){
+  .mobile-nav-toggle {
+   position:fixed;
+   top:8px
+     
+}}
     </style>
     
     <div class="container-fluid" style="margin-top:10px">
@@ -76,76 +101,25 @@
             <div class="col-md-12">
                 <section id="team" class="team section-bg" data-aos="fade-up" style="background-color: white;">
                     <div class="container">
-                      <div class="row">
+                      <div class="row margin-video">
+                        {% for projet1 in projet1 %}
+
                         <div class="col-md-4 mb-3" data-aos="zoom-in">
                           <div class="card card-blog shadow-card">
                             <div class="card-img ">
-                              <a href="{% url 'evenement' %}"><img src="static/img/post-1.jpg" alt="" class="img-fluid"></a>
+                              <a href=""><img src="{{projet1.cover_img.url}}" alt="" class="img-fluid img_size"></a>
                             </div>
                             <div class="card-body ">
                               
-                              <h3 class="card-title"><a  href="{% url 'projet-details' %}">Prix Dominique Batraville</a></h3>
+                              <h3 class="card-title"><a  href="{% url 'projet-details' projet1.pk %}">{{projet1.titre}}</a></h3>
                               <p class="card-description">
-                                Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-                                a pellentesque nec,
-                                egestas non nisi.
+                                {{ projet1.description|truncatewords:30 }}
                               </p>
                             </div>
                           </div>
                         </div>
+                        {% endfor %}
 
-
-                        <div class="col-md-4 mb-3" data-aos="zoom-in">
-                          <div class="card card-blog shadow-card">
-                            <div class="card-img">
-                              <a href="blog-single.html"><img src="static/img/post-2.jpg" alt="" class="img-fluid"></a>
-                            </div>
-                            <div class="card-body">
-                             
-                              <h3 class="card-title"><a  href="{% url 'projet-details' %}">Prix Dominique Batraville</a></h3>
-                              <p class="card-description">
-                                Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-                                a pellentesque nec,
-                                egestas non nisi.
-                              </p>
-                            </div>
-                           
-                          </div>
-                        </div>
-                        <div class="col-md-4 mb-3" data-aos="zoom-in">
-                          <div class="card card-blog shadow-card">
-                            <div class="card-img">
-                              <a href="blog-single.html"><img src="static/img/post-3.jpg" alt="" class="img-fluid"></a>
-                            </div>
-                            <div class="card-body">
-                              
-                              <h3 class="card-title"><a  href="{% url 'projet-details' %}">Prix Dominique Batraville</a></h3>
-                              <p class="card-description">
-                                Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-                                a pellentesque nec,
-                                egestas non nisi.
-                              </p>
-                            </div>
-                            
-                          </div>
-                        </div>
-                        <div class="col-md-4 mb-3" data-aos="zoom-in">
-                            <div class="card card-blog shadow-card">
-                              <div class="card-img">
-                                <a href="blog-single.html"><img src="static/img/post-3.jpg" alt="" class="img-fluid"></a>
-                              </div>
-                              <div class="card-body">
-                                
-                                <h3 class="card-title"><a  href="{% url 'projet-details' %}">Prix Dominique Batraville</a></h3>
-                                <p class="card-description">
-                                  Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-                                  a pellentesque nec,
-                                  egestas non nisi.
-                                </p>
-                              </div>
-                              
-                            </div>
-                          </div>
                       </div> <!--end row-->
                     </div>
                    

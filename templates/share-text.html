@@ -1,0 +1,16 @@
+
+<ul class="list-inline ml-1 margin-text-share" >
+    <li class="font-weight-bold " style="background: blue; color:white;"> {{text_d.share1}}</li>
+
+<li  style="margin-left:-4%">
+<form action="{% url 'share-text' text_d.pk %}" method="post">
+  {% csrf_token %}
+  <button class="share-btn  font-weight-bold  btn btn-link  text-decoration-none visibilty-share share_count"
+    type="submit" style="color:blue; background-color: white; border:1px solid; background: transparent; "
+  > <span  class="marge_share"><i class="fas fa-share-square"></i> Partager ce text </span></button>
+   </form>
+</li>
+
+</ul>
+
+

@@ -4,9 +4,304 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- for icon documentation: https://materializecss.com/icons.html-->
 {% endblock %}
 {% block content %}
+{% block extra_head %}
+<meta property="og:title" content="Evenement prix Dominique Batraville 2020" />
+<meta property="og:description" content="Un livre de l'auteur Wilbens Jeudi et publié par les Editions Pulucia" />
+<meta property="og:image" content="/static/img/affiche.jpg" />
 
-<main id="main" style="background-color:white;">
-    <section id="breadcrumbs" class="breadcrumbs">
+{% endblock %}
+
+<style>
+  .profile-content {
+  overflow: hidden;
+  }
+  
+  .row:before, .row::after{
+              display:none !important;
+          }
+  
+  
+  .page-breadcrumb {
+  display: inline-block;
+  float: left;
+  margin: 0;
+  list-style: none;
+  background-color: transparent;
+  border-radius: 50px;
+  background: rgba(220, 208, 208, 0.5);
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  padding-top: 5px !important;
+  padding-bottom: 8px !important;
+  }
+  
+  .page-breadcrumb li a{
+      text-decoration: none;
+  }
+  
+  .page-breadcrumb:hover{
+      background: rgba(220, 208, 208, 0.7);
+  
+  }
+  .home {
+      position: relative;
+      top: 4px;
+      display: inline-block;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1; 
+  }
+  
+  .profile-sidebar {
+  float: left;
+  width: 350px;
+  margin-right: 20px;
+  }
+  
+  @media (max-width: 991px){
+  .profile-sidebar {
+  float: none;
+  width: 100% !important;
+  margin: 0;
+  }
+  
+  }
+  .card-topline-aqua {
+  border-top: 3px solid #00C0EF;
+  }
+  
+  .card {
+  position: relative;
+  margin-bottom: 24px;
+  margin-top: 10px;
+  background-color: #ffffff;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10);
+  }
+  
+  
+  
+  .card-body:last-child {
+  border-radius: 0 0 2px 2px;
+  }
+  
+  .card-body {
+  padding: 10px 24px 14px 24px;
+  position: relative;
+  }
+  
+  
+  
+  .img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  }
+  
+  
+  
+  
+  
+  .card-body:after {
+  clear: both;
+  }
+  
+  .card-body:before, .card-body:after {
+  content: " ";
+  display: table;
+  }
+  
+  .list-group .list-group-item {
+  display: block;
+  }
+  
+  .list-group-unbordered > .list-group-item {
+  border-left: 0px none;
+  border-right: 0px none;
+  border-radius: 0px 0px 0px 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  }
+  
+  .pull-right {
+  float: right!important;
+  }
+  
+  
+  .profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
+  }
+  
+  
+  .card-body:last-child {
+  border-radius: 0 0 2px 2px;
+  }
+  
+  .card-body {
+  padding: 10px 24px 14px 24px;
+  position: relative;
+  }
+  
+  .profile-userbuttons button {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  }
+  
+  .btn-circle {
+  border-radius: 25px!important;
+  overflow: hidden;
+  outline: 0px !important;
+  }
+  
+  .btn-primary {
+  background-color: #188ae2 !important;
+  border: 1px solid #188ae2 !important;
+  color: #fff !important;
+  }
+  
+  .m-b-10 {
+  margin-bottom: 10px !important;
+  }
+  
+  
+  .mdl-js-button {
+  right: 10px;
+  }
+  
+  
+  
+  .card-topline-aqua {
+  border-top: 3px solid #00C0EF;
+  }
+  
+  .card-body:last-child {
+  border-radius: 0 0 2px 2px;
+  }
+  
+  .profile-desc {
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  }
+  
+  .card-head header {
+  display: inline-block;
+  padding: 11px 20px;
+  vertical-align: middle;
+  line-height: 17px;
+  font-size: 20px;
+  }
+  
+  .work-monitor .states {
+  width: 90%;
+  }
+  
+  .work-progress, .states {
+  width: 100%;
+  }
+  
+  .work-monitor .states .info {
+  display: inline-block;
+  width: 100%;
+  font-size: 15px;
+  margin: 10px 0 0 0;
+  font-weight: 500;
+  }
+  
+  .work-monitor .states .info {
+  display: inline-block;
+  width: 100%;
+  font-size: 13px;
+  }
+  
+  .pull-right {
+  float: right!important;
+  }
+  
+  
+  .profile-content {
+  overflow: hidden;
+  }
+  
+  .white-box {
+  background: #ffffff;
+  padding: 20px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  }
+  
+  .customtab {
+  border-bottom: 2px solid #f7fafc;
+  }
+  
+  .nav-pills, .nav-tabs {
+  margin-bottom: 10px;
+  }
+  .nav-tabs>li {
+  float: left;
+  margin-bottom: -1px;
+  }
+  
+  .customtab.nav-tabs .nav-link.active, .customtab.nav-tabs .nav-link.active:focus {
+  border-bottom: 0px solid #36c6d3;
+  background-color: rgb(102, 115, 252) !important;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .2), 0 13px 24px -11px rgb(102, 115, 252);
+  color: #fff;
+  border-radius: 30px;
+  }
+  
+  .customtab.nav-tabs .nav-link {
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  color: #999;
+  }
+  
+  #biography {
+  padding: 0 20px;
+  }
+  .text-muted {
+  color: #919aa3!important;
+  margin-bottom: 10px;
+  }
+  
+  .font-bold {
+  font-weight: bold;
+  }
+  
+  .full-width {
+  float: left;
+  width: 100%;
+  }
+  #team-social li {
+      list-style-type: none;
+      display: inline-block;
+      margin-left:10px;
+  }
+  
+  #team-social li a{
+      text-decoration: none;
+      font-size:20px;
+  }
+  
+  #team-social{
+      margin-right:38px;
+  }
+  .expertise li{
+      list-style-type: square;
+      font-weight: 700;
+      margin-bottom: 10px;;
+  
+  }
+  
+  
+  
+  </style>
+<main id="main"  style="background-color:white;">
+    <section id="breadcrumbs" class="breadcrumbs margin-top-main-page">
         <div class="container">
 
            
@@ -14,7 +309,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <h2> <strong>Evènement</strong></h2>
                 <ol>
-                  <li><a href="index.html">Bibliothèque Editions Pulucia</a></li>
+                  <li>Bibliothèque Editions Pulucia</li>
                   
                 </ol>
               </div>
@@ -22,289 +317,7 @@
         </div>
       </section><!-- End Breadcrumbs -->
 
-<style>
-.profile-content {
-overflow: hidden;
-}
 
-
-.page-breadcrumb {
-display: inline-block;
-float: left;
-margin: 0;
-list-style: none;
-background-color: transparent;
-border-radius: 50px;
-background: rgba(220, 208, 208, 0.5);
-padding-left: 20px !important;
-padding-right: 20px !important;
-padding-top: 5px !important;
-padding-bottom: 8px !important;
-}
-
-.page-breadcrumb li a{
-    text-decoration: none;
-}
-
-.page-breadcrumb:hover{
-    background: rgba(220, 208, 208, 0.7);
-
-}
-.home {
-    position: relative;
-    top: 4px;
-    display: inline-block;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1; 
-}
-
-.profile-sidebar {
-float: left;
-width: 350px;
-margin-right: 20px;
-}
-
-@media (max-width: 991px){
-.profile-sidebar {
-float: none;
-width: 100% !important;
-margin: 0;
-}
-
-}
-.card-topline-aqua {
-border-top: 3px solid #00C0EF;
-}
-
-.card {
-position: relative;
-margin-bottom: 24px;
-margin-top: 10px;
-background-color: #ffffff;
-border-radius: 3px;
--webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10);
-}
-
-
-
-.card-body:last-child {
-border-radius: 0 0 2px 2px;
-}
-
-.card-body {
-padding: 10px 24px 14px 24px;
-position: relative;
-}
-
-
-
-.img-responsive {
-display: block;
-max-width: 100%;
-height: auto;
-}
-
-
-
-
-
-.card-body:after {
-clear: both;
-}
-
-.card-body:before, .card-body:after {
-content: " ";
-display: table;
-}
-
-.list-group .list-group-item {
-display: block;
-}
-
-.list-group-unbordered > .list-group-item {
-border-left: 0px none;
-border-right: 0px none;
-border-radius: 0px 0px 0px 0px;
-padding-left: 0px;
-padding-right: 0px;
-}
-
-.pull-right {
-float: right!important;
-}
-
-
-.profile-userbuttons {
-text-align: center;
-margin-top: 10px;
-}
-
-
-.card-body:last-child {
-border-radius: 0 0 2px 2px;
-}
-
-.card-body {
-padding: 10px 24px 14px 24px;
-position: relative;
-}
-
-.profile-userbuttons button {
-text-transform: uppercase;
-font-size: 11px;
-font-weight: 600;
-}
-
-.btn-circle {
-border-radius: 25px!important;
-overflow: hidden;
-outline: 0px !important;
-}
-
-.btn-primary {
-background-color: #188ae2 !important;
-border: 1px solid #188ae2 !important;
-color: #fff !important;
-}
-
-.m-b-10 {
-margin-bottom: 10px !important;
-}
-
-
-.mdl-js-button {
-right: 10px;
-}
-
-
-
-.card-topline-aqua {
-border-top: 3px solid #00C0EF;
-}
-
-.card-body:last-child {
-border-radius: 0 0 2px 2px;
-}
-
-.profile-desc {
-text-align: left;
-margin-top: 10px;
-margin-bottom: 25px;
-}
-
-.card-head header {
-display: inline-block;
-padding: 11px 20px;
-vertical-align: middle;
-line-height: 17px;
-font-size: 20px;
-}
-
-.work-monitor .states {
-width: 90%;
-}
-
-.work-progress, .states {
-width: 100%;
-}
-
-.work-monitor .states .info {
-display: inline-block;
-width: 100%;
-font-size: 15px;
-margin: 10px 0 0 0;
-font-weight: 500;
-}
-
-.work-monitor .states .info {
-display: inline-block;
-width: 100%;
-font-size: 13px;
-}
-
-.pull-right {
-float: right!important;
-}
-
-
-.profile-content {
-overflow: hidden;
-}
-
-.white-box {
-background: #ffffff;
-padding: 20px;
-margin-top: 10px;
-margin-bottom: 15px;
-}
-
-.customtab {
-border-bottom: 2px solid #f7fafc;
-}
-
-.nav-pills, .nav-tabs {
-margin-bottom: 10px;
-}
-.nav-tabs>li {
-float: left;
-margin-bottom: -1px;
-}
-
-.customtab.nav-tabs .nav-link.active, .customtab.nav-tabs .nav-link.active:focus {
-border-bottom: 0px solid #36c6d3;
-background-color: rgb(102, 115, 252) !important;
-box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .2), 0 13px 24px -11px rgb(102, 115, 252);
-color: #fff;
-border-radius: 30px;
-}
-
-.customtab.nav-tabs .nav-link {
-border-left: 0;
-border-top: 0;
-border-right: 0;
-color: #999;
-}
-
-#biography {
-padding: 0 20px;
-}
-.text-muted {
-color: #919aa3!important;
-margin-bottom: 10px;
-}
-
-.font-bold {
-font-weight: bold;
-}
-
-.full-width {
-float: left;
-width: 100%;
-}
-#team-social li {
-    list-style-type: none;
-    display: inline-block;
-    margin-left:10px;
-}
-
-#team-social li a{
-    text-decoration: none;
-    font-size:20px;
-}
-
-#team-social{
-    margin-right:38px;
-}
-.expertise li{
-    list-style-type: square;
-    font-weight: 700;
-    margin-bottom: 10px;;
-
-}
-
-</style>
 
 <div class="container-fluid" style="margin-top:20px">
     <div class="row">
@@ -348,115 +361,61 @@ width: 100%;
                 </div>
               </div>
                   <div class="row" > <!-- row gallery-->
-                          <div class="col-lg-3 col-md-4 col-xs-6 thumb" data-aos="fade-up">
-                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Le gagnant du concours"
-                                 data-image="static/img/evenement.jpg"
-                                 data-target="#image-gallery">
-                                  <img class="img-thumbnail"
-                                       src="static/img/evenement.jpg"
-                                       alt="Another alt text">
-                              </a>
-                          </div>
-                          <div class="col-lg-3 col-md-4 col-xs-6 thumb" data-aos="fade-up">
-                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
-                                 data-image="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                 data-target="#image-gallery">
-                                  <img class="img-thumbnail"
-                                       src="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                       alt="Another alt text">
-                              </a>
-                          </div>
-              
-                          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
-                                 data-image="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                 data-target="#image-gallery">
-                                  <img class="img-thumbnail"
-                                       src="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                       alt="Another alt text">
-                              </a>
-                          </div>
-                          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Test1"
-                                 data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                 data-target="#image-gallery">
-                                  <img class="img-thumbnail"
-                                       src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                       alt="Another alt text">
-                              </a>
-                          </div>
-                          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
-                                 data-image="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                 data-target="#image-gallery">
-                                  <img class="img-thumbnail"
-                                       src="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                       alt="Another alt text">
-                              </a>
-                          </div>
-              
-              
-              
-                          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
-                                 data-image="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                 data-target="#image-gallery">
-                                  <img class="img-thumbnail"
-                                       src="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                       alt="Another alt text">
-                              </a>
-                          </div>
-                          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
-                                 data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                 data-target="#image-gallery">
-                                  <img class="img-thumbnail"
-                                       src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                       alt="Another alt text">
-                              </a>
-                          </div>
-                          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
-                                 data-image="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                 data-target="#image-gallery">
-                                  <img class="img-thumbnail"
-                                       src="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                       alt="Another alt text">
-                              </a>
-                          </div>
-              
-              
-              
-                          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
-                                 data-image="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                 data-target="#image-gallery">
-                                  <img class="img-thumbnail"
-                                       src="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                       alt="Another alt text">
-                              </a>
-                          </div>
-                          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
-                                 data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                 data-target="#image-gallery">
-                                  <img class="img-thumbnail"
-                                       src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                       alt="Another alt text">
-                              </a>
-                          </div>
-                          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
-                                 data-image="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                 data-target="#image-gallery">
-                                  <img class="img-thumbnail"
-                                       src="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                                       alt="Another alt text">
-                              </a>
-                          </div>
+                          
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a href="https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="fancybox" rel="ligthbox">
+                    <img  src="https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="zoom img-fluid "  alt="">
+                   
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a href="https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"  class="fancybox" rel="ligthbox">
+                    <img  src="https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="zoom img-fluid"  alt="">
+                </a>
+            </div>
+            
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a href="https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="fancybox" rel="ligthbox">
+                    <img  src="https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="zoom img-fluid "  alt="">
+                </a>
+            </div>
+            
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a href="https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="fancybox" rel="ligthbox">
+                    <img  src="https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="zoom img-fluid "  alt="">
+                </a>
+            </div>
+            
+             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a href="https://images.pexels.com/photos/1038914/pexels-photo-1038914.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="fancybox" rel="ligthbox">
+                    <img  src="https://images.pexels.com/photos/1038914/pexels-photo-1038914.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="zoom img-fluid "  alt="">
+                </a>
+            </div>
+            
+             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a href="https://images.pexels.com/photos/414645/pexels-photo-414645.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="fancybox" rel="ligthbox">
+                    <img  src="https://images.pexels.com/photos/414645/pexels-photo-414645.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="zoom img-fluid "  alt="">
+                </a>
+            </div>
+            
+             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a href="https://images.pexels.com/photos/56005/fiji-beach-sand-palm-trees-56005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="fancybox" rel="ligthbox">
+                    <img  src="https://images.pexels.com/photos/56005/fiji-beach-sand-palm-trees-56005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="zoom img-fluid "  alt="">
+                </a>
+            </div>
+            
+             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a href="https://images.pexels.com/photos/1038002/pexels-photo-1038002.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="fancybox" rel="ligthbox">
+                    <img  src="https://images.pexels.com/photos/1038002/pexels-photo-1038002.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="zoom img-fluid "  alt="">
+                </a>
+            </div>
                       </div>
+                      <div class="sharethis-inline-share-buttons mb-5" style="z-index:0"></div>
+                      <script type="text/javascript" 
+              src="https://platform-api.sharethis.com/js/sharethis.js#property=5fe4098abf0cae00128712fb&product=inline-share-buttons" async="async">
+           </script>
               
-              
+              <!--modal displaying picture-->
                       <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                           <div class="modal-dialog modal-lg">
                               <div class="modal-content">
@@ -477,7 +436,7 @@ width: 100%;
                                   </div>
                               </div>
         </div>
-    </div>
+    </div> <!--endmodal-->
 
 
 <script>
@@ -577,7 +536,7 @@ $(document)
 </script>
 
 
-</div> <!-- end container-->
+</div> <!-- end profile-content-->
 </main>
 
 {% endblock %}

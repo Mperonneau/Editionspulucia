@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- for icon documentation: https://materializecss.com/icons.html-->
+{% endblock %}
+
+{% block extra_head %}
+<meta property="og:title" content="Les videos des Editions Pulucia" />
+<meta property="og:description" content="Soyez le premier à decouvrir les videos des Editions Pulucia"/>
+<meta property="og:image" content="/static/img/logo_pulucia.png"/>
+{% endblock %}
+
+{% block content %}
+<style>
+  .profile-content {
+  overflow: hidden;
+  }
+  .row:before, .row::after{
+          display:none !important;
+      }
+  
+  .page-breadcrumb {
+  display: inline-block;
+  float: left;
+  margin: 0;
+  list-style: none;
+  background-color: transparent;
+  border-radius: 50px;
+  background: rgba(220, 208, 208, 0.5);
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  padding-top: 5px !important;
+  padding-bottom: 8px !important;
+  }
+  
+  .page-breadcrumb li a{
+      text-decoration: none;
+  }
+  
+  .page-breadcrumb:hover{
+      background: rgba(220, 208, 208, 0.7);
+  
+  }
+  .home {
+      position: relative;
+      top: 4px;
+      display: inline-block;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1; 
+  }
+  
+  .shadow-card{
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-title a:hover{
+  color:darkblue;
+  text-decoration: none;
+
+}
+
+@media only screen
+        and (min-device-width : 768px)
+        and (min-device-width : 991px){
+  .margin-video{
+    margin-top:-5%;
+    }}
+  
+  @media only screen
+        and (max-device-width : 768px)
+        and (max-device-width : 991px){
+  .margin-video{
+    margin-top:-20%;
+    }}
+
+
+    @media only screen
+        and (max-device-width : 768px)
+        and (max-device-width : 991px){
+    .margin-top-main-page{
+      margin-top:-6%
+    
+    }
+    .font-size-head{
+      font-size:15px;
+    }
+  }
+  
+  @media only screen
+        and (min-device-width : 768px)
+        and (min-device-width : 991px){
+  .font-size-head{
+      font-size:28px;
+      margin-top: 2%
+    }}
+  
+  </style>
+<main id="main" style="background-color:white;" class="margin-top-main-page">
+    <section id="breadcrumbs" class="breadcrumbs" >
+        <div class="container">
+    
+            <div class="d-flex justify-content-between align-items-center">
+                <p class="text-white font-size-head"> <strong>Nos Vidéos</strong></p>
+                <ol>
+                  <li><a href="index.html">Videos des Editions Pulucia et partenaires</a></li>
+                  
+                </ol>
+              </div>
+  
+        </div>
+      </section><!-- End Breadcrumbs -->
+
+    
+    <div class="container-fluid" style="margin-top:20px">
+        <div class="row">
+            <div class="col-md-12">
+                <section id="team" class="team section-bg" data-aos="fade-up" style="background-color: white;">
+                    <div class="container">
+                      <div class="row margin-video" >
+
+                         {% for videos1 in videos1 %}
+
+                        <div class="col-md-4 mb-3 " data-aos="zoom-in">
+                          <div class="card card-blog shadow-card">
+                            <div class="card-img ">
+                                <a href="{{videos1.link}}"><iframe width="100%" height="100%" src="{{videos1.link}}" 
+                                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+                                    picture-in-picture" allowfullscreen></iframe></a>
+                            </div>
+                            <div class="card-body ">
+                              
+                              <h3 class="card-title"><a class="text-decoration-none" href="{{videos1.link}}">{{videos1.titre}}</a></h3>
+                              <a class="text-decoration-none" href="{{videos1.link}}"><p class="card-description">
+                                {{videos1.note}}
+                              </p></a>
+                            </div>
+                          </div>
+                        </div>
+                        {% endfor %}
+                        
+
+
+                      </div> <!--end row-->
+                    </div>
+                   
+                  </section>
+    
+    
+            </div>
+        
+        </div>
+    </div> <!-- end container-->
+    </main>
+
+
+{% endblock %}

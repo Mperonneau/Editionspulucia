@@ -1,0 +1,574 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&display=swap">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'assets/css/jquery.mCustomScrollbar.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/media-queries.css' %}">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- for icon documentation: https://materializecss.com/icons.html-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+<link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
+
+{% endblock %}
+{% block extra_head %}
+
+
+<meta property="og:title" content="Decouvrir les publications des Editions Pulucia">
+<meta property="og:description" content="Poesies, Nouvelles, Contes, legendes et autres">
+<meta property="og:image" content="/static/img/poesie.jpg">
+
+{% endblock %}
+{% block content %}
+<style>
+.profile-sidebar {
+float: left;
+width: 350px;
+margin-right: 20px;
+}
+
+@media (max-width: 991px){
+.profile-sidebar {
+float: none;
+width: 100% !important;
+margin: 0;
+}
+
+.row:before, .row::after{
+            display:none !important;
+        }
+
+}
+.profile-content {
+overflow: hidden;
+}
+
+#biography {
+padding: 20px 20px;
+}
+
+.shadow-card{
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+
+
+}
+@media (max-width: 991px){
+.pub-side{
+    font-family: Pacifico; 
+    margin: 5px;
+    font-size:20px;
+   
+}
+}
+.pub-side{
+    font-family: Pacifico; 
+    
+}
+.pub-side a{
+    text-decoration: none;
+}
+
+.pub-side a:hover{
+    color:green;
+}
+body {
+    background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+    background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    font-family: 'Vibur', cursive;
+/*   the main font */
+    font-family: 'Abel', sans-serif;
+    opacity: .95;
+/* background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%); */
+}
+
+.pub-tittle:hover{
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.3);
+}
+.badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    background-color:#E67E30
+}
+@media (min-width: 1200px){
+.theme_par{
+    margin-left:3%;
+}}
+
+.theme_par{
+    font-family:Pacifico;
+    font-size:18px;
+    color:red  
+}
+
+.pagination_marge{
+    margin-left:45%
+} 
+
+@media (max-width: 991px){
+    .pagination_marge{
+    margin-left:37%
+}}
+.form-inline input {
+   height: 30px;
+   border-radius: 5px;
+   border: solid 1px white;
+   color:black;
+}
+
+@media only screen
+      and (min-device-width : 768px)
+      and (min-device-width : 991px){
+  .margin-top-main-page{
+    margin-top:7%
+  
+  }}
+
+@media only screen
+      and (max-device-width : 768px)
+      and (max-device-width : 991px){
+  .margin-top-main-page{
+    margin-top:-2.9%
+  
+  }}
+
+@media only screen
+    and (max-device-width : 768px)
+    and (max-device-width : 991px){
+  .mobile-nav-toggle {
+    position:fixed;
+    top:8px    
+}}
+</style>
+
+
+
+<main class="margin-top-main-page">
+    <section id="breadcrumbs" class="breadcrumbs"  style="position:relative">
+        <div class="container">
+
+            <a class="btn btn-primary btn-customized  open-menu" href="#" role="button" style="position:absolute; top:12.5%; left:-0.1%;">
+                <i class="fas fa-align-left"></i> <span>Menu</span>
+            </a>
+  
+            <div class="d-flex justify-content-between align-items-center" style="float:right">
+              
+              <ol>
+                <li><a class="font-weight-bold">Publications des Editions Pulucia</a></li>
+                
+              </ol>
+            </div>
+  
+        </div>
+      </section><!-- End Breadcrumbs -->
+
+    <div class="container-fluid" style="margin-top:20px; " >
+        <div class="row" >
+             <div class="col-md-12" >
+                <div class="profile-content" >
+                    {% if theme_par %}
+                    <span class="theme_par"><i class="fas fa-star"></i> {{theme_par}}</span>
+                    {% endif %}
+                    <div class="row">
+                        
+                        <div class="card"  style="background: transparent; margin-left:4%; border-left:none; border-right: none; ">
+                            
+                            <div class="card-topline-aqua">
+                                <header></header>
+                            </div>
+                            <div class="white-box">
+                                
+                                <!-- Nav tabs -->
+                                <div class="p-rl-20">
+                                    
+                                </div>
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div class="tab-pane active fontawesome-demo" id="tab1">
+                                        <div id="biography">
+                                           
+                                            <div>
+                                                <div class="row" > <!-- contenu second col-->
+                                                    {% for publication1 in publication1 %}
+                                                   
+
+                                                    <div class="col-lg-4 col-md-6"   style="margin-bottom: 15px;">
+                                                        <div class="card text-center">
+                                                            
+                                                            <div class="card-body" style="margin-top:-4%; margin-bottom:-4%">
+                                                                
+                                                                <div class="row mt-4">
+                                                                    
+                                                                <div class="col-4">
+                                                                    <!--Image-->
+                                                                    <a href="{% url 'text1' publication1.pk %}">
+                                                                    <div class="view  z-depth-1 mb-3">
+                                                                        {% if publication1.poeme %}
+                                                                        <img src="/static/img/poesie.jpg" class="img-fluid" alt="Post">
+                                                                        {% else %}
+                                                                        <img src="/static/img/conte.jpg" class="img-fluid" alt="Post">
+                                                                        {% endif %}
+                                                                        <a>
+                                                                            <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                                                                        </a>
+                                                                    </div>
+                                                                    </a>
+                                    
+                                                                </div>
+
+                                                                <!-- text-->
+
+                                                                <div class="col-8 mb-1">
+
+                                                                    <!--Post data-->
+                                                                    <div class="" style="margin-top:-2%; margin-left:-6%">
+                                                                        <p class="mb-1" >
+                                                                            <a href="{% url 'text1' publication1.pk %}" class="text-hover font-weight-bold float-left text-decoration-none" 
+                                                                            style="font-size: 19px; font-family: Pacifico; color:rgb{{publication1.couleur}}; ">{{publication1.titre}}</a>
+                                                                        </p><br>
+                                                                        <a href="{% url 'text1' publication1.pk %}"> 
+                                                                       <p class="font-small grey-text text-justify float-left " style="font-size: 15px; color:black;font-family: Pacifico;">
+                                                                            {% if publication1.poeme %}
+                                                                            <em>{{publication1.poeme|truncatewords:9}}</em>
+                                                                            {% else %}
+                                                                            <em>{{publication1.text|truncatewords:9}}</em>
+                                                                            {% endif %}<br>
+
+                                                                            {% if publication1.categorie == 'Contes-et-Legendes' %}
+                                                                            <span class="badge">Contes et legendes</span>
+                                                                            {% else %}
+            
+                                                                                <span class="badge">{{publication1.categorie}}</span>
+                                                                                {% endif %}
+                                                                        </p>
+                                                                        </a>
+                                                                    </div>
+                                    
+                                                                </div>
+                                                               
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-footer text-muted">
+                                                              <ul class="list-inline" style="color:grey; font-size: 12px;">
+                                                                <li><i class="fas fa-user"></i></i> {{publication1.auteur|truncatewords:1}}</li>
+                                                                  <li><i class="far fa-comments"></i> {{publication1.get_comment_count}}</li>
+                                                                  
+                                                                  
+                                                                  <li><i class="far fa-eye"></i> {{publication1.views1}}</li>
+                                                                  <li><i class="fas fa-thumbs-up"></i> {{publication1.total_likes}}</li>
+                                                                  <li><i class="fas fa-share-square"></i> {{publication1.share1}}</li>
+
+                                                              </ul>
+                                                           
+
+                                                            </div>
+                                                       
+                                                          </div>
+                                                    </div> <!-- end column -->
+                                                    
+                                                    {% endfor %}
+                                                    
+ 
+                                                  </div> <!--end row-->
+                                                
+    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="pagination pagination_marge" >
+                        <span class="step-links">
+                            {% if publication1.has_previous %}
+                                <a  class="font-weight-bold h2 text-primary " href="?page=1"> <i class="fas fa-chevron-circle-left"></i></a>
+                               <!-- <a  class=" font-weight-bold h3 text-primary" href="?page={{ publication1.previous_page_number }}"> <i class="fas fa-caret-left"></i></a>-->
+                            {% endif %}
+                    
+                            <span class="current h3 text-success font-weight-bold ml-4 mr-4">
+                                {{ publication1.number }} / {{ publication1.paginator.num_pages }}
+                            </span>
+                    
+                            {% if publication1.has_next %}
+                                <a class=" font-weight-bold  h2 text-primary" href="?page={{ publication1.next_page_number }}"><i class="fas fa-chevron-circle-right"></i></a>
+                               <!-- <a  class="font-weight-bold h3 text-primary" href="?page={{ publication1.paginator.num_pages }}"> <i class="fas fa-forward"></i></a>-->
+                            {% endif %}
+                        </span>
+                    </div>
+                   
+                </div>
+                <!-- END PROFILE CONTENT -->
+                
+            </div>
+        </div>
+
+    </div> <!-- end container-->
+    <!-- start menu sidebar-->
+    <div class="wrapper">
+ 
+        <!-- Sidebar -->
+        <nav class="sidebar" style="background:#1bbd36;">
+     
+            <!-- close sidebar menu -->
+            <div class="dismiss">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+     
+            <div style="margin-top:23%; margin-bottom:10%">
+                <form method="GET" action="" class="form-inline d-flex justify-content-center md-form form-sm active-cyan-2 mt-2">
+                    <!--<input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Recherche auteur"
+                      aria-label="Search">-->
+                      {% csrf_token %}
+                {{auteur_search.form.auteur__auteur}} 
+
+                <button type="submit" class="btn btn-link text-decoration-none" style="color:white;"><i class="icofont-search"></i></button>
+                  </form>
+            </div>
+     
+            <ul class="list-unstyled menu-elements">
+                
+          
+                <li class="margin-list">
+                    <a  href="{% url 'publication' %}" class="text-decoration-none font-weight-bold"><i class="fas fa-layer-group"></i> Tout</a>
+                 </li>
+                 <li class="margin-list">
+                    <a  href="{% url 'publication-search' 'Nouvelles' %}" class="text-decoration-none font-weight-bold"><i class="fas fa-layer-group"></i> Nouvelles</a>
+                 </li>
+                 <li class="margin-list">
+                    <a  href="{% url 'publication-search' 'Poesies' %}" class="text-decoration-none font-weight-bold"><i class="fas fa-layer-group"></i> Poesies</a>
+                 </li>
+                <li class="margin-list">
+                    <a  href="{% url 'publication-search' 'Contes-et-Legendes' %}" class="text-decoration-none font-weight-bold"><i class="fas fa-layer-group"></i> Contes et legendes</a>
+                 </li>
+
+                 <li class="margin-list">
+                   
+                    <a href="#otherSections" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-decoration-none font-weight-bold" role="button" aria-controls="otherSections">
+                        <i class="fas fa-layer-group"></i> Thèmes
+                    </a>
+                    <ul class="collapse list-unstyled" id="otherSections">
+                        
+                        
+                        {% for theme in theme %}
+                        
+                        <li >
+                            <a style="font-size: 13px;" class="text-decoration-none" href="{% url 'publication-search-theme' theme.theme %}"> {{theme.theme}}</a>
+                        </li>
+                        {% endfor %}
+                        
+                       
+                    </ul>
+                 </li>
+               
+                
+            </ul>
+     
+            <div class="to-top">
+                <a class="btn btn-primary btn-customized-3" href="#" role="button">
+                    <i class="fas fa-arrow-up"></i> Top
+                </a>
+            </div>
+     
+            <div class="dark-light-buttons">
+                <a class="btn btn-primary btn-customized-4 btn-customized-dark" href="#" role="button">Dark</a>
+                <a class="btn btn-primary btn-customized-4 btn-customized-light" href="#" role="button">Light</a>
+            </div>
+     
+        </nav>
+        <!-- End sidebar -->
+     
+        <!-- Dark overlay -->
+        <div class="overlay"></div>
+     
+        <!-- Content -->
+        
+        <!-- End content -->
+    </div>
+<!-- end menu sidebar-->
+<section style="background-color: whitesmoke;">
+    <div class="container-fluid grey lighten-3 mb-0 pb-0">
+        <div class="container">
+            <!--Grid row-->
+            <div class="row">
+
+                <!--Grid column-->
+                {% for top in top %}
+                <div class="col-lg-4 col-md-12">
+                    <h6 class="font-weight-bold mt-5 mb-3">TOP LU</h6>
+                    <hr class="mb-5">
+                    {% if top.poeme %}
+                    <img src="/static/img/poesie.jpg" class="img-fluid" alt="Post">
+                    {% else %}
+                    <img src="/static/img/conte.jpg" class="img-fluid" alt="Post">
+                    {% endif %}
+                    <a href="{% url 'text1' top.pk %}" style="font-size: 19px; font-family: Pacifico; color:rgb{{top.couleur}};"> <h4>{{top.titre}}</h4></a>
+                    {% if top.text %}
+                    <p class="mt-1 mb-1 text-justify"><a href="{% url 'text1' top.pk %}" style="font-size: 17px; font-family: Pacifico;">{{ top.text|truncatewords:30 }}</a></p>
+                   {% else %}
+                   <p class="mt-1 mb-1 text-justify"><a href="{% url 'text1' top.pk %}" style="font-size: 17px; font-family: Pacifico;">{{ top.poeme|truncatewords:30 }}</a></p>
+                    {% endif %}
+                    <span class="badge">{{top.categorie}}</span>
+                </div>
+                {% endfor %}
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6" style="background: white;">
+                    <h6 class="font-weight-bold mt-5 mb-3">LES PLUS RECENTS</h6>
+                    <hr class="mb-5">
+                    <!--Grid row-->
+                    {% for recent in recent %}
+                    <div class="row mt-4">
+                        <!--Grid column-->
+                        <div class="col-4">
+
+                            <!--Image-->
+                            <div class="view  z-depth-1 mb-3">
+                                {% if recent.poeme %}
+                                <img src="/static/img/poesie.jpg" class="img-fluid" alt="Post">
+                                {% else %}
+                                <img src="/static/img/conte.jpg" class="img-fluid" alt="Post">
+                                {% endif %}
+                                <a>
+                                    <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                                </a>
+                            </div>
+
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Second column-->
+                        <div class="col-8 mb-1">
+
+                            <!--Post data-->
+                            <div class="">
+                                <p class="mb-1">
+                                    <a href="{% url 'text1' recent.pk %}" class="text-hover font-weight-bold float-left text-decoration-none" 
+                                                                        style="font-size: 19px; font-family: Pacifico; color:rgb{{recent.couleur}}; ">{{recent.titre}}</a>
+                                </p><br>
+                                <a href="{% url 'text1' recent.pk %}"><p class="font-small grey-text text-justify float-left " style="font-size: 15px; color:black;font-family: Pacifico;">
+                                    {% if recent.poeme %}
+                                    <em>{{recent.poeme|truncatewords:9}}</em>
+                                    {% else %}
+                                    <em>{{recent.text|truncatewords:9}}</em>
+                                    {% endif %}<br>
+
+                                        <span class="badge">{{recent.categorie}}</span>
+                                </p>
+                                </a>
+                            </div>
+
+                        </div>
+                        <!--Second column-->
+
+                    </div>
+                    <hr>
+                    {% endfor %}
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="font-weight-bold mt-5 mb-3">LES PLUS LUS</h6>
+                    <hr class="mb-5">
+                    <!--Grid row-->
+                    {% for lu in plus_lus %}
+                    <div class="row mt-4">
+                        <!--Grid column-->
+                        <div class="col-4">
+
+                            <!--Image-->
+                            <div class="view  z-depth-1 mb-3">
+                                {% if lu.poeme %}
+                                <img src="/static/img/poesie.jpg" class="img-fluid" alt="Post">
+                                {% else %}
+                                <img src="/static/img/conte.jpg" class="img-fluid" alt="Post">
+                                {% endif %}
+                                <a>
+                                    <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                                </a>
+                            </div>
+
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Second column-->
+                        <div class="col-8 mb-1">
+
+                            <!--Post data-->
+                            <div class="">
+                                <p class="mb-1">
+                                    <a href="{% url 'text1' lu.pk %}" class="text-hover font-weight-bold float-left text-decoration-none" 
+                                                                        style="font-size: 19px; font-family: Pacifico; color:rgb{{lu.couleur}}; ">{{lu.titre}}</a>
+                                </p><br>
+                                <a href="{% url 'text1' lu.pk %}"> <p class="font-small grey-text text-justify float-left " style="font-size: 15px; color:black;font-family: Pacifico;">
+                                    {% if lu.poeme %}
+                                    <em>{{lu.poeme|truncatewords:9}}</em>
+                                    {% else %}
+                                    <em>{{lu.text|truncatewords:9}}</em>
+                                    {% endif %}<br>
+
+                                        <span class="badge">{{lu.categorie}}</span>
+                                </p>
+                                </a>
+                            </div>
+
+                        </div>
+                        <!--Second column-->
+
+                    </div>
+                    <hr>
+                    {% endfor %}
+                </div>
+                <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
+
+        </div>
+    </div>
+<!-- share link on socio media-->
+<div class="card mt-5" style="margin-bottom: -3%;">
+    <div class="sharethis-inline-share-buttons" style="z-index:0; "></div>
+<script type="text/javascript" 
+src="https://platform-api.sharethis.com/js/sharethis.js#property=5fe4098abf0cae00128712fb&product=inline-share-buttons" async="async">
+
+
+</script>
+</div>
+</section>
+
+</main>
+
+{% endblock %}
+
+
+{% block js %}
+        <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+        <script src="{% static 'assets/js/jquery-migrate-3.0.0.min.js'%}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="{% static 'assets/js/jquery.backstretch.min.js' %}"></script>
+        <script src="{% static 'assets/js/wow.min.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+        <script src="{% static 'assets/js/scripts.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- for icon documentation: https://materializecss.com/icons.html-->
+{% endblock %}
+
+{% block content %}
+<style>
+    .profile_bg {
+        background: #a8ff78; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to left, #a8ff78, #78ffd6); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to left, #a8ff78, #78ffd6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background-attachment: fixed;
+        background-repeat: repeat;
+
+        font-family: 'Vibur', cursive;
+/*   the main font */
+        font-family: 'Abel', sans-serif;
+        opacity: .95;
+        height: 60px;
+/* background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%); */
+}
+.margin_name{
+  margin-left:-30%
+}
+
+@media (max-width: 991px){
+  .margin_name{
+    margin-left:0px
+  }}
+
+
+  @media only screen
+            and (min-device-width : 768px)
+            and (min-device-width : 991px){
+        .margin-top-main-page{
+          margin-top:90px
+        
+        }}
+
+    @media only screen
+        and (max-device-width : 768px)
+        and (max-device-width : 991px){
+        .margin-top-main-page{
+          margin-top:-2.7%
+        
+        }}  
+
+
+
+
+</style>
+<main id="main" style="background-color:lightgray;"   class="margin-top-main-page">
+    <section id="breadcrumbs" class="breadcrumbs profile_bg">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2 style="margin-top:3px;"> <strong> <i class="fas fa-user-circle margin_name"></i>  {{request.user.first_name}} {{request.user.last_name}}</strong></h2>
+                
+              </div>
+  
+        </div>
+      </section><!-- End Breadcrumbs -->
+
+      <style>
+
+
+
+        .card-box:hover {
+        -webkit-transform: translateY(-6px);
+        transform: translateY(-6px);
+        box-shadow: 0 20px 20px rgba(0,0,0,.1);
+        -moz-box-shadow: 0 20px 20px rgba(0,0,0,.1);
+        -webkit-box-shadow: 0 20px 20px rgba(0,0,0,.1);
+        }
+        
+        
+        .card{
+        position: relative;
+        margin-bottom: 19px;
+        margin-top: 9px;
+        background-color: #ffffff;
+        border-radius: 3px;
+        -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+        }
+        
+        .margin-list{
+          margin-left:8%;
+        }
+
+        .row:before, .row::after{
+            display:none !important;
+        }
+        
+              </style>
+        
+              <div class="container" style="margin-top:20px">
+                
+                <div class="state-overview">
+                  <span class="h5 text-danger font-italic" ><i class="fas fa-minus-circle"></i></i> : Cliquer et retirer le livre de votre profile!</span>
+          <hr>
+                    <div class="row"> <!-- contenu second col-->
+
+                      {% for book in book %}
+                      <div class="col-6 col-md-2 " data-aos="zoom-in">
+                        <a  href="{% url 'remove-book' book.pk %}"   
+                          class="btn btn-link" style="position: absolute; top:-5%; left:1%; color:red; z-index:1; font-size:30px">
+                          <i class="fas fa-minus-circle"></i></a>
+                        <div class="card card-blog">
+                          <div class="card-img" >
+                            <a  target="_blank" href="{% url 'reader' book.pk %}"><img  src="{{book.image_cover.url}}" alt="" class="img-fluid"></a>
+                          </div>
+                          <div style="margin:0px; font-style:justify; font-size:12px; color:blue; font-weight: bold;margin-left: 2px; "> 
+                            {{book.titre}}<br> <span style="font-weight: bold; font-size: 11px; margin-right: 3px; color:gray">
+                              <i class="fas fa-user"></i> {{book.auteur}}</span></div>                        
+                        </div>
+                      </div>
+                      {% endfor %}
+
+        
+                      </div> <!--end row-->
+                </div>
+        
+            </div> <!-- end_container-->
+        
+        </div>
+    
+</main>
+{% endblock %}

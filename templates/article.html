@@ -1,17 +1,23 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load mathfilters %}
+{% load widget_tweaks %}
 {% block styles %}
+
+
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- for icon documentation: https://materializecss.com/icons.html-->
+
+
 {% endblock %}
 
 <!-- for displaying link, headline and image of the article-->
 {% block extra_head %}
-<meta property="og:title" content="Rodlin Christolin en résidence dans la cité d’Alcibiade Pommayrac" />
-<meta property="og:description" content="Le comédien, dramaturge et poète Rodlin Christolin dépose ses 
-bagages à Jacmel. Sous la férule des Éditions Pulucia, il a été accueilli vendredi 29 dans le 
-calme du centre culturel Charles Moravia situé dans la localité de Breman pour un séjour de deux 
-semaines. " />
-<meta property="og:image" content="/static/img/slide/slide-1.jpg" />
+
+
+<meta property="og:title" content="{{article.titre}}" />
+<meta property="og:description" content="{{ article.text|truncatewords:50}}">
+<meta property="og:image" content="{{article.image.url}}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- for the like button-->
 {% endblock %}
 
 
@@ -22,12 +28,19 @@ semaines. " />
 .shadow-card{
     border-radius: 5px;
     background: #fff;
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.1);
 }
+
+
 .img-source img{
     position: relative;
+   
 
 }
+
+.row:before, .row::after{
+            display:none !important;
+        }
 
 .img-source small{
     position:absolute;
@@ -44,6 +57,201 @@ semaines. " />
     margin-right:0;
 }
 }
+
+@media (max-width: 991px){
+.article{
+    margin-left: 1px;
+    margin-right: 1px;
+}
+}
+
+@media (max-width: 991px){
+.article1{
+    font-size: 22px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+}
+
+@media only screen
+    and (max-device-width : 768px)
+    and (max-device-width : 991px) {
+    .article {
+        font-size: 16px;
+        line-height: 30px;
+    }
+}
+@media only screen
+    and (min-device-width : 1200px)
+    and (min-device-width : 991px){
+.article{
+    font-size: 17px;
+    line-height: 3rem;
+}}
+
+.margin_collapse{
+    margin-left:7.2%; 
+    margin-right: 7.2%;
+
+}
+
+@media (max-width: 991px) {
+    .margin_collapse{
+    margin-left:1%; 
+    margin-right: 1%;
+
+}
+}
+
+.row:before, .row::after{
+            display:none !important;
+        }
+
+@media (min-width: 0) {
+    .g-mr-15 {
+        margin-right: 1.07143rem !important;
+    }
+}
+@media (min-width: 0){
+    .g-mt-3 {
+        margin-top: 0.21429rem !important;
+    }
+}
+
+.g-height-50 {
+    height: 50px;
+}
+
+.g-width-50 {
+    width: 50px !important;
+}
+
+@media (min-width: 0){
+    .g-pa-30 {
+        padding: 1.14286rem !important;
+    }
+}
+
+.g-bg-secondary {
+    background-color: white !important;
+}
+
+.u-shadow-v18 {
+    box-shadow: 0 5px 10px -6px rgba(0, 0, 0, 0.15);
+}
+
+.g-color-gray-dark-v4 {
+    color: #777 !important;
+}
+
+.g-font-size-12 {
+    font-size: 0.85714rem !important;
+}
+
+.media-comment {
+    margin-top:0px;
+    margin-right: 1.7%;
+   
+}
+
+@media (max-width: 991px){
+    .media-comment {
+    margin-top:0px;
+    margin-right: -4%;
+    margin-left:-3%
+}}
+
+
+@media (max-width: 991px){
+.m-comment{
+    /*margin-left:0px;*/
+    margin-top:-1%
+   
+   
+
+}
+}
+.m-comment{
+    margin-left: -1%;
+    margin-top:-0.2%;
+    
+   
+   
+    
+   
+}
+.hover-auteur a:hover{
+    text-shadow: 2px 2px yellow;
+
+}
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+ .accordion:hover {
+  background-color: #ccc;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 5px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}
+
+.margin_card{
+    margin-left:7.2%; 
+    margin-right:7.2%;
+} 
+
+@media (max-width: 991px){
+    .margin_card{
+    margin-left:0px; 
+    margin-right:0px;
+}}
+
+.form-group textarea{
+    height: 80px;
+}
+@media (max-width: 991px){
+    .btn-share-dekstop{
+    visibility: hidden;
+}}
+
+@media only screen
+    and (min-device-width : 768px)
+    and (min-device-width : 991px){
+    #share_article{
+    visibility: hidden;
+}}
+
+@media only screen
+    and (min-device-width : 768px)
+    and (min-device-width : 991px){
+    .change-font-size{
+    visibility: hidden;
+}}
+
+@media only screen
+    and (max-device-width : 768px)
+    and (max-device-width : 991px){
+  .mobile-nav-toggle {
+    position:fixed;
+   top:8px
+     
+}}
+
 </style>
 
 <!--  display headline, link, image  when the article is shared on social medial: META TAG, OPEN GRAPH META TAGS   
@@ -69,90 +277,140 @@ semaines. " />
                         <div class="container-fluid">
 
                             <!--Section heading-->
-                            <h1 class="text-center h1 pt-4 mb-3">
-                                <strong>Rodlin Christolin en résidence dans la cité d’Alcibiade Pommayrac</strong>
-                            </h1>
+                            <p class="text-center h1 pt-4 mb-3 article1">
+                                
+
+
+                                <strong>{{article.titre}}</strong>
+                            </p>
 
                             <div class="row">
                                 <div class="col-md-12 col-xl-12 d-flex justify-content-center">
                                     <p class="font-small dark-grey-text mb-1">
-                                        <strong>Auteur:</strong> Pierre Paul Anccion</p>
+                                        <strong>Auteur:</strong> {{article.redacteur}} | </p>
                                     <p class="font-small grey-text mb-0 ml-3">
-                                        <i class="far fa-clock-o dark-grey-text"></i> 15/09/2017</p>
+                                        <i class="far fa-clock-o dark-grey-text"></i> {{article.date|date:"d M Y" }}</p>
                                 </div>
                             </div>
 
                             <!--Grid row-->
-                            <div class="row pt-lg-5 pt-3 ml-5 mr-5 text-justify ">
+                            <div class="row pt-lg-5 pt-3  text-justify ">
 
                                 <!--Grid column-->
                                 <div class="col-md-12 col-xl-12 ">
 
                                     <div class="row"> <!--image article-->
-                                        <div class="col-md-12 col-xl-12 d-flex justify-content-center mb-5 img-source">
-                                            <img class="img-fluid" src="/static/img/slide/slide-1.jpg" alt="Responsive image">
-                                            <small style="font-style: italic;">Moliere Peronneau sur scene en Janvier 2014</small>
+                                        <div class="col-md-12 col-xl-12 d-flex justify-content-center mb-5 img-source" >
+                                            <div class="entry-img">
+                                            <img class="img-fluid" src="{{article.image.url}}" alt="">
+                                            </div>
+                                            <small style="font-style: italic;">{{article.image_source}}</small>
                                         </div>
                                        </div>
                                     </div>
-                                   
-
                                         <!--Grid row-->
-                                        <div class="row mt-3">
+                                        <div class="row mt-3 ml-3 mr-3">
                                             
+                                    
+                                            <p class="dark-grey-text article">{{article.text|linebreaksbr}} </p>
+                                               
+                                                <!-- to share link on social media for mobile-->
+                                              
+                                                <div id='share_article' >
+                                                    {% include 'share_article.html' %}</p>
+                                                </div>
 
-                                            <p class="dark-grey-text article">Le comédien, dramaturge et poète Rodlin Christolin dépose ses 
-                                                bagages à Jacmel. Sous la férule des Éditions Pulucia, il a été accueilli vendredi 29 dans le 
-                                                calme du centre culturel Charles Moravia situé dans la localité de Breman pour un séjour de deux 
-                                                semaines. C’était à deux jours de la Saint Jacques et Saint-Philippe. Et il a pu découvrir, en 
-                                                bon pèlerin, quelques-uns des multiples charmes dont trépide cette ville, l’une des plus 
-                                                hospitalières du pays.<br><br>
+                                                <!-- script for save share article-->
+                                                <script type="text/javascript">
+                                                    $(document).on('click', '.share_count', function(event){
+                                                              event.preventDefault();
+                                                              var pk = $(this).attr('value');
+                                                              $.ajax({
+                                                                type: 'POST',
+                                                                url: '{% url  "share-article"  article.pk %}',
+                                                                data: {'id':pk, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                                                                dataType: 'json',
+                                                                success: function(response){
+                                                                  $('#share_article').html(response['form'])
+                                                                  console.log($('#share_article').html(response['form']));
+                                                                },
+                                                                error: function(rs, e){
+                                                                  console.log(rs.responseText);
+                                                                },
+                                                              });
+                                                        
+                                                            });
+                                                    </script>
+                                                    <!-- end script share-->
 
-                                                « Jacmel est un endroit magnifique. Il y a tout pour faire venir l’inspiration »,
-                                                 a-t-il déclaré, le regard balayant l’écran de son computer. L’auteur de « Symphonie de 
-                                                 l’ombre » publié chez les Éditions Miroir ne cache pas son coup de cœur pour la ville qui a
-                                                  vu grandir René Depestre. En plus de peaufiner son recueil de poèmes « Quand j’ai mal de ma 
-                                                  négrité » dont les premiers vers ont été inspirés par la candeur de Jacmel, Rodlin Christolin 
-                                                  aura à travailler sur la mise en scène d’un texte de Raymond Gousse intitulé « Enfantillages ».<br><br>
-                                                
-                                                 
-                                                
-                                                Interrogé sur son œuvre en gestation, plus particulièrement sur le titre « J’ai mal de ma 
-                                                négrité », il n’est pas allé par quatre chemins pour déballer les raisons qui l’ont conduit à 
-                                                épouser un intitulé aussi évocateur que provocateur. « Je suis parti du point de vue de Léopold 
-                                                Sédar Senghor qui disait : — Je dis négrité et non négritude puisqu’il s’agit de l’esprit nègre 
-                                                plutôt que du vécu nègre —. Les sujets qui y sont développés sont multiples. Car il s’agit d’une 
-                                                vision globale d’un personnage qui donne voix à des dizaines d’autres autour des problèmes qui les 
-                                                concernent  tous. D’ailleurs, le plus grand dilemme que j’aie avec ce texte je ne sais pas ce que 
-                                                ce va être au final peut-être un roman, peut être un essai, de la poésie ou juste une pièce avec 
-                                                des dialogues non titrés. Peut-être, c’est l’éditeur qui va le classifier. Une chose est sûre, 
-                                                l’œuvre ne sera pas une utopie, car le point central sera l’existence en elle-même. »<br><br>
-                                                
-                                                 
-                                                
-                                                Pour le PDG des Éditions Pulucia, Pierre-Paul Ancion, accorder une résidence à un poète, un 
-                                                dramaturge ou un romancier, rentre dans le cadre des innovations. « C’est important pour nous 
-                                                d’accompagner les créateurs et de promouvoir la création artistique ; et ce n’est que peu de ce 
-                                                que nous envisageons », a-t-il souligné. « Dans le cas de Rodlin Christolin, nous sommes heureux 
-                                                de lui accorder cette résidence. Il est bourré de talents et il est promis à un bel avenir », 
-                                                a-t-il conclu tout en saluant la fougue du staff des Éditions Pulucia ainsi que le centre culturel 
-                                                Charles Moravia qui s’assigne l’immense mission d’impulser la dynamique de promotion artistique et
-                                                 littéraire.<br><br>
-                                                
-                                                 
-                                                
-                                                Rodlin Christolin est de ceux qui font d’une pierre plusieurs coups. Durant son séjour,
-                                                 il animera un atelier de théâtre pour les jeunes du centre culturel Charles Moravia. 
-                                                 C’est pour lui, l’occasion de se rendre utile d’abord à lui-même et aussi aux autres 
-                                                 jeunes qui nourrissent une passion dévorante pour le théâtre. Le dramaturge ne compte pas
-                                                  chômer si tôt. Au mois de juillet, il sera en Corse (France) pour un stage à l’occasion 
-                                                  de la 19e rencontre internationale du théâtre organisé par ARIA.<br><br>
-                                                
-                                                </p>
+
+                                                <!-- script for share mobile-->
+                                                    <script>
+                                                    $(document).on('click', '.share_count', function(event){
+                                            
+                                                    if (navigator.share) { 
+                                                    navigator.share({
+                                                        title: 'WebShare API Demo',
+                                                    // text: 'This post may or may not contain the answer to the universe',
+                                                        url: window.location.href,
+                                                    }).then(() => {
+
+                                                        console.log('Thanks for sharing!');
+                                                    })
+                                                    .catch(console.error);
+                                                    } else {
+                                                        shareDialog.classList.add('is-open');
+                                                    }
+                                                    });
+                                                    </script>
+
+                                                <!-- button to change the font size of the article-->
+                                                <ul  class="list-unstyled change-font-size" style="position:fixed; top:45%; left:-3%">
+                                <li><button id='big' class="btn btn-link"> 
+                                    <img src="https://img.icons8.com/ios-glyphs/30/000000/increase-font.png"/></button></li>
+                                <li><button id='normal' class="btn btn-link">
+                                    <img src="https://img.icons8.com/ios-glyphs/30/000000/sentence-case--v2.png"/></button></li>
+                                <li><button id='small' class="btn btn-link">
+                                    <img src="https://img.icons8.com/ios-glyphs/30/000000/decrease-font.png"/></button></li>
+
+                                                </ul>
+
+                                                        <!-- script to change the the font size of the article-->
+                                                        <script>
+                                                            $(document).ready(function() {
+                                                            $("#big").click(function() {
+                                                                var textBoxes = $('.article');
+                                                                var fontSize = getCurrentFontSize(textBoxes);
+                                                                textBoxes.css("font-size", fontSize + 2);
+                                                            });
+                                                            
+                                                            $("#small").click(function() {
+                                                                var textBoxes = $('.article');
+                                                                var fontSize = getCurrentFontSize(textBoxes);
+                                                                textBoxes.css("font-size", fontSize - 2);
+                                                            });
+                                                            
+                                                            $("#normal").click(function() {
+                                                                $('.article').css("font-size", 16);
+                                                            });
+                                                            });
+
+                                                            function getCurrentFontSize(textBoxes) {
+                                                            var fontSize = textBoxes.eq(0).css("font-size");
+                                                            return parseInt(fontSize, 10);
+                                                            }
+                                                        </script>
+
+                                        <!-- to share link on social media for dekstop-->
+                                                <div class="sharethis-inline-share-buttons btn-share-dekstop" style="z-index:0"></div>
+                                                <script type="text/javascript" 
+                                        src="https://platform-api.sharethis.com/js/sharethis.js#property=5fe4098abf0cae00128712fb&product=inline-share-buttons" async="async">
+                                     </script>
+                                               
 
                                         </div>
                                         <!--Grid row-->
-
+                                        
                                 </div>
                                 <!--/Grid column-->
 
@@ -161,14 +419,40 @@ semaines. " />
 
                         </div>
                         <!--Grid column-->
-                        <div class="card-footer  text-center">
-                            <ul class="list-inline">
-                                <li><a style="font-size:20px; color:red" href="#1"><i class="fas fa-heart"></i></a> <span style="color: black; font-size:14px">259</span> </li>
-                                <li > <a style="font-size:20px; color:green; text-decoration:none" href="#1"><i class="fas fa-thumbs-up"></i> </a><span style="color: black; font-size:14px">259</span> </li>
-                            </ul>
-    
+
+                        <div class="card-footer">
+                            
+                            
+                            <div id='like-section' style="margin-left:7.2%;">
+                                {% include 'like_section.html' %}</p>
+                            </div>
+
+                            <!-- collapse commentaire-->
+                            <div class="card margin_card ">
+                                <div class="card-header"> 
+                            <button class="accordion"><span style="font-size: 16px; font-weight: 550;">
+                                 <i class="fas fa-folder-open"></i> {{total_comment}} Commentaires </span>
+                                 <span style="float:right; font-size: 25px;"><i class="fas fa-caret-down"></i></span>
+                            </button>
+                               
+                                <div class="panel lighten-3"  >
+                                    
+                                        <div class="container  lighten-3 mb-0 pb-0" >
+                                            <div class="row" id="modal-horaire" >
+                                                {% include 'commentaire_form_article.html' %}
+                                                </div>
+                                               
+                                                <div class="row" id="comment_articles" >
+                                                {% include 'comment_article.html' %}
+        
+                                                </div>
+                                        </div>
+
+                        </div>
+
                           </div>
-                    </div><!--card-body-->
+
+                    </div><!--endcllapse-->
                    
                     <!--Grid row-->
 
@@ -179,6 +463,51 @@ semaines. " />
         </div>
         <!--/Grid row-->
     </div>
+    </div>
+    
+
+    
+
+<script type="text/javascript">
+$(document).on('click', '#like', function(event){
+          event.preventDefault();
+          var pk = $(this).attr('value');
+          $.ajax({
+            type: 'POST',
+            url: '{% url "like_post"  article.pk %}',
+            data: {'id':pk, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+            dataType: 'json',
+            success: function(response){
+              $('#like-section').html(response['form'])
+              console.log($('#like-section').html(response['form']));
+            },
+            error: function(rs, e){
+              console.log(rs.responseText);
+            },
+          });
+        });
+</script>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
 
 
 
@@ -189,28 +518,30 @@ semaines. " />
                 <div class="row">
 
                     <!--Grid column-->
+                    {% for top in top %}
                     <div class="col-lg-4 col-md-12">
-                        <h6 class="font-weight-bold mt-5 mb-3">ABOUT</h6>
+                        <h6 class="font-weight-bold mt-5 mb-3">TOP LU</h6>
                         <hr class="mb-5">
-                        <img src="https://mdbootstrap.com/img/Photos/Slides/img (108).jpg" alt="sample image" class="img-fluid z-depth-1">
-                        <p class="mt-4 mb-5">Sed ut in perspiciatis unde omnis iste natus error sit on i tatem accusantium doloremque laudantium,
-                            totam rem aperiam, eaque ipsa quae.</p>
+                        <img src="{{top.image.url}}" alt="sample image" class="img-fluid z-depth-1">
+                        <a href="{% url 'article' top.pk %}"> <h4>{{top.titre}}</h4></a>
+                        <p class="mt-1 mb-5 text-justify"><a href="{% url 'article' top.pk %}">{{ top.text|truncatewords:30 }}</a></p>
                     </div>
+                    {% endfor %}
                     <!--Grid column-->
 
                     <!--Grid column-->
                     <div class="col-lg-4 col-md-6">
-                        <h6 class="font-weight-bold mt-5 mb-3">RECENTS POSTS</h6>
+                        <h6 class="font-weight-bold mt-5 mb-3">LES PLUS RECENTS</h6>
                         <hr class="mb-5">
                         <!--Grid row-->
+                        {% for recent in recent %}
                         <div class="row mt-4">
-
                             <!--Grid column-->
                             <div class="col-4">
 
                                 <!--Image-->
                                 <div class="view overlay z-depth-1 mb-3">
-                                    <img src="https://mdbootstrap.com/img/Photos/Others/photo12.jpg" class="img-fluid" alt="Post">
+                                    <img src="{{recent.image.url}}" class="img-fluid" alt="Post">
                                     <a>
                                         <div class="mask rgba-white-slight waves-effect waves-light"></div>
                                     </a>
@@ -225,10 +556,10 @@ semaines. " />
                                 <!--Post data-->
                                 <div class="">
                                     <p class="mb-1">
-                                        <a href="#!" class="text-hover font-weight-bold">Sed ut in perspiciatis unde omnis</a>
+                                        <a href="{% url 'article' recent.pk %}" class="text-hover font-weight-bold">{{recent.titre}}</a>
                                     </p>
                                     <p class="font-small grey-text">
-                                        <em>July 22, 2017</em>
+                                        <em>{{recent.date|date:"d M Y" }}</em>
                                     </p>
                                 </div>
 
@@ -236,96 +567,25 @@ semaines. " />
                             <!--Second column-->
 
                         </div>
-                        <!--Grid row-->
-
-                        <!--Grid row-->
-                        <div class="row">
-
-                            <!--Grid column-->
-                            <div class="col-4">
-
-                                <!--Image-->
-                                <div class="view overlay z-depth-1 mb-3">
-                                    <img src="https://mdbootstrap.com/img/Photos/Others/photo11.jpg" class="img-fluid" alt="Post">
-                                    <a>
-                                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
-                                    </a>
-                                </div>
-
-                            </div>
-                            <!--Grid column-->
-
-                            <!--Second column-->
-                            <div class="col-7 mb-1">
-
-                                <!--Post data-->
-                                <div class="">
-                                    <p class="mb-1">
-                                        <a href="#!" class="text-hover font-weight-bold">At vero eos et accusamus et </a>
-                                    </p>
-                                    <p class="font-small grey-text">
-                                        <em>July 22, 2017</em>
-                                    </p>
-                                </div>
-
-                            </div>
-                            <!--Second column-->
-
-                        </div>
-                        <!--Grid row-->
-
-                        <!--Grid row-->
-                        <div class="row">
-
-                            <!--Grid column-->
-                            <div class="col-4">
-
-                                <!--Image-->
-                                <div class="view overlay z-depth-1 mb-3">
-                                    <img src="https://mdbootstrap.com/img/Photos/Others/photo15.jpg" class="img-fluid" alt="Post">
-                                    <a>
-                                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
-                                    </a>
-                                </div>
-
-                            </div>
-                            <!--Grid column-->
-
-                            <!--Second column-->
-                            <div class="col-7 mb-1">
-
-                                <!--Post data-->
-                                <div class="">
-                                    <p class="mb-1">
-                                        <a href="#!" class="text-hover font-weight-bold">Nemo enim ipsam voluptatem</a>
-                                    </p>
-                                    <p class="font-small grey-text">
-                                        <em>July 22, 2017</em>
-                                    </p>
-                                </div>
-
-                            </div>
-                            <!--Second column-->
-
-                        </div>
-                        <!--Grid row-->
+                        <hr>
+                        {% endfor %}
 
                     </div>
                     <!--Grid column-->
 
                     <!--Grid column-->
                     <div class="col-lg-4 col-md-6">
-                        <h6 class="font-weight-bold mt-5 mb-3">Anciens blogs</h6>
+                        <h6 class="font-weight-bold mt-5 mb-3">LES PLUS LUS</h6>
                         <hr class="mb-5">
                         <!--Grid row-->
+                        {% for lu in plus_lus %}
                         <div class="row mt-4">
-
                             <!--Grid column-->
                             <div class="col-4">
 
                                 <!--Image-->
                                 <div class="view overlay z-depth-1 mb-3">
-                                    <img src="https://mdbootstrap.com/img/Photos/Others/photo1.jpg" class="img-fluid" alt="Post">
+                                    <img src="{{lu.image.url}}" class="img-fluid" alt="Post">
                                     <a>
                                         <div class="mask rgba-white-slight waves-effect waves-light"></div>
                                     </a>
@@ -340,10 +600,10 @@ semaines. " />
                                 <!--Post data-->
                                 <div class="">
                                     <p class="mb-1">
-                                        <a href="#!" class="text-hover font-weight-bold">Sed ut in perspiciatis unde omnis</a>
+                                        <a href="{% url 'article' lu.pk %}" class="text-hover font-weight-bold">{{lu.titre}}</a>
                                     </p>
                                     <p class="font-small grey-text">
-                                        <em>July 22, 2017</em>
+                                        <em>{{lu.date|date:"d M Y" }}</em>
                                     </p>
                                 </div>
 
@@ -351,80 +611,8 @@ semaines. " />
                             <!--Second column-->
 
                         </div>
-                        <!--Grid row-->
-
-                        <!--Grid row-->
-                        <div class="row">
-
-                            <!--Grid column-->
-                            <div class="col-4">
-
-                                <!--Image-->
-                                <div class="view overlay z-depth-1 mb-3">
-                                    <img src="https://mdbootstrap.com/img/Photos/Others/photo9.jpg" class="img-fluid" alt="Post">
-                                    <a>
-                                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
-                                    </a>
-                                </div>
-
-                            </div>
-                            <!--Grid column-->
-
-                            <!--Second column-->
-                            <div class="col-7 mb-1">
-
-                                <!--Post data-->
-                                <div class="">
-                                    <p class="mb-1">
-                                        <a href="#!" class="text-hover font-weight-bold">At vero eos et accusamus et </a>
-                                    </p>
-                                    <p class="font-small grey-text">
-                                        <em>July 22, 2017</em>
-                                    </p>
-                                </div>
-
-                            </div>
-                            <!--Second column-->
-
-                        </div>
-                        <!--Grid row-->
-
-                        <!--Grid row-->
-                        <div class="row">
-
-                            <!--Grid column-->
-                            <div class="col-4">
-
-                                <!--Image-->
-                                <div class="view overlay z-depth-1 mb-3">
-                                    <img src="https://mdbootstrap.com/img/Photos/Others/photo4.jpg" class="img-fluid" alt="Post">
-                                    <a>
-                                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
-                                    </a>
-                                </div>
-
-                            </div>
-                            <!--Grid column-->
-
-                            <!--Second column-->
-                            <div class="col-7 mb-1">
-
-                                <!--Post data-->
-                                <div class="">
-                                    <p class="mb-1">
-                                        <a href="#!" class="text-hover font-weight-bold">Nemo enim ipsam voluptatem</a>
-                                    </p>
-                                    <p class="font-small grey-text">
-                                        <em>July 22, 2017</em>
-                                    </p>
-                                </div>
-
-                            </div>
-                            <!--Second column-->
-
-                        </div>
-                        <!--Grid row-->
-
+                        <hr>
+                        {% endfor %}
                     </div>
                     <!--Grid column-->
 
@@ -437,5 +625,7 @@ semaines. " />
     </section>
 
 </main>
-
+{% endblock %}
+{% block js %}
+<script src="{% static 'assets/js/modal-horaire.js' %}"></script>
 {% endblock %}

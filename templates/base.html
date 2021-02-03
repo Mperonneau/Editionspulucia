@@ -10,6 +10,7 @@
   <title>Editions Pulucia</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Favicons -->
   <link href="{% static 'img/favicon.png' %}" rel="icon">
@@ -19,6 +20,8 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> <!-- login page style-->
+
   <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
   <link href="{% static 'vendor/icofont/icofont.min.css' %}" rel="stylesheet">
   <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
@@ -64,13 +67,88 @@
   .logo a:hover{
     box-shadow: 0 0px 5px 0 rgba(0, 0, 0, .2), 0 2px 2px -11px rgb(102, 115, 252, 0.2);
   }
+
+  @media only screen
+    and (max-device-width : 768px)
+    and (max-device-width : 991px){
+  .mobile-login1{
+    width: 80%;
+    margin-top: 1%;
+    margin-left:20%
+  }} 
+
+  @media only screen
+    and (max-device-width : 768px)
+    and (max-device-width : 991px){
+    .logo_img{
+    display: none;
+}}
+
+@media only screen
+    and (min-device-width : 768px)
+    and (min-device-width : 991px){
+    .logo{
+    display: none;
+}}
+
+#header .logo {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+#header .logo a {
+  color:skyblue;
+}
+
+#header .logo a span {
+  color: #0000CD;
+}
+/* hide navbar when scroll down*/
+/*.smart-scroll{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+.scrolled-down{
+   transform:translateY(-100%); transition: top 0.3s ease-in-out;
+}
+.scrolled-up{
+   transform:translateY(0); transition: top 0.3s ease-in-out;
+}*/
+
+  
 </style>
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
+  <header id="header" class="fixed-top  smart-scroll navbar-expand-lg">
     <div class="container d-flex align-items-center">
+      <!-- script to hide header on scroll down-->
+     <!-- <script>
+        $('body').css('padding-top', $('.fixed-top').outerHeight() + 'px')
+        if ($('.smart-scroll').length > 0) { // check if element exists
+    var last_scroll_top = 0;
+    $(window).on('scroll', function() {
+        scroll_top = $(this).scrollTop();
+        if(scroll_top < last_scroll_top) {
+            $('.smart-scroll').removeClass('scrolled-down').addClass('scrolled-up');
+        }
+        else {
+            $('.smart-scroll').removeClass('scrolled-up').addClass('scrolled-down');
+        }
+        last_scroll_top = scroll_top;
+    });
+}
+      </script>-->
+
  
-      <!--<h1 class="logo mr-auto"><a href="{% url 'index_page' %}"><span>hori</span>zon
-      </a></h1>-->
+      <h1 class="logo mr-auto ml-3"><a href="{% url 'index_page' %}"><span>Pulu</span>cia
+      </a></h1>
       
       <!-- Uncomment below if you prefer to use an image logo -->
      <a href="{% url 'index_page' %}" class=" mr-auto logo_img"><img class="logo_img"  src="/static/img/logo_pulucia.png" alt="" class="img-fluid"></a>
@@ -93,12 +171,14 @@
 
           
           <li><a href="{% url 'evenement-main'%}">Evènements</a>
+          <li><a href="{% url 'videos'%}">Vidéos</a>
           <li><a href="{% url 'projet' %}">Projets</a>
+
             
           </li>
 
           <li><a href="{% url 'publication' %}">Publication</a></li>
-          <li><a href="{% url 'blog' %}">Blog</a></li>
+          <li><a href="{% url 'blog' %}">Articles</a></li>
           
 
         </ul>
@@ -112,21 +192,24 @@
       </div>-->
 
       {% if user.is_authenticated %}
-      <div class="dropdown" style="width:130px;">
-      <div class="header-social-links">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="dropdown " style="width:100%;">
+      <div class="header-social-links mobile-login1" style=" float:right; margin-right:1%; ">
+        <button class="btn btn-secondary dropdown-toggle"   style="background-color:whitesmoke; color:blue" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span class="glyphicon glyphicon-user"></span>
-         {{request.user}}
+         {{request.user|truncatechars:6 }}
         </button>
         <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#1">Profile</a>
-          <a class="dropdown-item" href="#1">Se deconnecter</a>
+          <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+          <a class="dropdown-item" href="{% url 'logout' %}">Se deconnecter</a>
         </div>
         </div>
       </div>
       {% else %}
-     <div class="header-social-links">
-        <a href="{% url 'login' %}" class="btn btn-default btn-sm">
+     <div class="header-social-links mobile-login1">
+        <!--<a href="{% url 'login' %}" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-user"></span> Login 
+        </a>-->
+        <a   class="btn btn-default btn-sm " data-toggle="modal" data-target="#exampleModal">
           <span class="glyphicon glyphicon-user"></span> Login 
         </a>
         </div>
@@ -134,6 +217,42 @@
 
     
   </header><!-- End Header -->
+
+<!-- modal login methode-->  
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title font-weight-bold text-success h4" id="exampleModalLabel">Se connecter avec : </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+       
+        
+        <form  action =""  method="POST"  enctype="multipart/form-data"  novalidate>
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{request.get_full_path }}"/>
+
+        
+        <div class="container-fluid">
+          <a href="{% url 'login' %}" class="btn btn-info text-white font-weight-bold mb-3" style="width: 60%;"> <span class="glyphicon glyphicon-user"></span> Username </a>
+          <a href="{% url 'social:begin' 'facebook' %}?next={{request.build_absolute_uri}}" class="btn btn-primary text-white font-weight-bold mb-3" style="width: 60%;"> Facebook</a>
+          <a href="{% url 'social:begin' 'google-oauth2' %}?next={{request.build_absolute_uri}}" class="btn btn-warning text-white font-weight-bold mb-3" style="width: 60%;"><i class="far fa-envelope"></i> Google</a><br>
+          <a href="{% url 'inscrire' %}"  class="btn btn-success btn-sm text-white font-weight-bold"><i class="fas fa-sign-in-alt"></i> Inscrire</a>
+       
+        </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
   {% block content %}
                   
 
@@ -159,32 +278,18 @@
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Liens utils</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Accueil</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">A propos</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
+            
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Nos Services aux membres</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
+           
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <h4>Rejoignez nous!</h4>
+            <p>Soumettre votre email et recevoir tous nos mises a jours!</p>
             <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+              <input type="email" name="email" placeholder="Email"><input type="submit" value="Souscrire" >
             </form>
           </div>
 
@@ -196,14 +301,15 @@
 
       <div class="mr-md-auto text-center text-md-left">
         <div class="copyright">
-          &copy; Copyright <strong><span>Horizon</span></strong>. All Rights Reserved
+          &copy; Copyright <strong><span>Editions Pulucia</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
           <!-- All the links in the footer should remain intact. -->
           <!-- You can delete the links only if you purchased the pro version. -->
           <!-- Licensing information: https://bootstrapmade.com/license/ -->
           <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/company-free-html-bootstrap-template/ -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade and Horizon</a>
+          Designed by <a href="https://bootstrapmade.com/"> Peronneau Moliere</a><br>
+          Email: <a href="https://bootstrapmade.com/"> peronneaumoliere@gmail.com</a>
         </div>
       </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">

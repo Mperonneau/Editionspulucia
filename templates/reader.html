@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
 
   <title>Horizon Economie sociale et solidaire</title>
   <meta content="" name="descriptison">
@@ -14,6 +15,12 @@
   <!-- Favicons -->
   <link href="{% static 'img/favicon.png' %}" rel="icon">
   <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- link for epub-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/TreineticEpubReader.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style_epub.css' %}"/>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -50,6 +57,7 @@
   ======================================================== -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   
 </head>
 {% autoescape off %}
 <body>
@@ -66,17 +74,136 @@
   @media (max-width: 991px){
 .login-main {
   position:relative;
-  left:-22%;
+  left:-17%;
+  
+}}
+
+.page-controls {
+width: 100%;
+height: 40px;
+background: #fbfbfb;
+box-shadow: -2px -1px 10px -1px rgba(0, 0, 0, 0.1);
+position: absolute;
+left: 0;
+bottom: -46px;
+transition: bottom 0.2s ease-in;
+}
+.reader-parent {
+    padding-top: 80px;
+    margin-bottom: 80px;
+}
+
+
+@media (max-width: 991px){
+  .drawer-box {
+    margin-left: -30px;
+    margin-right: 18px;
+    font-size: 35px;   
+}
+}
+
+
+
+@media (max-width: 991px){
+  .font-size-block {
+    margin-left: 0px;  
+    font-weight: bold;
+      
+}
+}
+
+@media (max-width: 991px){
+  .decrease-font-size {
+    margin-left: -90px; 
+    font-weight: bold;      
+}
+}
+
+
+@media (max-width: 991px){
+  .theme-color-block {
+    height: 20px;
+    margin-right: 4px; 
+    margin-top: -6px;     
+}
+}
+@media (max-width: 991px){
+  .font-size-block-size     {
+    margin-left: -3px; 
+    margin-right: -2px;  
+}
+}
+
+
+@media (max-width: 991px){
+  .buttonwrap1 {
+    
+   position:absolute;
+   left:75%;
+   width: 90px;   
+}}
+
+@media (max-width: 991px){
+  .mobile-nav-toggle {
+   position:absolute;
+   top:6px
+     
+}}
+
+#main{
+  background-color:white;
+   margin-top:-30px; 
+   margin-bottom: 20px
+}
+
+@media (max-width: 991px){
+  #main {
+   margin-top:-46px
+     
+}}
+
+@media (max-width: 991px){
+.nav-design {
+  min-height: 30px;
+}}
+
+.app-container1{
+  min-height: 680px;
 
 }
 
+@media (max-width: 991px){
+.app-container1{
+  min-height: 560px;
+}}
+
+.add-book{
+  position:absolute;
+  top:11.5%;
+  left:10%;
+
 }
 
+.add-book a{
+  font-size: 25px;
+}
 
+.add-book a:hover{
+  color:green;
+}
+
+@media (max-width: 991px){
+  .add-book{
+  position:absolute;
+  top:-19%;
+  left:52%;
+
+}}
+     
 </style>
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top" >
-    <div class="container d-flex align-items-center login-main"  style="margin-left:19%">
+    <div class="container d-flex align-items-center login-main"  style="margin-left:16%">
  
       
       <nav class="nav-menu d-none d-lg-block">
@@ -98,14 +225,20 @@
           
           <li><a href="{% url 'evenement-main'%}">Evènements</a>
             <li><a href="{% url 'projet' %}">Projets</a>
+              <li><a href="{% url 'videos'%}">Vidéos</a>
             
           </li>
 
           <li><a href="{% url 'publication' %}">Publication</a></li>
           <li><a href="{% url 'blog' %}">Blog</a></li>
-
+         
         </ul>
+       
+
       </nav><!-- .nav-menu -->
+      <div class="add-book">
+        <a href="#js"  data-toggle="tooltip" data-placement="right" title="Ajouter ce livre dans votre pannier."> <i class="fas fa-plus-circle"></i></a>
+       </div>
 
 
       {% if user.is_authenticated %}
@@ -131,143 +264,335 @@
 
     
   </header><!-- End Header -->
-  <main id="main" style="background-color:white; margin-top:50px">
+  <main id="main" >
     
 
-<style>
-.profile-content {
-overflow: hidden;
-}
-
-
-.page-breadcrumb {
-display: inline-block;
-float: left;
-margin: 0;
-list-style: none;
-background-color: transparent;
-border-radius: 50px;
-background: rgba(220, 208, 208, 0.5);
-padding-left: 20px !important;
-padding-right: 20px !important;
-padding-top: 5px !important;
-padding-bottom: 8px !important;
-}
-
-.page-breadcrumb li a{
-    text-decoration: none;
-}
-
-.page-breadcrumb:hover{
-    background: rgba(220, 208, 208, 0.7);
-
-}
-.home {
-    position: relative;
-    top: 4px;
-    display: inline-block;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1; 
-}
-
-</style>
-
-<div class="container" style="margin-top:20px">
-    <div class="row">
-        <div class="col-md-12">
-           
-                <!--<iframe type="text/html" width="100%" height="750" frameborder="0" allowfullscreen 
-                style="max-width:100%" src="/static/img/pdf_file.pdf#toolbar=0" ></iframe>-->
-
-                <iframe type="text/html" width="100%" height="750" frameborder="0" allowfullscreen style="max-width:100%"
-                     src="https://read.amazon.com/kp/card?asin=B07XFGG8Y4&preview=inline&linkCode=kpe&ref_=cm_sw_r_kb_dp_lnWVFbSCSAQK3" ></iframe>
 
 
 
-        </div>
-    
+
+
+          
+           <!--embed file from google drive-->
+          <!--<iframe src="https://docs.google.com/viewer?srcid=1m7FSIcxxdlH2fGqs4nuD09tgamNpb3V2&pid=explorer&efh=false&a=v&chrome=false&embedded=true" 
+          width="100%" height="680px">
+        </iframe>-->
+
+          <!-- amazon embed-->
+         <!--<iframe type="text/html" width="100%" height="750" frameborder="0" allowfullscreen style="max-width:100%"
+                     src="https://read.amazon.com/kp/card?asin=B07XFGG8Y4&preview=inline&linkCode=kpe&ref_=cm_sw_r_kb_dp_lnWVFbSCSAQK3" ></iframe>-->
+
+                     <!-- Google Book API-->
+                     <!--<html xmlns="http://www.w3.org/1999/xhtml">
+                     <head>
+                       <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+                       <title>Google Books Embedded Viewer API Example</title>
+                       <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
+                       <script type="text/javascript">
+                         google.books.load();
+                   
+                         function initialize() {
+                           var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
+                           viewer.load('ISBN:0738531367');
+                         }
+                   
+                         google.books.setOnLoadCallback(initialize);
+                       </script>
+                     </head>
+                     <body>
+                       <div id="viewerCanvas" style="width: 100%; height: 600px"></div>
+                     </body>
+                   </html>-->
+                   
+                   <!--<div id="area"></div>
+                   <script>
+                    var book = ePub("media/book.epub");
+                    var rendition = book.renderTo("area", {width: 800, height: 600});
+                    var displayed = rendition.display();
+                  </script>-->
+
+
+                  <!-- embed PDF file -->
+                <!--  <iframe src="static/img/pdf_file.pdf#toolbar=0" height="600" width="600"></iframe> -->
+                  
+                <div class="container-fluid" style="overflow: hidden">
+              
+                  <div class="row justify-content-center reader-parent">
+                      <div class="col-md-8 reader-section">
+                          <div class="row">
+                              <div class="col-12" style="height: 30px;">
+                                  <nav class="navbar nav-design">
+                                      <div class="buttonwrap theme-buttons-section">
+                                          <div class="drawer-box material-icons">dehaze</div>
+                                      </div>
+                                      <div class="size-text">
+                                          <div class="font-size-block decrease-font-size ">-</div>
+                                          <div class="font-size-block-size font-size-view"></div>
+                                          <div class="font-size-block increase-font-size">+</div>
+                                      </div>
+                                      <div class="buttonwrap buttonwrap1 text-right">
+                                          <div class="image-buttons horizontal-view">
+                                              <img src="{% static 'img/horizontal.png' %}"/>
+                                          </div>
+                                          <div class="image-buttons vertical-view">
+                                              <img src="{% static 'img/vertical.png' %}"/>
+                                          </div>
+                                      </div>
+                                  </nav>
+                              </div>
+                              <div class="col-12">
+                                  <div class="drawer-backdrop">
+                                      <div class="drawer-section"></div>
+                                  </div>
+                                  <div id="app-container" class="app-container1" >
+                                      <div id="reading-area" role="main">
+                                          <div id="epub-reader-container">
+                                              <div id="epub-reader-frame">
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="col-12 page-controls">
+                                          <div class="page-c-wrapper text-center pre-next-wrapper">
+                                              <div class="prev-button material-icons">navigate_before</div>
+                                              <div class="next-button material-icons">navigate_next</div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                         
+              </div>
+              
+              <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+              <script type="text/javascript" src="{% static 'js/TreineticEpubReader.js' %}"></script>
+              <script>
+                      $(function () {
+              
+                  var font_size = 100;
+                  var themes = [];
+                  var current_theme;
+              
+                  let handler = TreineticEpubReader.handler();
+              
+                  themes = handler.getAvailableThemes().filter((t) => {
+                      return t.id != 'author-theme';
+                  });
+              
+                  handler.registerEvent("onEpubLoadSuccess", () => {
+              
+                      var settings = handler.getCurrentReaderSettings();
+                      font_size = settings.fontSize;
+                      current_theme = settings.theme == 'author-theme' ? 'default-theme' : settings.theme;
+                      isHorizontalScroll = (settings.scroll == "auto") && (settings.syntheticSpread == "auto");
+              
+                      if (isHorizontalScroll) {
+                          $("#reading-area").addClass("reading-area-margin");
+                      } else {
+                          $("#reading-area").removeClass("reading-area-margin");
+                      }
+              
+              
+                      setViewFontSize(font_size);
+                      setViewTheme(current_theme);
+                      setViewType(isHorizontalScroll? "h" : "v");
+                      TreineticEpubReader.handler().setTheme(current_theme);
+                  });
+              
+                  handler.registerEvent("onEpubLoadFail", () => {
+              
+                  });
+              
+                  handler.registerEvent("onTOCLoaded", (hasTOC) => {
+                      if (hasTOC) {
+                          var toc = handler.getTOCJson();
+                          $('.drawer-section').empty();
+                          $('.drawer-section').append($(crateOL_Recursively(JSON.parse(toc))));
+                      }
+                  });
+              
+                  handler.registerEvent("onReaderHeightRequest", () => {
+                      return "100%";
+                  });
+              
+              
+                  setViewFontSize(font_size);
+                  setTheams(themes);
+                  setViewType("h");
+              
+                  var config = TreineticEpubReader.config();
+                  config.jsLibRoot = "{% static 'workers/' %}";
+                  config.loader = "one"
+                  TreineticEpubReader.create("#epub-reader-frame");
+                  TreineticEpubReader.open("{{livre.document.url}}");
+              
+                  $(".increase-font-size").on("click",function () {
+                      var ext = TreineticEpubReader.handler();
+                      var range = ext.getRecommendedFontSizeRange();
+                      var current = ext.getCurrentReaderSettings().fontSize;
+                      if (current + 5 <= range.max) {
+                          font_size = current + 5;
+                          ext.changeFontSize(font_size);
+                          setViewFontSize(font_size);
+                      }
+                  });
+              
+                  $(".decrease-font-size").on("click",function () {
+                      var ext = TreineticEpubReader.handler();
+                      var range = ext.getRecommendedFontSizeRange();
+                      var current = ext.getCurrentReaderSettings().fontSize;
+                      if (range.min <= current - 5) {
+                          font_size = current - 5;
+                          ext.changeFontSize(font_size);
+                          setViewFontSize(font_size);
+                      }
+                  });
+              
+                  $("body").on("click",".theme-color-block",function () {
+                      var id = $(this).data("theme-id");
+                      setViewTheme(id);
+                      TreineticEpubReader.handler().setTheme(id);
+                  });
+              
+                  $(".vertical-view").on("click",function () {
+                      setViewType("v");
+                      $("#reading-area").removeClass("reading-area-margin");
+                      setTimeout(() => {
+                          let ext = TreineticEpubReader.handler();
+                          ext.setScrollOption("scroll-continuous");
+                          ext.setDisplayFormat("single");
+                      }, 500);
+                  });
+              
+                  $(".horizontal-view").on("click",function () {
+                      setViewType("h");
+                      setTimeout(() => {
+                          let ext = TreineticEpubReader.handler();
+                          ext.setScrollOption("auto");
+                          ext.setDisplayFormat("auto");
+                          $("#reading-area").addClass("reading-area-margin");
+                      }, 500);
+                  });
+              
+                  $(".prev-button").on("click",function () {
+                      $(".pre-next-wrapper").removeClass("noPreview");
+                      $(".pre-next-wrapper").removeClass("noNext");
+                      let etc = TreineticEpubReader.handler();
+                      if (etc.hasPrevPage()) {
+                          etc.prevPage();
+                          if(!etc.hasPrevPage()){
+                              $(".pre-next-wrapper").addClass("noPreview");
+                          }
+                      }else{
+                          $(".pre-next-wrapper").addClass("noPreview");
+                      }
+                  });
+              
+                  $(".next-button").on("click",function () {
+                      $(".pre-next-wrapper").removeClass("noPreview");
+                      $(".pre-next-wrapper").removeClass("noNext");
+                      let etc = TreineticEpubReader.handler();
+                      if (etc.hasNextPage()) {
+                          etc.nextPage();
+                          if(!etc.hasNextPage()){
+                              $(".pre-next-wrapper").addClass("noNext");
+                          }
+                      }else{
+                          $(".pre-next-wrapper").addClass("noNext");
+                      }
+                  });
+                  
+                  $(".drawer-box").on("click",function () {
+                      toggleDrawer();
+                  });
+                  $(".drawer-backdrop").on("click",function () {
+                      toggleDrawer();
+                  });
+              
+                  $("body").on("click",".toc-item",function () {
+                      var link = $(this).data("link");
+                      let etc = TreineticEpubReader.handler();
+                      etc.goToPage(link)
+                      setTimeout(function () {
+                          $(".drawer-backdrop").hide();
+                      },500);
+                      $(".drawer-section").removeClass("drawer-section-show");
+                  })
+              
+              
+              
+                  function setViewFontSize(size){
+                      $(".font-size-view").html(size+"%");
+                  }
+              
+                  function setViewType(type) {
+                      console.log("view type..... "+type)
+                      $(".horizontal-view").removeClass("sc-selected");
+                      $(".vertical-view").removeClass("sc-selected");
+                      if(type == "h"){
+                          $(".horizontal-view").addClass("sc-selected")
+                          $(".page-controls").addClass("page-controls-visible");
+                      }else if(type =="v"){
+                          $(".page-controls").removeClass("page-controls-visible");
+                          $(".vertical-view").addClass("sc-selected")
+                      }
+                  }
+              
+                  function setViewTheme(id) {
+                      if(id == "night-theme"){
+                          $(".page-controls").addClass("night-mode-rest")
+                          $(".nav-design").addClass("night-mode-rest")
+                      }else{
+                          $(".page-controls").removeClass("night-mode-rest")
+                          $(".nav-design").removeClass("night-mode-rest")
+                      }
+                      $(".theme-color-block").removeClass("th-selected");
+                      $(".theme-color-block[data-theme-id='"+id+"']").addClass("th-selected");
+                      current_theme = id;
+                  }
+                  
+                  function setTheams(themearray) {
+                      themearray.some(function (theme) {
+                          $(".theme-buttons-section").append('<div class="theme-color-block '+theme.id+'"  data-theme-id="'+theme.id+'"></div>');
+                      });
+                  }
+              
+              
+                  function crateOL_Recursively(json) {
+                      var string = "<ol class='toc-ol'>";
+                      json.some(function (item) {
+                          string += `<li><a class="toc-item" data-link="${item.Id_link}">${item.name}</a>`;
+                          if (item.sub.length > 0) {
+                              string += crateOL_Recursively(item.sub);
+                          }
+                          string += "</li>";
+                      });
+                      return string + "</ol>";
+                  }
+              
+                  function toggleDrawer() {
+                      if($(".drawer-section").hasClass("drawer-section-show")){
+                          setTimeout(function () {
+                              $(".drawer-backdrop").hide();
+                          },500);
+                          $(".drawer-section").removeClass("drawer-section-show");
+                      }else{
+                          $(".drawer-backdrop").show();
+                          setTimeout(function () {
+                              $(".drawer-section").addClass("drawer-section-show");
+                          });
+                      }
+                  }
+              
+              });
+              
+                  </script>              
+                  
     </div>
 </div> <!-- end container-->
 </main>
 
   
   <!-- ======= Footer ======= -->
-  <footer id="footer">
-
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>horizon</h3>
-            <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 929 289 7376<br>
-              <strong>Email:</strong> peronneaumoliere@gmail.com<br>
-              <strong><a class="text-white" href="#1">Contact</a></strong>
-            </p>
-          </div>
-
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Liens utils</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Accueil</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">A propos</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Nos Services aux membres</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="container d-md-flex py-4">
-
-      <div class="mr-md-auto text-center text-md-left">
-        <div class="copyright">
-          &copy; Copyright <strong><span>Horizon</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/company-free-html-bootstrap-template/ -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade and Horizon</a>
-        </div>
-      </div>
-      <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
+  
 
   <a href="#" class="back-to-top "><i class="icofont-simple-up "></i></a>
 

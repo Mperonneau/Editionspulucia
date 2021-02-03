@@ -1,0 +1,86 @@
+{% if theme_par %}
+{% for livre in livre %}
+
+<div class="col-6 col-md-2 ">
+{% if request.user.is_authenticated %}
+<form action="{% url 'add-book-categorie' livre.categorie.categorie livre.pk %}" method="post" id="form-add">
+  {% csrf_token %}
+  {% if request.user in livre.book_add.all %}
+  <button type="submit" id="like" name="post_id" value="{{book.id}}"   
+  class="btn btn-link" style="position: absolute; top:-5%; left:1%; color:green; z-index:1; font-size:30px">
+        <i class="fas fa-check"></i> </button>
+  {% else %}
+  <button type="submit" id="like" name="post_id" value="{{book.id}}"   
+  class="btn btn-link" style="position: absolute; top:-5%; left:1%; color:green; z-index:1; font-size:30px">
+    <i class="fas fa-plus-circle "></i> </button>
+  {% endif %}
+</form>
+{% else %}
+<a data-toggle="modal" data-target="#exampleModal" class="btn btn-link" style="position: absolute; top:-5%; left:1%; color:green; z-index:1; font-size:30px"><i class="fas fa-plus-circle"></i></a>
+{% endif %} <!-- endif request.user.is_authenticated-->
+<div class="card card-blog">
+    <div class="card-img" >
+
+      <a target="_blank" href="{% url 'reader' livre.pk %}"><img  src="{{livre.image_cover.url}}" alt="" class="img-fluid"> </a>
+      
+    </div>
+    <div style="margin:0px; font-style:justify; font-size:12px; color:blue; font-weight: bold;margin-left: 2px; "> 
+      {{livre.titre}}<br> <span style="font-weight: bold; font-size: 11px; margin-right: 3px; color:gray">
+        <i class="fas fa-user"></i> {{livre.auteur}}</span></div>
+        
+
+  </div>
+</div>
+
+{% endfor %}
+{% else %}
+{% for livre in livre %}
+
+<div class="col-6 col-md-2 ">
+{% if request.user.is_authenticated %}
+<form action="{% url 'add-book' livre.pk %}" method="post" id="form-add">
+  {% csrf_token %}
+  {% if request.user in livre.book_add.all %}
+  <button type="submit" id="like" name="post_id" value="{{book.id}}"   
+  class="btn btn-link" style="position: absolute; top:-5%; left:1%; color:green; z-index:1; font-size:30px">
+        <i class="fas fa-check"></i> </button>
+  {% else %}
+  <button type="submit" id="like" name="post_id" value="{{book.id}}"   
+  class="btn btn-link" style="position: absolute; top:-5%; left:1%; color:green; z-index:1; font-size:30px">
+    <i class="fas fa-plus-circle "></i> </button>
+  {% endif %}
+</form>
+{% else %}
+<a data-toggle="modal" data-target="#exampleModal" class="btn btn-link" style="position: absolute; top:-5%; left:1%; color:green; z-index:1; font-size:30px"><i class="fas fa-plus-circle"></i></a>
+{% endif %} <!-- endif request.user.is_authenticated-->
+<div class="card card-blog">
+    <div class="card-img" >
+
+      <a target="_blank" href="{% url 'reader' livre.pk %}"><img  src="{{livre.image_cover.url}}" alt="" class="img-fluid"> </a>
+      
+    </div>
+    <div style="margin:0px; font-style:justify; font-size:12px; color:blue; font-weight: bold;margin-left: 2px; "> 
+      {{livre.titre}}<br> <span style="font-weight: bold; font-size: 11px; margin-right: 3px; color:gray">
+        <i class="fas fa-user"></i> {{livre.auteur}}</span></div>
+        
+
+  </div>
+</div>
+
+{% endfor %}
+{% endif %}
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
