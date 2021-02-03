@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
     "sslserver",
-    'social_django',
     'django_filters',
     'mathfilters', # pip install django-mathfilters: to do calcul in django template
     'pulucia_web',  
