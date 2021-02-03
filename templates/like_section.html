@@ -1,0 +1,33 @@
+{% load mathfilters %}
+<ul class="list-inline">
+<li>
+
+{% if request.user.is_authenticated %}
+<form action="{% url 'like_post' article.pk %}" method="post">
+  {% csrf_token %}
+  {% if request.user in article.likes.all %}
+    <button type="submit" id="like" name="post_id" value="{{post.id}}" class="btn"  style="background: blue; color:white"><i class="fas fa-check"></i> J'aime</button>
+  {% else %}
+    <button type="submit" id="like" name="post_id" value="{{post.id}}" class="btn" 
+    style="background: blue; color:white"><i class="fas fa-thumbs-up"></i> J'aime</button>
+  {% endif %}
+</form>
+{% else %}
+<a  href="{% url 'login' %}" class="btn btn-primary" style="background: blue; color:white"><i class="fas fa-thumbs-up"></i></i> J'aime</a>
+{% endif %} <!-- endif request.user.is_authenticated-->
+</li>
+
+{% if request.user in article.likes.all and total_likes == 2 %}
+<li> Vous, et {{total_likes|sub:1}} personne aime ça!</li>
+{% elif request.user in article.likes.all and total_likes > 2  %}
+<li> Vous, et {{total_likes|sub:1}} personne{{total_likes|pluralize}} aiment ça!</li>
+{% elif request.user in article.likes.all and total_likes == 1  %}
+<li> Vous aimez ça!</li>
+{% elif not request.user in article.likes.all and total_likes > 1 %}
+<li> {{total_likes}} personne{{total_likes|pluralize}} aiment ça!</li>
+
+{% else %}
+<li>{{ total_likes }} personne aime ça!</li>
+{% endif %}
+</ul>
+

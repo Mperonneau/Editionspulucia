@@ -1,0 +1,48 @@
+{% load static %}
+
+{% load widget_tweaks %}
+
+{% if user.is_authenticated %}
+<div class="col-md-9 mb-2  m-comment"  >
+  <div class="media g-mb-30 media-comment" >
+  <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30"  >
+      <form method="post" action="{% url 'comment-text' text_d.pk %}" class="js-horaire-create-form" novalidate>
+        {% csrf_token %}
+        <div class="modal-header">
+            <h4 class="modal-title " style="color:darkblue">Poster un commentaire</h4>
+        </div>
+        <div class="modal-body  ">
+          {% for field in form %}
+            <div class="form-group{% if field.errors %} has-error{% endif %}">
+             
+              {% render_field field class="form-control" %}
+              {% for error in field.errors %}
+                <p class="help-block">{{ error }}</p>
+              {% endfor %}
+            </div>
+          {% endfor %}
+          <button type="submit" class="btn btn-primary" >Poster</button>
+        </div>
+    </form>
+  </div>
+</div>
+</div>
+{% else %}
+<div class="col-md-9 mb-2  m-comment"  >
+  <div class="media g-mb-30 media-comment" >
+  <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30 text-center"  >
+      <a class="btn btn-success" href="{% url 'login' %}"> Login et laisser un commentaire</a>
+  </div>
+</div>
+</div>
+{% endif %}
+    
+    
+  
+ 
+ 
+
+
+
+
+

@@ -23,6 +23,50 @@
   text-decoration:none;
 
 }
+.row:before, .row::after{
+            display:none !important;
+        }
+
+  @media only screen
+    and (max-device-width : 768px)
+    and (max-device-width : 991px){
+  .mobile-nav-toggle {
+    position:fixed;
+   top:8px
+}}
+
+.margin_section{
+  margin-bottom:-1%;
+   margin-top:-2%
+}
+
+@media only screen
+    and (max-device-width : 768px)
+    and (max-device-width : 991px){
+  .margin_section {
+    font-family: Galada; 
+    font-size: 45px; 
+    font-style: italic;
+     
+}}
+
+@media only screen
+    and (min-device-width : 768px)
+    and (min-device-width : 991px){
+  .margin_section {
+    font-family: Galada; 
+    font-size: 50px; 
+    font-style: italic;
+     
+}}
+
+@media only screen
+    and (max-device-width : 768px)
+    and (max-device-width : 991px){
+.head_mission{
+  display:none;
+
+}}
 </style>
 
 <section id="hero">
@@ -32,38 +76,31 @@
   <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
     <div class="carousel-inner" role="listbox">
 
-      <!-- Slide 1 -->
-      
       <div class="carousel-item active" style="background-image: url('{% static 'img/slide/slide-1.jpg' %}')">
         <div class="carousel-container">
           <div class="carousel-content animate__animated animate__fadeInUp">
             <h2>Bienvenue <span>aux Editions Pulucia</span></h2>
-            <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+            <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam.
+               Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus 
+               deleniti vel. Minus et tempore modi architecto.</p>
           </div>
         </div>
       </div>
 
-      <!-- Slide 2 -->
-      <div class="carousel-item" style="background-image: url('{% static 'img/slide/slide-2.jpg' %}');">
+      <!-- Slide 1 -->
+      {% for carousel in carousel %}
+      <div class="carousel-item " style="background-image: url('{{carousel.image.url}}')">
         <div class="carousel-container">
           <div class="carousel-content animate__animated animate__fadeInUp">
             <h2>Bienvenue <span>aux Editions Pulucia</span></h2>
-            <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-            <div class="text-center"><a href="#1" class="btn-get-started">Devenir membre</a> <a href="#1" class="btn-get-started">Devenir volontaire</a></div>
+            <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam.
+               Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus 
+               deleniti vel. Minus et tempore modi architecto.</p>
           </div>
         </div>
       </div>
+      {% endfor %}
 
-      <!-- Slide 3 -->
-      <div class="carousel-item" style="background-image: url('{% static 'img/slide/slide-3.jpg' %}');">
-        <div class="carousel-container">
-          <div class="carousel-content animate__animated animate__fadeInUp">
-            <h2>Bienvenue <span>aux Editions Pulucia</span></h2>
-            <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-            <div class="text-center"><a href="#1" class="btn-get-started">Devenir membre</a> <a href="#1" class="btn-get-started">Devenir volontaire</a></div>
-          </div>
-        </div>
-      </div>
 
     </div>
 
@@ -89,12 +126,12 @@
     <div class="container" data-aos="fade-up">
 
       <div class="section-title aos-init aos-animate" data-aos="fade-up">
-        <h3 style="font-family: Galada; font-size: 50px; font-style: italic;">A propos de nous</h3>
+        <p  class="margin_section">A propos de nous</p>
       </div>
 
       <div class="row content">
         <div class="col-lg-6" data-aos="fade-right">
-          <h2>Eum ipsam laborum deleniti velitena</h2>
+          <h2 class="head_mission">Eum ipsam laborum deleniti velitena</h2>
           <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assum perenda sruen jonee trave</h3>
         </div>
         <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left">
@@ -124,195 +161,128 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="section-title aos-init aos-animate" data-aos="fade-up">
-            <h3 style="font-family: Galada; font-size: 50px; font-style: italic;">Nos recents blogs</h3>
+            <p class="margin_section">Nos recents articles</p>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4" data-aos="zoom-in">
+        {% for blog in blog1 %}
+        <div class="col-md-4 mb-4" data-aos="zoom-in">
           <div class="card card-blog">
             <div class="card-img">
-              <a href="{% url 'article' %}"><img src="static/img/post-1.jpg" alt="" class="img-fluid"></a>
+              <a href="{% url 'article' blog.pk %}"><img src="{{blog.image.url}}" alt="" class="img-fluid"></a>
             </div>
             <div class="card-body">
               <div class="card-category-box">
-                <div class="card-category">
-                  <h6 class="category">Culture</h6>
-                </div>
               </div>
-              <h3 class="card-title text-justify headline-article"><a  href="{% url 'article' %}">Rodlin Christolin en résidence dans la cité Alcibiade Pommayrac</a></h3>
+              <h3 class="card-title text-justify headline-article"><a  href="{% url 'article' blog.pk %}">{{blog.titre}}</a></h3>
               <p class="card-description">
-                Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-                a pellentesque nec,
-                egestas non nisi.
+                <a href="{% url 'article' blog.pk %}" class="text-decoration-none text-dark">{{ blog.text|truncatewords:20 }}</a>
               </p>
             </div>
-            <div class="card-footer">
-              <div class="post-author">
-               
-                  <img src="assets/img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-                  <span class="author">Morgan Freeman</span>
-                
-              </div>
-              <div class="post-date">
-                <span class="ion-ios-clock-outline"></span> 10 min
-              </div>
-            </div>
+           
           </div>
         </div>
-        <div class="col-md-4" data-aos="zoom-in">
-          <div class="card card-blog">
-            <div class="card-img">
-              <a href="{% url 'article' %}"><img src="static/img/post-2.jpg" alt="" class="img-fluid"></a>
-            </div>
-            <div class="card-body">
-              <div class="card-category-box">
-                <div class="card-category">
-                  <h6 class="category">Culture</h6>
-                </div>
-              </div>
-              <h3 class="card-title text-justify headline-article"><a href="{% url 'article' %}">Rodlin Christolin en résidence dans la cité Alcibiade Pommayrac</a></h3>
-              <p class="card-description">
-                Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-                a pellentesque nec,
-                egestas non nisi.
-              </p>
-            </div>
-            <div class="card-footer">
-              <div class="post-author">
-               
-                  <img src="assets/img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-                  <span class="author">Anccion Pierre-Paul</span>
-               
-              </div>
-              <div class="post-date">
-                <span class="ion-ios-clock-outline"></span> 10 min
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="zoom-in">
-          <div class="card card-blog">
-            <div class="card-img">
-              <a href="{% url 'article' %}"><img src="static/img/post-3.jpg" alt="" class="img-fluid"></a>
-            </div>
-            <div class="card-body">
-              <div class="card-category-box">
-                <div class="card-category">
-                  <h6 class="category">Culture</h6>
-                </div>
-              </div>
-              <h3 class="card-title text-justify headline-article"><a href="{% url 'article' %}">Rodlin Christolin en résidence dans la cité Alcibiade Pommayrac</a></h3>
-              <p class="card-description">
-                Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-                a pellentesque nec,
-                egestas non nisi.
-              </p>
-            </div>
-            <div class="card-footer">
-              <div class="post-author">
-                <a href="#">
-                  <img src="assets/img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-                  <span class="author">Morgan Freeman</span>
-                </a>
-              </div>
-              <div class="post-date">
-                <span class="ion-ios-clock-outline"></span> 10 min
-              </div>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
+
       </div> <!--end row-->
     </div>
-   
+  
   </section>
+  <style>
+    .modal-backdrop {
+  z-index: -1;
+}
+  </style>
   <section id="team" class="team section-bg" data-aos="fade-up" style="background-color: white;">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
           <div class="section-title aos-init aos-animate" data-aos="fade-up">
-            <h3 style="font-family: Galada; font-size: 50px; font-style: italic;">Nos affiches</h3>
+            <p class="margin_section">Nos affiches</p>
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row" >
 
-        <div class="col-md-4" data-aos="zoom-in" style="margin-bottom: 20px;">
+        {% for affiche in affiche %}
+
+        <div class="col-md-4 mb-3 " data-aos="zoom-in" style="margin-bottom: 20px;">
           <div class="card card-blog shadow-card ">
             <div class="card-img">
-              <a href="#1"><img  src="static/img/affiche.jpg" alt="" class="img-fluid img-size"></a>
+              <a href="#1"><img  src="{{affiche.image.url}}" alt="" class="img-fluid img-size" style="height: 400px;"></a>
+              <button type="submit" data-toggle="modal" data-target="#example"  
+              class="ml-3 affiche{{affiche.pk}} btn btn-link  text-success font-weight-bold"><i class="icofont-arrow-right"></i> Plus d'infos..</button>
             </div>
           </div>
         </div>
-
-
-        <div class="col-md-4" data-aos="zoom-in">
-          <div class="card card-blog shadow-card">
-            <div class="card-img">
-              <a href="blog-single.html"><img style="height: 450px;" src="static/img/affiche.jpg" alt="" class="img-fluid img-size"></a>
+        <!--<script>
+          onclick="myFunction{{affiche.pk}}()"
+          function myFunction{{affiche.pk}}() {
+            swal({ title:"{{affiche.titre}}", text: "{{affiche.message}}" });
+          }
+          </script>-->
+          <div class="modal fade " id="example" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog  modal-dialog-centered" role="document">
+              <div class="modal-content message_affiche shadow-card">
+                
+                {% include 'message_affiche.html' %}
+                
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="col-md-4" data-aos="zoom-in">
-          <div class="card card-blog shadow-card">
-            <div class="card-img">
-              <a href="#1"><img style="height: 450px;" src="static/img/affiche.jpg" alt="" class="img-fluid img-size"></a>
-            </div>
-          </div>
-        </div>
+          <script type="text/javascript">
+            $(document).on('click', '.affiche{{affiche.pk}}', function(event){
+                      event.preventDefault();
+                     // var pk = $(this).attr('value');
+                      $.ajax({
+                        type: 'POST',
+                        url: "{% url 'affiche' affiche.pk %}",
+                        data: { 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                        dataType: 'json',
+                        success: function(response){
+                          $('#example').appendTo("body") 
+                          $('.message_affiche').html(response['form'])
+                          console.log($('.message_affiche').html(response['form']));
+                        },
+                        error: function(rs, e){
+                          console.log(rs.responseText);
+                        },
+                      });
+                    });
+            </script>
+          
+        {% endfor %}
       </div> <!--end row-->
     </div>
   </section>
+  
+
 
   <!-- ======= Services Section ======= -->
   <section id="more-services" class="more-services" data-aos="fade-up" style="background-color: whitesmoke;"> 
     <div class="container">
       <div class="col-sm-12">
         <div class="section-title aos-init aos-animate" data-aos="fade-up">
-          <h3 style="font-family: Galada; font-size: 50px; font-style: italic;">Nos recents evènements</h3>
+          <p class="margin_section">Nos recents evènements</p>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-md-6 d-flex align-items-stretch" data-aos="zoom-in"> 
-          <div class="card aos-init aos-animate" style="background-image: url(static/img/more-services-1.jpg);" data-aos="fade-up" data-aos-delay="100">
+        {% for evenement in evenement %}
+        <div class="col-md-6 d-flex align-items-stretch mb-4" data-aos="zoom-in"> 
+          <div class="card aos-init aos-animate" style="background-image: url({{evenement.image_cover.url}});" data-aos="fade-up" data-aos-delay="100">
             <div class="card-body body-color">
-              <h5 class="card-title"><a href="{% url 'evenement' %}">Prix Dominique Batraville 2020</a></h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua.</p>
-              <div class="read-more"><a href="{% url 'evenement' %}"><i class="icofont-arrow-right"></i> Voir plus</a></div>
+              <h5 class="card-title"><a href="{% url 'evenement' evenement.pk %}">{{evenement.titre}}</a></h5>
+              <p class="card-text">{{ evenement.description|truncatewords:20 }}</p>
+              <div class="read-more font-weight-bold"><a href="{% url 'evenement' evenement.pk %}"><i class="icofont-arrow-right"></i> Voir plus</a></div>
             </div>
           </div>
         </div>
-        <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0"  data-aos="zoom-in">
-          <div class="card aos-init aos-animate" style="background-image: url(&quot;static/img/more-services-2.jpg&quot;);" data-aos="fade-up" data-aos-delay="200">
-            <div class="card-body body-color">
-              <h5 class="card-title"><a href="">Limere Radses</a></h5>
-              <p class="card-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem doloremque laudantium, totam rem.</p>
-              <div class="read-more"><a href="#"><i class="icofont-arrow-right"></i> Read More</a></div>
-            </div>
-          </div>
+        {% endfor %}
 
-        </div>
-        <div class="col-md-6 d-flex align-items-stretch mt-4"  data-aos="zoom-in">
-          <div class="card aos-init aos-animate" style="background-image: url(&quot;static/img/more-services-2.jpg&quot;);" data-aos="fade-up" data-aos-delay="100">
-            <div class="card-body body-color">
-              <h5 class="card-title"><a href="">Nive Lodo</a></h5>
-              <p class="card-text">Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores.</p>
-              <div class="read-more"><a href="#"><i class="icofont-arrow-right"></i> Read More</a></div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 d-flex align-items-stretch mt-4"  data-aos="zoom-in">
-          <div class="card aos-init aos-animate" style="background-image: url(&quot;static/img/more-services-1.jpg&quot;);" data-aos="fade-up" data-aos-delay="200">
-            <div class="card-body body-color">
-              <h5 class="card-title"><a href="">Pale Treda</a></h5>
-              <p class="card-text">Nostrum eum sed et autem dolorum perspiciatis. Magni porro quisquam laudantium voluptatem.</p>
-              <div class="read-more"><a href="#"><i class="icofont-arrow-right"></i> Read More</a></div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+      </div><!-- endrow-->
 
     </div>
     
@@ -324,7 +294,7 @@
     <div class="container">
 
       <div class="section-title aos-init aos-animate" data-aos="fade-up">
-        <h3 style="font-family: Galada; font-size: 50px; font-style: italic;">Notre Equipe</h3>
+        <p class="margin_section">Notre Equipe</p>
       </div>
 
       <div class="row">
@@ -411,7 +381,7 @@
     <div class="container" data-aos="fade-up">
 
       <div class="section-title aos-init aos-animate" data-aos="fade-up">
-        <h3 style="font-family: Galada; font-size: 50px; font-style: italic;">Nos Partenaires</h3>
+        <p class="margin_section">Nos Partenaires</p>
       </div>
 
       <div class="row no-gutters clients-wrap clearfix" data-aos="fade-up">
@@ -473,3 +443,7 @@
 
 
 {% endblock %}
+
+{% block js %}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  {% endblock %}

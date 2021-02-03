@@ -70,30 +70,23 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #header {
   background: #fff;
-  transition: all 0.5s;
+  transition: top 0.5s;
   z-index: 997;
   padding: 4px 0;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
+@media only screen
+    and (max-device-width : 768px)
+    and (max-device-width : 991px){
+  .mobile-nav-toggle {
+  position:fixed;
+   top:8px
+     
+}}
 
-#header .logo {
-  font-size: 28px;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
 
-#header .logo a {
-  color: #111;
-}
 
-#header .logo a span {
-  color: #1bbd36;
-}
 
 #header .logo  {
   max-height: 40px;
@@ -1595,6 +1588,10 @@ section {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.row:before, .row::after{
+  display:none !important;
 }
 
 /*--------------------------------------------------------------

@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '05yt^+j8snkvtutmmc=ox)v&2_qk(%7pv)-@3%o5ntz5^tfvp8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['pulucia.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['pulucia.herokuapp.com', '127.0.0.1','192.168.1.3', 'localhost'] #192.168.1.5: test the web on phone....
 
 
 # Application definition
@@ -39,8 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pulucia_web'
-    
+    'widget_tweaks',
+    "sslserver",
+    'social_django',
+    'django_filters',
+    'mathfilters', # pip install django-mathfilters: to do calcul in django template
+    'pulucia_web',  
 ]
 
 MIDDLEWARE = [
@@ -52,6 +56,57 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+
+
+#---------------------------------------------------------------------------
+#social_app/settings.py
+
+#add this
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.facebook.FacebookOAuth2',
+     'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+  
+    
+]
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'redirect'
+
+
+# Facebook
+SOCIAL_AUTH_FACEBOOK_KEY = '3839180016106466'       # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '8542da8d2b513d6f77b002bb122beae5'  # App Secret
+
+# in way to get more infos from the account facebook user's
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link'] # add this 
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {       # add this
+  'fields': 'id, name, email, picture.type(large), link'
+}
+SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [                 # add this
+    ('name', 'name'),
+    ('email', 'email'),
+    ('picture', 'picture'),
+    ('link', 'profile_url'),
+]
+
+#Google
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '706304577978-262rf4meke4nb3a06efn12lrhmv55vco.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'xSEeoD1HQYXXFKoIzJHACmap'
+
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_IGNORE_DEFAULT_SCOPE = True
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
+    'https://www.googleapis.com/auth/userinfo.email',
+    'https://www.googleapis.com/auth/userinfo.profile'
+]
+
+
+
+
+#----------------------------------------------------------------------------
 
 ROOT_URLCONF = 'pulucia.urls'
 
@@ -68,6 +123,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends', # add this # login social media account
+                'social_django.context_processors.login_redirect', # add this #login with social media account
             ],
         },
     },
@@ -125,10 +182,26 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 STATICFILES_DIRS = (
      os.path.join(BASE_DIR, 'static'),
 )
 
 
+
+
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+
+
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'peronneaumoliere@gmail.com'
+EMAIL_HOST_PASSWORD = 'ppcjvfnnnrohfngc'

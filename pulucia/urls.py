@@ -29,25 +29,74 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', views.index_page, name='index_page'),
+    path('affiche/<int:pk>', views.affiche, name='affiche'),
+
     path('librairie/', views.librairie, name='librairie'),
-    path('librairie/livre', views.livre, name='livre'),
+    path('librairie/livre/<int:pk>', views.livre, name='livre'),
+    path('librairie/search/<slug:slug>', views.librairie_search, name='librairie-search'),
+
     path('bibliotheque', views.bibliotheque, name='bibliotheque'),
-    path('reader', views.reader, name='reader'),
-    path('evenement', views.evenement, name='evenement'),
-    path('evenement-main-page', views.evenement_main, name='evenement-main'),
+    path('bibliotheque/search/<slug:slug>', views.bibliotheque_search, name='bibliotheque-search'),
+    path('reader/<int:pk>', views.reader, name='reader'),
+    path('bibliotheque/add-book/<int:pk>', views.add_book_profile, name='add-book'),
+    path('bibliotheque/add-book-categorie/<slug:slug>/<int:pk>', views.add_book_profile_categorie, name='add-book-categorie'),
+    
+    path('bibliotheque/remove-book/<int:pk>', views.remove_book_profile, name='remove-book'),
+
+
+
+    path('evenement/<int:pk>', views.evenement, name='evenement'),
+    path('evenement-main-page', views.evenement_main1, name='evenement-main'),
     path('blog', views.blog, name='blog'),
-    path('blog/article', views.article, name='article'),
-    path('publication', views.publication, name='publication'),
-    path('publication/text', views.text, name='text'),
-    path('projet', views.projet, name='projet'),
-    path('projet/projet-details', views.projet_details, name='projet-details'),
-    path('login', views.login, name='login'),
+    path('blog/article/<int:pk>', views.article, name='article'),
+
+    path('comment/article/<int:pk>', views.comment_article1, name='comment'),
+    path('comment/publication/<int:pk>', views.comment_text1, name='comment-text'),
+
+    path('publication', views.publication1, name='publication'),
+    path('publication/text/<int:pk>', views.text1, name='text1'),
+    path('publication/search/<slug:slug>', views.publication_search_categorie, name='publication-search'),
+    path('publication/search-theme/<slug:slug>', views.publication_search_theme, name='publication-search-theme'),
+
+
+    path('projet', views.projet_main, name='projet'),
+    path('projet/projet-details/<int:pk>', views.projet_details, name='projet-details'),
+
+    path('login', views.login_profile, name='login'),
+    path('redirect/', views.redirect_social, name='redirect'),
+    path('logout', views.logout_page, name='logout'),
     path('inscrire', views.inscrire, name='inscrire'),
 
+    path('profile/', views.profile, name='profile'),
 
+    path('like/<int:pk>', views.like_post, name="like_post"),
+    path('publication/like/<int:pk>', views.like_text, name="like_text"),
+
+    path('article/share/<int:pk>', views.share_article, name="share-article"),
+    path('publication/share/<int:pk>', views.share_text, name="share-text"),
+
+    path('videos', views.videos, name='videos'),
+    path('social-auth/', include('social_django.urls', namespace="social")),
     path('temoignages/', views.temoignages, name='temoignages'),
-     path('a-propos/', views.a_propos, name='a_propos'),
+    path('a-propos/', views.a_propos, name='a_propos'),
     path('admin/', admin.site.urls),
+
+    #reset password=======================================================
+    path('reset_password/',
+     auth_views.PasswordResetView.as_view(template_name="reset-password.html"),
+     name="reset_password"),
+
+    path('reset_password_sent/', 
+        auth_views.PasswordResetDoneView.as_view(template_name="email-password-sent.html"), 
+        name="password_reset_done"),
+
+    path('reset/<uidb64>/<token>/',
+     auth_views.PasswordResetConfirmView.as_view(template_name="password-reset-confirm.html"), 
+     name="password_reset_confirm"),
+
+    path('reset_password_complete/', 
+        auth_views.PasswordResetCompleteView.as_view(template_name="password-reset-complete.html"), 
+        name="password_reset_complete"),
     
 ]
 
@@ -55,3 +104,7 @@ urlpatterns = [
 #upload image from database
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS) # solve the issue the css doesn't affect the page
+
+
+
