@@ -22,12 +22,45 @@ from django.template.loader import render_to_string
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+# Module to send email when there is a new record 
+from django.core.mail import send_mail
+from django.conf import settings
+from django.db.models.signals import post_save
+from django.dispatch import receiver # for signal django (trigger multiple events)
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 
 
 
 
 # Create your views here.
+
+@receiver(post_save, sender=publication_auteur) 
+def email(sender,  instance, created, **kwargs): 
+    #subject = 'Nouveau Article'
+    #message =instance.auteur 
+    #email_from = settings.EMAIL_HOST_USER
+    #recipient_list = ['peronneaumoliere@gmail.com',]
+    #send_mail( subject, message, email_from, recipient_list )
+    subject, from_email, to = 'Nouveau Article', 'peronneaumoliere@gmail.com', 'peronneaumoliere@gmail.com'
+    #text_content = 'This is an important message.'
+   # html_content = '<p>This is an <strong>important</strong> message.' + instance.auteur + '</p>'
+    #msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+   # msg.attach_alternative(html_content, "text/html")
+   # msg.send()
+
+    #subject, from_email, to = 'Subject', 'from@xxx.com', 'to@xxx.com'
+
+    html_content = render_to_string('temoignages.html') # render with dynamic value
+    text_content = strip_tags(html_content) # Strip the html tag. So people can see the pure text at least.
+
+# create the email, and attach the HTML version as well.
+    msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+    msg.attach_alternative(html_content, "text/html")
+    msg.send()
+
 
 def index_page(request):
     carousel=carousel_image.objects.all().order_by('-date')[:5]
