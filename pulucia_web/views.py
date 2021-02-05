@@ -63,7 +63,7 @@ def email(sender,  instance, created, **kwargs):
     #msg.attach_alternative(html_content, "text/html")
    # msg.send()
 
-    send_mail('Subject here', 'Here is the message.', 'peronneaumoliere@gmail.com', ['peronneaumoliere@gmail.com'], fail_silently=False)
+    send_mail('Subject here', 'Here is the message.', 'peronneaumoliere@gmail.com', ['peronneaumoliere@gmail.com'])
 
 
 
