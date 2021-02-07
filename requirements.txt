@@ -22,3 +22,4 @@ django-social-share==2.1.0
 django-social-widgets==0.4.0
 django-sslserver==0.22
 sendgrid==6.5.0
+social-auth-app-django==4.0.0
