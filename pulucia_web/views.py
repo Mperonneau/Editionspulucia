@@ -54,16 +54,16 @@ def email(sender,  instance, created, **kwargs):
 
 #the html method
     #subject, from_email, to = 'Subject', 'from@xxx.com', 'to@xxx.com'
-    #subject, from_email, to = 'Nouveau Article', 'peronneaumoliere@gmail.com', 'peronneaumoliere@gmail.com'
-    #html_content = render_to_string('temoignages.html') # render with dynamic value
-    #text_content = strip_tags(html_content) # Strip the html tag. So people can see the pure text at least.
+    subject, from_email, to = 'Nouveau Article', 'djangoappmoliere@gmail.com', 'djangoappmoliere@gmail.com'
+    html_content = render_to_string('temoignages.html') # render with dynamic value
+    text_content = strip_tags(html_content) # Strip the html tag. So people can see the pure text at least.
 
 # create the email, and attach the HTML version as well.
-   # msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
-    #msg.attach_alternative(html_content, "text/html")
-   # msg.send()
+    msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+    msg.attach_alternative(html_content, "text/html")
+    msg.send()
 
-    send_mail('Subject here', 'Here is the message.', 'djangoappmoliere@gmail.com', ['djangoappmoliere@gmail.com'])
+    #send_mail('Subject here', 'Here is the message.', 'djangoappmoliere@gmail.com', ['djangoappmoliere@gmail.com'])
 
 
 
