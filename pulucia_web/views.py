@@ -41,7 +41,7 @@ from django.core import mail
 
 @receiver(post_save, sender=publication_auteur) #template: simple email html template codepen (search google)
 def email(sender,  instance, created,  **kwargs): 
-    text_d=livre_librairie.objects.get(pk=2)
+    text_d=blog_pulucia.objects.get(pk=2)
     subject, from_email, to = 'Nouveau Article', 'djangoappmoliere@gmail.com', 'djangoappmoliere@gmail.com'
     html_content = render_to_string('email_template.html', {'text': text_d}) # render with dynamic value
     text_content = strip_tags(html_content) # Strip the html tag. So people can see the pure text at least.
