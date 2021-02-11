@@ -39,40 +39,24 @@ from django.core import mail
 
 # Create your views here.
 
-@receiver(post_save, sender=publication_auteur) 
-def email(sender,  instance, created, **kwargs): 
-    #subject = 'Nouveau Article'
-    #message =instance.auteur 
-    #email_from = settings.EMAIL_HOST_USER
-    #recipient_list = ['peronneaumoliere@gmail.com',]
-    #send_mail( subject, message, email_from, recipient_list )
-    #subject, from_email, to = 'Nouveau Article', 'peronneaumoliere@gmail.com', 'peronneaumoliere@gmail.com'
-    #text_content = 'This is an important message.'
-   # html_content = '<p>This is an <strong>important</strong> message.' + instance.auteur + '</p>'
-    #msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
-   # msg.attach_alternative(html_content, "text/html")
-   # msg.send()
-
-#the html method
-    #subject, from_email, to = 'Subject', 'from@xxx.com', 'to@xxx.com'
-    #subject, from_email, to = 'Nouveau Article', 'djangoappmoliere@gmail.com', 'djangoappmoliere@gmail.com'
-    #html_content = render_to_string('temoignages.html') # render with dynamic value
-    #text_content = strip_tags(html_content) # Strip the html tag. So people can see the pure text at least.
-
-# create the email, and attach the HTML version as well.
-    #msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
-    #msg.attach_alternative(html_content, "text/html")
-    #msg.send()
-
-    #send_mail('Subject here', 'Here is the message.', 'djangoappmoliere@gmail.com', ['djangoappmoliere@gmail.com'])
-    
-    subject = 'That’s your subject' 
-    html_message = render_to_string('temoignages.html')
-    plain_message = strip_tags(html_message)
-    from_email = 'djangoappmoliere@gmail.com' 
-    to = 'djangoappmoliere@gmail.com' 
-
-    mail.send_mail(subject, plain_message, from_email, [to], html_message=html_message)
+@receiver(post_save, sender=publication_auteur) #template: simple email html template codepen (search google)
+def email(sender,  instance, created,  **kwargs): 
+    text_d=livre_librairie.objects.get(pk=2)
+    subject, from_email, to = 'Nouveau Article', 'djangoappmoliere@gmail.com', 'djangoappmoliere@gmail.com'
+    html_content = render_to_string('email_template.html', {'text': text_d}) # render with dynamic value
+    text_content = strip_tags(html_content) # Strip the html tag. So people can see the pure text at least.
+    msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+   # msg.mixed_subtype = 'related' #--
+    msg.attach_alternative(html_content, "text/html")
+    #img_dir = 'static/img'
+   # image = 'logo_pulucia.png'
+   # file_path = os.path.join(img_dir, image)
+    #with open(file_path, 'rb') as f:
+       # img = MIMEImage(f.read())
+        #img.add_header('Content-ID', '<{name}>'.format(name=image))
+        #img.add_header('Content-Disposition', 'inline', filename=image)
+    #msg.attach(img)
+    msg.send()
 
 
 
