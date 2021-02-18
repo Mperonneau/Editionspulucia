@@ -112,7 +112,7 @@
 									<td style="padding-bottom: 10px;">
 										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#0e264b">
 											<tr>
-												<td class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left;"><img src="images/image1.jpg" width="650" height="366" border="0" alt="" /></td>
+												<td class="fluid-img" style="font-size:0pt; line-height:0pt; text-align:left;"><img src="https://pulucia.herokuapp.com{{text.image.url}}" width="650" height="366" border="0" alt="" /></td>
 											</tr>
 											<tr>
 												<td class="p30-15" style="padding: 50px 30px;">
@@ -124,7 +124,8 @@
 														<tr>
 															<td class="text pb20" style="color:#ffffff; font-family:Arial,sans-serif;
 															 font-size:14px; line-height:26px; text-align:left; padding-bottom:20px;">
-															 {{text.text|truncatewords:40}}</td>
+															 <a href="https://pulucia.herokuapp.com{{text.pk}}" target="_blank">
+																 {{text.text|truncatewords:40}}</td></a>
 														</tr>
 														<!-- Button -->
 														<tr>
@@ -134,9 +135,9 @@
 																		<td class="blue-button text-button" style="background:#66c7ff; color:#c1cddc; 
                                                                         font-family:'Muli', Arial,sans-serif; font-size:14px; line-height:18px; 
                                                                         padding:12px 30px; text-align:center; border-radius:0px 22px 22px 22px; 
-                                                                        font-weight:bold;"><a href="#" target="_blank" class="link-white" style="color:#ffffff; 
+                                                                        font-weight:bold;"><a href="https://pulucia.herokuapp.com{{text.pk}}" target="_blank" class="link-white" style="color:#ffffff; 
                                                                         text-decoration:none;"><span class="link-white" style="color:#ffffff;
-                                                                         text-decoration:none;">CLICK HERE</span></a></td>
+                                                                         text-decoration:none;">LIRE PLUS</span></a></td>
 																	</tr>
 																</table>
 															</td>
