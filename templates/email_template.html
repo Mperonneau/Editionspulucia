@@ -159,7 +159,7 @@
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<tr>
 									<td style="padding-bottom: 10px;">
-										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ff6666">
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="skyblue">
 											<tr>
 												<td class="p30-15" style="padding: 50px 30px;">
 													<table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -184,7 +184,7 @@
 																		line-height:26px; text-align:left; padding-bottom:20px;">
 																		<a href="https://pulucia.herokuapp.com/blog/article/{{text1.pk}}" target="_blank"
 															    style="text-decoration:none; color:white">
-																 {{text1.text|truncatewords:40}}</a>
+																 {{text1.text|truncatewords:30}}</a>
 																		</td>
 																	</tr>
 																	<!-- Button -->
@@ -204,13 +204,19 @@
 															<th class="column-top" width="280" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top;">
 																<table width="100%" border="0" cellspacing="0" cellpadding="0">
 																	<tr>
-																		<td class="fluid-img pb25" style="font-size:0pt; line-height:0pt; text-align:left; padding-bottom:25px;"><img src="images/image3.jpg" width="280" height="157" border="0" alt="" /></td>
+																		<td class="fluid-img pb25" style="font-size:0pt; line-height:0pt; text-align:left; padding-bottom:25px;">
+																		<img src="https://pulucia.herokuapp.com{{text2.image.url}}" width="280" height="157" border="0" alt="" /></td>
 																	</tr>
 																	<tr>
-																		<td class="h4 pb20" style="color:#ffffff; font-family:'Muli', Arial,sans-serif; font-size:20px; line-height:28px; text-align:left; padding-bottom:20px;">Lorem ipsum dolor sit amet, consectetur adipisicing</td>
+																		<td class="h4 pb20" style="color:#ffffff; font-family:'Muli', Arial,sans-serif; font-size:20px; line-height:28px;
+																		text-align:left; padding-bottom:20px;">
+																		<a href="https://pulucia.herokuapp.com/blog/article/{{text2.pk}}" target="_blank" style="text-decoration:none; color:white">{{text2.titre}}</a></td>
 																	</tr>
 																	<tr>
-																		<td class="text pb20" style="color:#ffffff; font-family:Arial,sans-serif; font-size:14px; line-height:26px; text-align:left; padding-bottom:20px;">Magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</td>
+																		<td class="text pb20" style="color:#ffffff; font-family:Arial,sans-serif; font-size:14px; line-height:26px; text-align:left; 
+																		padding-bottom:20px;"><a href="https://pulucia.herokuapp.com/blog/article/{{text2.pk}}" target="_blank"
+															    style="text-decoration:none; color:white">
+																 {{text2.text|truncatewords:30}}</a></td>
 																	</tr>
 																	<!-- Button -->
 																	<tr>
