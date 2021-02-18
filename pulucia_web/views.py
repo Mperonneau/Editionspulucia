@@ -42,8 +42,16 @@ from django.core import mail
 @receiver(post_save, sender=publication_auteur) #template: simple email html template codepen (search google)
 def email(sender,  instance, created,  **kwargs): 
     text_d=blog_pulucia.objects.latest('id')
+    text1=blog_pulucia.objects.all().count()
+    text_d1=blog_pulucia.objects.get(pk=(text1-1))
+    text_d2=blog_pulucia.objects.get(pk=(text1-2))
     subject, from_email, to = 'Nouveau Article', 'djangoappmoliere@gmail.com', 'djangoappmoliere@gmail.com'
-    html_content = render_to_string('email_template.html', {'text': text_d}) # render with dynamic value
+    context={
+        'text': text_d,
+        'text1': text_d1,
+        'text2': text_d2,
+    }
+    html_content = render_to_string('email_template.html', context) # render with dynamic value
     text_content = strip_tags(html_content) # Strip the html tag. So people can see the pure text at least.
     msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
    # msg.mixed_subtype = 'related' #--
