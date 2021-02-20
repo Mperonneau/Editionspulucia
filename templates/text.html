@@ -6,6 +6,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
 {% endblock %}
 {% block extra_head %}
 <meta property="og:title" content="{{text_d.titre}}" />
@@ -330,7 +332,7 @@
 
                                     {% if text_d.poeme %}
                                     
-                                        <p class="dark-grey-text article text-center" style="font-family: 'Rouge Script', cursive; font-size:28px;">{{text_d.poeme|linebreaksbr}}</p> 
+                                        <p class="dark-grey-text article text-center" style=" font-size:16px;">{{text_d.poeme|linebreaksbr}}</p> 
                                     {% else %}
                                        <p class="dark-grey-text article1 text-justify" style="line-height:32px;">{{text_d.text|linebreaksbr}} </p>
                                     {% endif %}
@@ -338,7 +340,7 @@
                                     <hr>
                                     <div id='share_article' >
                                         {% include 'share-text.html' %}</p>
-                                    </div>
+                                    </div> 
 
                                     <!-- script for save share text-->
                                     <script type="text/javascript">

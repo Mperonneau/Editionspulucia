@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 import numpy as np
 import random
 
+
+
 # Create your models here.
 sexe_choices=(("Homme","Homme"), ("Femme", "Femme"))
 
@@ -36,6 +38,9 @@ class livre_librairie(models.Model):
     annee=models.IntegerField(blank=False)
     page=models.IntegerField(blank=False)
     cover_image=models.ImageField(upload_to="librairie",  blank=False)
+    document=models.FileField(upload_to="librairie", blank=True)
+    prix=models.PositiveIntegerField(default=0)
+    book_add=models.ManyToManyField(User, blank=True, related_name='book_add2')
     def __str__(self):
         return self.titre_du_livre
 
@@ -96,6 +101,10 @@ class publication_auteur(models.Model):
     auteur=models.CharField(max_length=45, blank=False, unique=True)
     def __str__(self):
         return self.auteur
+
+
+
+    
 
 class publication_theme(models.Model):
     theme=models.CharField(max_length=45, blank=False, unique=True)
@@ -194,6 +203,37 @@ class affiche1(models.Model):
     image=models.ImageField(upload_to="carousel", blank=False)
     def __str__(self):
         return self.titre
+
+
+class don(models.Model):
+    date=models.DateTimeField(auto_now_add=True)
+    projet=models.CharField(max_length=400,   blank=False)
+    nom=models.CharField(max_length=100,   blank=True)
+    email=models.EmailField(blank=True)
+    montant=models.CharField(max_length=100,   blank=False)
+    def __str__(self):
+        return self.projet
+class livre_achat(models.Model):
+    date=models.DateTimeField(auto_now_add=True)
+    user=models.CharField(max_length=400,   blank=False)
+    email=models.EmailField(blank=True)
+    titre=models.CharField(max_length=400,   blank=False)
+    montant=models.CharField(max_length=100,   blank=False)
+    def __str__(self):
+        return self.titre
+
+class email_info(models.Model):
+    date=models.DateTimeField(auto_now_add=True)
+    email=models.EmailField()
+    def __str__(self):
+        return self.email
+
+
+
+
+
+
+
 
 
 

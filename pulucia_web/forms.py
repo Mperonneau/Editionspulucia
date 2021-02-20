@@ -6,10 +6,11 @@ from django.contrib.auth.models import User
 from django.forms.widgets import PasswordInput
 
 class CreateUserMembre(UserCreationForm):
-    username=forms.CharField(max_length=45)
-    email=forms.EmailField(required=True)
+    username=forms.CharField(max_length=45, label="Nom d'utilisateur")
+    email=forms.EmailField(required=True, label="Adresse electornique")
     first_name=forms.CharField(max_length=45, required=True, label="Prénom")
     last_name=forms.CharField(max_length=45, required=True, label="Nom")
+    
     def __init__(self, *args, **kwargs): # prevent to cursor to go directly to field username.
             super(CreateUserMembre, self).__init__(*args, **kwargs)
             self.fields['username'].widget.attrs.pop("autofocus", None)
@@ -60,3 +61,12 @@ class comment_text_form(forms.ModelForm):
     class Meta:
         model = comment_text2
         exclude = ['date','user','text']
+
+class email_form(forms.ModelForm):
+    class Meta:
+        model=email_info
+        fields="__all__"
+        
+
+    
+

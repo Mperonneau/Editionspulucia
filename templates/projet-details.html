@@ -110,11 +110,117 @@
                                         </div>
                                        </div>
 
-                                       <a href="#1" class="container-fluid text-center btn btn-success font-weight-bold" style="font-size:16px; color:white;">
+                                       <a data-toggle="modal" data-target="#modalpayment" type="button"  class="container-fluid text-center btn btn-success font-weight-bold" style="font-size:16px; color:white;">
                                         <i class="fas fa-hand-holding-usd"></i>  Cliquer ici et faire un don!
 
                                        </a>
+                                       <!-- modal payment don-->
+                                       <div class="modal fade" id="modalpayment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title" id="exampleModalLabel">Choisir un moyen de paiement et faire un don</h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                               
+                                                    
+                                                    
+                                                        <div class="box-element" id="form-wrapper">
+                                                            <form id="form_don" method="POST" action="">
+                                                                {% csrf_token %}
+                                                                <div id="user-info">
+                                                                    <div class="form-field mb-3">
+                                                                        <input  class="form-control" type="text" name="name"  id="name" placeholder="Nom et Prenom">
+                                                                    </div>
+                                                                    <div class="form-field mb-3">
+                                                                        <input  class="form-control" type="email" name="email" id="email" placeholder="Adresse Electronique">
+                                                                    </div>
+                                                                    <div class="form-field mb-5">
+                                                                        <input  class="form-control" type="text" name="don" id="don" placeholder="Montant du don">
+                                                                    </div>
+                                                                    <div class="form-field mb-5">
+                                                                        <input type="hidden" class="form-control" value="{{projet_d.titre}}" name="projet" id="projet" placeholder="Montant du don">
+                                                                    </div>
+                                                                </div>
+                                                                </form>
+                                
+                                                        </div>
+                                                                
+
+                                                <div id="paypal-button-container"></div>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <!--endmodalpayment-->
+                                      
                                     </div>
+                                    <script src="https://www.paypal.com/sdk/js?client-id=AWrTS0pPlZm2-lgpyS346AhjMRWmu1A8Q50ndMPU8JHSoXNGxU43L_490RYHNuBHXkB7H0l1QODgiDoH&currency=USD&disable-funding=credit"></script>
+                                    
+                                    <script>
+                                       
+                                         paypal.Buttons({
+
+                                            // Set up the transaction
+                                            
+                                            createOrder: function(data, actions) {
+                                                return actions.order.create({
+                                                    purchase_units: [{
+                                                        amount: {
+                                                            value: document.getElementById("don").value
+                                                        }
+                                                    }]
+                                                });
+                                            },
+
+                                            // Finalize the transaction
+                                            onApprove: function(data, actions) {
+                                                return actions.order.capture().then(function(details) {
+                                                    // Show a success message to the buyer
+                                                    submitFormData()
+                                                    swal("", "Les Editions Pulucia vous remercient pour votre contribution!", "success");
+
+     
+                                                   // alert('Transaction completed by!');
+                                                });
+                                        }
+                                            }).render('#paypal-button-container');
+                                        </script>
+
+                                    
+                                    
+                                    
+                                    <script type="text/javascript">
+                                  function  submitFormData(){
+                                        
+                                        $.ajax({
+                                            type:'POST',
+                                            url:'{% url "don-projet" %}',
+                                            data:{
+                                                name:$('#name').val(),
+                                                email:$('#email').val(),
+                                                projet:$('#projet').val(),
+                                                don:$('#don').val(),
+                                                csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+                                                action: 'post'
+                                            },
+                                            success:function(json){
+                                                $('#modalpayment').modal('hide');
+                                                $('.modal-backdrop').remove();
+                                            
+                                            },
+                                        });
+                                    };
+                                </script>
+                                   
+
                                    
 
                                         <!--Grid row-->
@@ -198,4 +304,8 @@
     
 </main>
 
+{% endblock %}
+
+{% block js %}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> <!-- sweetAlert : https://www.freecodecamp.org/news/how-to-build-a-javascript-alert-box-or-popup-window/-->
 {% endblock %}

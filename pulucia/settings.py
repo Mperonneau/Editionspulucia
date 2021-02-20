@@ -27,7 +27,7 @@ SECRET_KEY = '05yt^+j8snkvtutmmc=ox)v&2_qk(%7pv)-@3%o5ntz5^tfvp8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pulucia.herokuapp.com', '127.0.0.1','192.168.1.3', 'localhost'] #192.168.1.5: test the web on phone....
+ALLOWED_HOSTS = ['pulucia.herokuapp.com', '127.0.0.1','192.168.1.2', 'localhost'] #192.168.1.5: test the web on phone....
 
 
 # Application definition
@@ -49,7 +49,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -181,9 +180,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # add for deployment purpose.
-STATIC_ROOT  =   os.path.join(BASE_DIR, 'staticfiles')
-
 STATIC_URL = '/static/'
 
 
@@ -203,17 +199,24 @@ MEDIA_URL = '/media/'
 
 
 
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 #EMAIL_HOST = 'smtp.gmail.com'
 #EMAIL_USE_TLS = True
 #EMAIL_PORT = 587
 #EMAIL_HOST_USER = 'peronneaumoliere@gmail.com'
 #EMAIL_HOST_PASSWORD = 'ppcjvfnnnrohfngc'
 
+
+#configuration for sendgrid!
 SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
 
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'apikey' # this is exactly the value 'apikey'
-EMAIL_HOST_PASSWORD = "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"
+EMAIL_HOST_PASSWORD = "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" # the code generate when create the api key
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+
+# paypal payment 
+PAYPAL_CLIENT_ID  = "AWrTS0pPlZm2-lgpyS346AhjMRWmu1A8Q50ndMPU8JHSoXNGxU43L_490RYHNuBHXkB7H0l1QODgiDoH"
+PAYPAL_SECRET_ID  =  "ELKsvy7D4FWhCyZcW9IyDBEo_JEsmLokiTtUbcrXi7mbqSfqStj4LqG0hT7dK4N0ChfT_g15XADEejO-"
