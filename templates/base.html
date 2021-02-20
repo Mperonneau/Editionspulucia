@@ -155,18 +155,16 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="{% url 'index_page' %}">Accueil</a></li>
+          <li class="active" ><a  href="{% url 'index_page' %}">Accueil</a></li>
 
-          <li class="drop-down"><a href="{% url 'a_propos' %}">A propos</a>
+          <li class="drop-down  "><a href="">A propos</a>
             <ul>
-              <li><a href="{% url 'a_propos' %}">Mission</a></li>
-              <li><a href="{% url 'a_propos' %}">Vision</a></li>
-              <li><a href="{% url 'a_propos' %}">Valeurs</a></li>
+              <li><a href="{% url 'a_propos' %}">A propos</a></li>
               <li><a href="{% url 'temoignages' %}">Temoignages</a></li>
             </ul>
           </li>
 
-          <li><a href="{% url 'bibliotheque' %}">Bibliothèque</a></li>
+          <li ><a href="{% url 'bibliotheque' %}">Bibliothèque</a></li>
           <li><a href="{% url 'librairie' %}">Librairie</a></li>
 
           
@@ -177,12 +175,21 @@
             
           </li>
 
-          <li><a href="{% url 'publication' %}">Publication</a></li>
-          <li><a href="{% url 'blog' %}">Articles</a></li>
+          <li class="drop-down"><a href="">Publication</a>
+            <ul>
+              <li><a href="{% url 'publication' %}">Litteraire</a></li>
+              <li><a href="{% url 'blog' %}">Articles</a></li>
+            </ul>
           
-
+          </li>
         </ul>
       </nav><!-- .nav-menu -->
+      <script> // make the nav green when selected....
+       $(document).ready(function() {
+  $('li.active').removeClass('active');
+  $('a[href="' + location.pathname + '"]').closest('li').addClass('active'); 
+});
+      </script> 
 
       <!--<div class="header-social-links">
         <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
@@ -286,12 +293,36 @@
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Rejoignez nous!</h4>
-            <p>Soumettre votre email et recevoir tous nos mises a jours!</p>
-            <form action="" method="post">
-              <input type="email" name="email" placeholder="Email"><input type="submit" value="Souscrire" >
-            </form>
+            {% include 'email.html' %}
           </div>
+
+          <!-- submit email script-->
+          <script type="text/javascript"> 
+            $(document).on('click', '#submit_email', function(event){
+                      event.preventDefault();
+                      $.ajax({
+                        type: 'POST',
+                        url: '{% url  "email-info"   %}',
+                        data: { 
+                        email2 : $('#email').val(), 
+                        csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+                        action: 'post'},
+                        dataType: 'json',
+                        success: function(data){
+                          if (data.form_is_valid) {
+                            document.getElementById("email-form").reset();
+                            swal("", "Pulucia vous remercie! Votre adresse electronique a été soumis avec succès!", "success");
+                              }
+                          else {
+                            swal("", "Votre adresse electronique est incorrect. Veuillez le coriger et le soumettre à nouveau!", "warning");}
+                        },
+                        error: function(rs, e){
+                          console.log(rs.responseText);
+                        },
+                      });
+                
+                    });
+            </script>
 
         </div>
       </div>
@@ -335,6 +366,9 @@
   <script src="{% static 'vendor/waypoints/jquery.waypoints.min.js' %}"></script>
   <script src="{% static 'vendor/owl.carousel/owl.carousel.min.js' %}"></script>
   <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> <!-- sweetAlert : https://www.freecodecamp.org/news/how-to-build-a-javascript-alert-box-or-popup-window/-->
+  
   
   
   

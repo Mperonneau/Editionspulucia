@@ -24,6 +24,14 @@ class read_only4(admin.ModelAdmin):
     fields = ['titre','auteur', 'categorie','document', 'image_cover', 'book_add']
     readonly_fields = ['book_add']
 
+class read_only5(admin.ModelAdmin):
+    fields = ['projet','nom', 'email','montant']
+    readonly_fields = ['montant', 'projet', 'nom']
+
+class read_only6(admin.ModelAdmin):
+    fields = ['user','email', 'titre','montant']
+    readonly_fields = ['user', 'email', 'titre','montant']
+
 admin.site.register(blog_pulucia, read_only1)
 admin.site.register(comment_article)
 admin.site.register(evenement_main)
@@ -38,6 +46,10 @@ admin.site.register(bibliotheque_domaine)
 admin.site.register(bibliotheque1,  read_only4)
 admin.site.register(carousel_image)
 admin.site.register(affiche1)
+admin.site.register(don, read_only5)
+admin.site.register(livre_achat, read_only6)
+admin.site.register(email_info)
+
 
 
 

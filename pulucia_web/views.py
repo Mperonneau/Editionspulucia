@@ -22,6 +22,7 @@ from django.template.loader import render_to_string
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 # Module to send email when there is a new record 
 from django.core.mail import send_mail
 from django.conf import settings
@@ -30,43 +31,17 @@ from django.dispatch import receiver # for signal django (trigger multiple event
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
+
 from django.core.mail import send_mail
-from django.core import mail
+
+
+
 
 
 
 
 
 # Create your views here.
-
-@receiver(post_save, sender=publication_auteur) #template: simple email html template codepen (search google)
-def email(sender,  instance, created,  **kwargs): 
-    text_d=blog_pulucia.objects.latest('id')
-    text1=blog_pulucia.objects.all().count()
-    text_d1=blog_pulucia.objects.get(pk=(text1-1))
-    text_d2=blog_pulucia.objects.get(pk=(text1-2))
-    subject, from_email, to = 'Nouveau Article', 'djangoappmoliere@gmail.com', 'djangoappmoliere@gmail.com'
-    context={
-        'text': text_d,
-        'text1': text_d1,
-        'text2': text_d2,
-    }
-    html_content = render_to_string('email_template.html', context) # render with dynamic value
-    text_content = strip_tags(html_content) # Strip the html tag. So people can see the pure text at least.
-    msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
-   # msg.mixed_subtype = 'related' #--
-    msg.attach_alternative(html_content, "text/html")
-    #img_dir = 'static/img'
-   # image = 'logo_pulucia.png'
-   # file_path = os.path.join(img_dir, image)
-    #with open(file_path, 'rb') as f:
-       # img = MIMEImage(f.read())
-        #img.add_header('Content-ID', '<{name}>'.format(name=image))
-        #img.add_header('Content-Disposition', 'inline', filename=image)
-    #msg.attach(img)
-    msg.send()
-
-
 
 def index_page(request):
     carousel=carousel_image.objects.all().order_by('-date')[:5]
@@ -348,19 +323,30 @@ def remove_book_profile(request, pk):
 @login_required
 def profile(request):
     book=bibliotheque1.objects.filter(book_add__username=request.user)
+    book1=livre_librairie.objects.filter(book_add__username=request.user)
 
     context={
             'book':book,
+            'book1':book1,
             
         }
     return render(request, 'profile.html', context)
 
 def reader(request, pk):
     livre=bibliotheque1.objects.get(pk=pk)
+    livre1=livre_librairie.objects.get(pk=pk)
     context={
         'livre':livre,
+        'livre1':livre1,
     }
     return render(request, 'reader_bon.html', context)
+
+def reader1(request, pk):
+    livre1=livre_librairie.objects.get(pk=pk)
+    context={
+        'livre1':livre1,
+    }
+    return render(request, 'reader_bon1.html', context)
 
 
 
@@ -508,6 +494,32 @@ def blog(request):
     }
     return render(request, 'blog.html', context)
 
+# send email for each blog save
+from django.core import mail
+from django.template.loader import get_template
+from sendgrid.helpers.mail import *
+from email.mime.image import MIMEImage
+import os
+@receiver(post_save, sender=blog_pulucia) #template: simple email html template codepen (search google)
+def email(sender,  instance, created,  **kwargs): 
+    text_d=blog_pulucia.objects.latest('id')
+    text1=blog_pulucia.objects.all().count()
+    text_d1=blog_pulucia.objects.get(pk=(text1-1))
+    text_d2=blog_pulucia.objects.get(pk=(text1-2))
+    email2=email_info.objects.values_list('email', flat=True)
+    email3=User.objects.values_list('email', flat=True)
+    mergedlist = list(set(list(email2) + list(email3))) # concatenate the two list and remove duplicate value
+   
+    for email1 in  mergedlist:
+        subject, from_email, to = 'Une nouvelle publication des Editions Pulucia', 'djangoappmoliere@gmail.com', str(email1)
+        html_content = render_to_string('email_template.html', {'text': text_d}) # render with dynamic value
+        text_content = strip_tags(html_content) # Strip the html tag. So people can see the pure text at least.
+        msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+        msg.attach_alternative(html_content, "text/html")  
+        msg.send()
+      
+
+    
 
 
 def publication1(request):
@@ -776,4 +788,57 @@ def videos(request):
     }
     return render(request, 'videos.html', context)
 
+def don1(request):
+    if request.POST.get('action') == 'post':
+        name = request.POST.get('name')
+        projet = request.POST.get('projet')
+        email = request.POST.get('email')
+        don1 = request.POST.get('don')
+        don_save = don(nom=name, projet=projet, email=email, montant=don1)
+        don_save.save()
+        message=('Recu de'+ ' ' + name + ' '+ 'un montant de '+ ' '+ don1 + '$' + ' ' + 'pour le projet' + ' '+ projet+ '.')
+        send_mail( 'Don', message, 'djangoappmoliere@gmail.com', ['djangoappmoliere@gmail.com'],
+    fail_silently=False,
+)
+    return redirect('projet')
 
+def achat_livre(request):
+    if request.POST.get('action') == 'post':
+        user_l = request.POST.get('user_l')
+        prix = request.POST.get('prix_l')
+        email = request.POST.get('email')
+        titre1= request.POST.get('titre_l')
+        pk= request.POST.get('pk')
+        livre=livre_achat(user=user_l, email=email, titre=titre1, montant=prix)
+        livre.save()
+        add_livre=get_object_or_404(livre_librairie, pk=pk) 
+        add_livre.book_add.add(request.user)
+
+    return redirect('profile')
+
+
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
+def email_info1(request):
+    data = dict()
+    if request.POST.get('action') == 'post':
+        email1 = request.POST.get('email2')
+        if email_info.objects.filter(email=email1).exists():
+            data['form_is_valid'] = True
+
+        else:
+            try:
+                validate_email(email1)
+
+            except ValidationError:
+                 data['form_is_valid'] = False
+            else:
+                print("good email")
+                email4= email_info(email=email1)
+                email4.save()
+                data['form_is_valid'] = True
+
+    data['html_form'] = render_to_string('email.html',  request=request)
+    return JsonResponse(data)
+
+    

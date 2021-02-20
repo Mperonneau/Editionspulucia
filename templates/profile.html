@@ -100,6 +100,27 @@
                 <div class="state-overview">
                   <span class="h5 text-danger font-italic" ><i class="fas fa-minus-circle"></i></i> : Cliquer et retirer le livre de votre profile!</span>
           <hr>
+          <div class="row"> <!--livre from librairie-->
+
+            {% for book1 in book1 %}
+            <div class="col-6 col-md-2 " data-aos="zoom-in">
+              <!--<a  href="{% url 'remove-book' book1.pk %}"   
+                class="btn btn-link" style="position: absolute; top:-5%; left:1%; color:red; z-index:1; font-size:30px">
+                <i class="fas fa-minus-circle"></i></a>-->
+              <div class="card card-blog">
+                <div class="card-img" >
+                  <a  target="_blank" href="{% url 'reader1' book1.pk %}"><img  src="{{book1.cover_image.url}}" alt="" class="img-fluid"></a>
+                </div>
+                <div style="margin:0px; font-style:justify; font-size:12px; color:blue; font-weight: bold;margin-left: 2px; "> 
+                  {{book1.titre_du_livre}}<br> <span style="font-weight: bold; font-size: 11px; margin-right: 3px; color:gray">
+                    <i class="fas fa-user"></i> {{book1.auteur}}</span></div>                        
+              </div>
+            </div>
+            {% endfor %}
+
+
+            </div> <!--end row-->
+            <hr>
                     <div class="row"> <!-- contenu second col-->
 
                       {% for book in book %}
@@ -120,6 +141,9 @@
 
         
                       </div> <!--end row-->
+                    
+
+                      
                 </div>
         
             </div> <!-- end_container-->

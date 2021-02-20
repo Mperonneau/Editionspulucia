@@ -45,8 +45,8 @@
     and (max-device-width : 991px){
   .margin_section {
     font-family: Galada; 
-    font-size: 45px; 
-    font-style: italic;
+    font-size: 40px; 
+    font-style: normal;
      
 }}
 
@@ -55,8 +55,8 @@
     and (min-device-width : 991px){
   .margin_section {
     font-family: Galada; 
-    font-size: 50px; 
-    font-style: italic;
+    font-size: 45px; 
+    font-style: normal;
      
 }}
 
@@ -122,7 +122,7 @@
 <main id="main">
 
   <!-- ======= About Us Section ======= -->
-  <section id="about-us" class="about-us">
+  <section id="about-us" class="about-us" >
     <div class="container" data-aos="fade-up">
 
       <div class="section-title aos-init aos-animate" data-aos="fade-up">
@@ -156,19 +156,19 @@
   </section><!-- End About Us Section -->
 
   
-  <section id="team" class="team section-bg" data-aos="fade-up">
-    <div class="container">
+  <section id="team" class="team section-bg"  style="background-image:url(static/img/background13.jpg); background-repeat: no-repeat; background-size: cover;">
+    <div class="container" style="margin-top:-3.5%; margin-bottom: -3%;">
       <div class="row">
         <div class="col-sm-12">
-          <div class="section-title aos-init aos-animate" data-aos="fade-up">
+          <div class="section-title" >
             <p class="margin_section">Nos recents articles</p>
           </div>
         </div>
       </div>
       <div class="row">
         {% for blog in blog1 %}
-        <div class="col-md-4 mb-4" data-aos="zoom-in">
-          <div class="card card-blog">
+        <div class="col-md-4 mb-4">
+          <div class="card card-blog" style="border: 3px solid whitesmoke">
             <div class="card-img">
               <a href="{% url 'article' blog.pk %}"><img src="{{blog.image.url}}" alt="" class="img-fluid"></a>
             </div>
@@ -194,11 +194,11 @@
   z-index: -1;
 }
   </style>
-  <section id="team" class="team section-bg" data-aos="fade-up" style="background-color: white;">
-    <div class="container">
+  <section id="team" class="team section-bg"  style="background-image:url(static/img/background5.jpg); background-repeat: no-repeat; background-size: cover;">
+    <div class="container" style="margin-top:-3%">
       <div class="row">
         <div class="col-sm-12">
-          <div class="section-title aos-init aos-animate" data-aos="fade-up">
+          <div class="section-title " >
             <p class="margin_section">Nos affiches</p>
           </div>
         </div>
@@ -207,7 +207,7 @@
 
         {% for affiche in affiche %}
 
-        <div class="col-md-4 mb-3 " data-aos="zoom-in" style="margin-bottom: 20px;">
+        <div class="col-md-4 mb-3 "  style="margin-bottom: 20px;">
           <div class="card card-blog shadow-card ">
             <div class="card-img">
               <a href="#1"><img  src="{{affiche.image.url}}" alt="" class="img-fluid img-size" style="height: 400px;"></a>
@@ -260,18 +260,18 @@
 
 
   <!-- ======= Services Section ======= -->
-  <section id="more-services" class="more-services" data-aos="fade-up" style="background-color: whitesmoke;"> 
+  <section id="more-services" class="more-services"  style="background-image:url(static/img/background4.jpg); background-repeat: no-repeat; background-size: cover;"> 
     <div class="container">
       <div class="col-sm-12">
-        <div class="section-title aos-init aos-animate" data-aos="fade-up">
+        <div class="section-title " >
           <p class="margin_section">Nos recents evènements</p>
         </div>
       </div>
 
       <div class="row">
         {% for evenement in evenement %}
-        <div class="col-md-6 d-flex align-items-stretch mb-4" data-aos="zoom-in"> 
-          <div class="card aos-init aos-animate" style="background-image: url({{evenement.image_cover.url}});" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-md-6 d-flex align-items-stretch mb-4"  >  
+          <div class="card aos-init aos-animate" style="background-image: url({{evenement.image_cover.url}}); border: solid 3px white" data-aos="fade-up" data-aos-delay="100">
             <div class="card-body body-color">
               <h5 class="card-title"><a href="{% url 'evenement' evenement.pk %}">{{evenement.titre}}</a></h5>
               <p class="card-text">{{ evenement.description|truncatewords:20 }}</p>
@@ -290,10 +290,10 @@
 
   <!-- ======= Portfolio Section ======= -->
   
-  <section id="team" class="team section-bg" data-aos="fade-up" style="background-color: white;">
+  <section id="team" class="team section-bg"  style="background-image:url(static/img/background2.jpg); background-repeat: no-repeat; background-size: cover;">
     <div class="container">
 
-      <div class="section-title aos-init aos-animate" data-aos="fade-up">
+      <div class="section-title " >
         <p class="margin_section">Notre Equipe</p>
       </div>
 

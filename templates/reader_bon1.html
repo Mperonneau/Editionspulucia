@@ -1,0 +1,58 @@
+
+{% load static %}
+<!DOCTYPE html>
+
+
+
+<html id="bibi">
+
+
+	<head>
+
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta property="og:title" content="{{livre1.titre}}" />
+		<meta property="og:description" content="{{livre1.auteur}} | {{livre.categorie}}" />
+		<meta property="og:image" content="{{livre1.cover_image.url}}"/>			
+
+		<title>This E-Book is Published with Bibi | EPUB Reader on your website.</title>
+
+		<!-- # Bibi | EPUB Reader on your website. : © Satoru Matsushima - https://bibi.epub.link or https://github.com/satorumurmur/bibi / Licensed under the MIT License - https://github.com/satorumurmur/bibi/blob/master/LICENSE -->
+
+		<!-- 「わたしのことは『ビビ』と呼んでください。『ビビ』はわたしの名前なんです」 —— エレクトラ・パブリケーヌ『ビビのみぎくるぶし』 -->
+		<!-- 「まあ！　それじゃあやっぱり、『ビビ』はわたしの“名前”だったのですね？」 —— ソフィア・パインアイランド『ビビさんたちのこと』 -->
+		<!-- 「このあたりにビビさんという人がいると聞いて来たのですが、あなたですか？」 —— ビビ・ララルー『ポケットに眼鏡』 -->
+
+		<link id="bibi-style" rel="stylesheet" href="{% static 'bibi/resources/styles/bibi.css' %}" />
+		<link id="bibi-dress" rel="stylesheet" href="{% static 'bibi/wardrobe/everyday/bibi.dress.css' %}" />
+		<script id="bibi-script" src="{% static 'bibi/resources/scripts/bibi.js' %}"></script>
+		<script id="bibi-preset" src="{% static 'bibi/presets/default.js' %}" data-bibi-bookshelf=""></script>
+
+	</head>
+
+
+	<body data-bibi-book="{{livre1.document.url}}">
+        <style>
+            #bibi-menu{
+                background-color: blue;
+            }
+    
+        </style>
+
+		<div id="bibi-info">
+			<h1>This E-Book is Published on the Web with Bibi | EPUB Reader on your website.</h1>
+			<ul>
+				<li><a href="https://bibi.epub.link">Bibi | EPUB Reader on your website. (Official Website / Japanese)</a></li>
+				<li><a href="https://github.com/satorumurmur/bibi">Bibi on GitHub (English)</a></li>
+			</ul>
+		</div>
+       
+
+		<!--<div id="bibi-book-data" data-bibi-book-mimetype="application/epub+zip" hidden="hidden">
+		</div>-->
+
+	</body>
+
+
+</html>

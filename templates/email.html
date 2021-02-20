@@ -1,0 +1,7 @@
+            <h4>Rejoignez nous!</h4>
+            <p>Soumettre votre email et recevoir tous nos publications!</p>
+            <form action="{% url  'email-info'   %}" method="post" id="email-form" style="color:blue ">
+                {% csrf_token %}
+              <input type="email" name="email" id="email" placeholder="Adresse electronique">
+              <input type="submit" value="Souscrire" id="submit_email" >
+            </form>      

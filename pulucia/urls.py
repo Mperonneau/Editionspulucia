@@ -34,10 +34,13 @@ urlpatterns = [
     path('librairie/', views.librairie, name='librairie'),
     path('librairie/livre/<int:pk>', views.livre, name='livre'),
     path('librairie/search/<slug:slug>', views.librairie_search, name='librairie-search'),
+    path('librairie/achat', views.achat_livre, name='achat-livre'),
+
 
     path('bibliotheque', views.bibliotheque, name='bibliotheque'),
     path('bibliotheque/search/<slug:slug>', views.bibliotheque_search, name='bibliotheque-search'),
     path('reader/<int:pk>', views.reader, name='reader'),
+    path('reader1/<int:pk>', views.reader1, name='reader1'),
     path('bibliotheque/add-book/<int:pk>', views.add_book_profile, name='add-book'),
     path('bibliotheque/add-book-categorie/<slug:slug>/<int:pk>', views.add_book_profile_categorie, name='add-book-categorie'),
     
@@ -61,6 +64,7 @@ urlpatterns = [
 
     path('projet', views.projet_main, name='projet'),
     path('projet/projet-details/<int:pk>', views.projet_details, name='projet-details'),
+    path('projet/don', views.don1, name='don-projet'),
 
     path('login', views.login_profile, name='login'),
     path('redirect/', views.redirect_social, name='redirect'),
@@ -79,6 +83,8 @@ urlpatterns = [
     path('social-auth/', include('social_django.urls', namespace="social")),
     path('temoignages/', views.temoignages, name='temoignages'),
     path('a-propos/', views.a_propos, name='a_propos'),
+
+    path('email/', views.email_info1, name='email-info'),
     path('admin/', admin.site.urls),
 
     #reset password=======================================================
