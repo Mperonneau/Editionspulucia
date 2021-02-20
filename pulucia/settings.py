@@ -27,7 +27,7 @@ SECRET_KEY = '05yt^+j8snkvtutmmc=ox)v&2_qk(%7pv)-@3%o5ntz5^tfvp8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pulucia.herokuapp.com', '127.0.0.1','192.168.1.2', 'localhost'] #192.168.1.5: test the web on phone....
+ALLOWED_HOSTS = ['pulucia.herokuapp.com',  'www.editionspulucia.com'] #192.168.1.5: test the web on phone....
 
 
 # Application definition
