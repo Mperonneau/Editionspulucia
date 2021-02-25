@@ -500,7 +500,7 @@ from django.template.loader import get_template
 from sendgrid.helpers.mail import *
 from email.mime.image import MIMEImage
 import os
-@receiver(post_save, sender=publication_auteur) #template: simple email html template codepen (search google)
+@receiver(post_save, sender=blog_pulucia) #template: simple email html template codepen (search google)
 def email(sender,  instance, created,  **kwargs): 
     text_d=blog_pulucia.objects.latest('id')
     text1=blog_pulucia.objects.all().count()
