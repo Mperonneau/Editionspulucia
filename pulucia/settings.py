@@ -83,15 +83,13 @@ SOCIAL_AUTH_FACEBOOK_KEY = '3839180016106466'       # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '8542da8d2b513d6f77b002bb122beae5'  # App Secret
 
 # in way to get more infos from the account facebook user's
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link'] # add this 
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'public_profile'] # add this 
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {       # add this
-  'fields': 'id, name, email, picture.type(large), link'
+  'fields': 'id, name, email'
 }
 SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [                 # add this
     ('name', 'name'),
     ('email', 'email'),
-    ('picture', 'picture'),
-    ('link', 'profile_url'),
 ]
 
 #Google
