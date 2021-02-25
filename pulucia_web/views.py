@@ -516,6 +516,7 @@ def email(sender,  instance, created,  **kwargs):
             'text': text_d,
             'text1': text_d1,
             'text2': text_d2,
+        }
         html_content = render_to_string('email_template.html', context) # render with dynamic value
         text_content = strip_tags(html_content) # Strip the html tag. So people can see the pure text at least.
         msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
