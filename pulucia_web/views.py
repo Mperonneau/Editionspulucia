@@ -512,7 +512,11 @@ def email(sender,  instance, created,  **kwargs):
    
     for email1 in  mergedlist:
         subject, from_email, to = 'Une nouvelle publication des Editions Pulucia', 'djangoappmoliere@gmail.com', str(email1)
-        html_content = render_to_string('email_template.html', {'text': text_d}) # render with dynamic value
+        context={
+            'text': text_d,
+            'text1': text_d1,
+            'text2': text_d2,
+        html_content = render_to_string('email_template.html', context) # render with dynamic value
         text_content = strip_tags(html_content) # Strip the html tag. So people can see the pure text at least.
         msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
         msg.attach_alternative(html_content, "text/html")  
