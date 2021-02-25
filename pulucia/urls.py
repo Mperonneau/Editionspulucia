@@ -85,6 +85,7 @@ urlpatterns = [
     path('a-propos/', views.a_propos, name='a_propos'),
 
     path('email/', views.email_info1, name='email-info'),
+    path('legal/', views.confidentialite, name='confidentialite'),
     path('admin/', admin.site.urls),
 
     #reset password=======================================================
