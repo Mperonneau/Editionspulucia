@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
+    'pwa',
     "sslserver",
     'social_django',
     'django_filters',
@@ -220,3 +221,35 @@ EMAIL_USE_TLS = True
 # paypal payment 
 PAYPAL_CLIENT_ID  = "AWrTS0pPlZm2-lgpyS346AhjMRWmu1A8Q50ndMPU8JHSoXNGxU43L_490RYHNuBHXkB7H0l1QODgiDoH"
 PAYPAL_SECRET_ID  =  "ELKsvy7D4FWhCyZcW9IyDBEo_JEsmLokiTtUbcrXi7mbqSfqStj4LqG0hT7dK4N0ChfT_g15XADEejO-"
+
+
+#progressive web app configuration
+PWA_APP_NAME = 'Pulucia'
+PWA_APP_DESCRIPTION = "Pulucia PWA"
+PWA_APP_THEME_COLOR = '#000000'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_ICONS = [
+    {
+        'src': 'static/img/pulucia-pwa.png',
+        'sizes': '160x160'
+    }
+]
+PWA_APP_ICONS_APPLE = [
+    {
+        'src': 'static/img/pulucia-pwa.png',
+        'sizes': '160x160'
+    }
+]
+PWA_APP_SPLASH_SCREEN = [
+    {
+        'src': 'static/img/logo_pulucia.png',
+        'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+    }
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'
