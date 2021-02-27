@@ -66,6 +66,8 @@ SECURE_SSL_REDIRECT = True
 #---------------------------------------------------------------------------
 #social_app/settings.py
 
+SOCIAL_AUTH_FIELDS_STORED_IN_SESSION = ['state']
+SESSION_COOKIE_SECURE = False
 
 #add this
 AUTHENTICATION_BACKENDS = [
