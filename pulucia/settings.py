@@ -67,7 +67,7 @@ SECURE_SSL_REDIRECT = True
 #social_app/settings.py
 
 
-
+SESSION_COOKIE_SAMESITE = None
 #add this
 AUTHENTICATION_BACKENDS = [
     'social_core.backends.facebook.FacebookOAuth2',
