@@ -28,6 +28,7 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    path('', include('pwa.urls')),
     path('', views.index_page, name='index_page'),
     path('affiche/<int:pk>', views.affiche, name='affiche'),
 
