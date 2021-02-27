@@ -31,3 +31,4 @@ cryptography==3.1.1
 paypal-checkout-serversdk==1.0.1
 paypalhttp==1.0.0
 django-environ==0.4.5
+django-pwa==1.0.10
