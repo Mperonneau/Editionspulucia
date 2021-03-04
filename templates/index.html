@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
+
 {% load static %} <!-- load this in every page to solve the static file's problem-->
+
 {% block content %}
+
+
+
 
 <style>
   .img-size{
@@ -70,6 +75,7 @@
 </style>
 
 <section id="hero">
+  
   <div class="don"> 
     <a href="#!"><img src="/static/img/don.png"></a>
    </div>
@@ -88,6 +94,7 @@
       </div>
 
       <!-- Slide 1 -->
+     
       {% for carousel in carousel %}
       <div class="carousel-item " style="background-image: url('{{carousel.image.url}}')">
         <div class="carousel-container">
@@ -118,6 +125,9 @@
 
   </div>
 </section><!-- End Hero -->
+
+
+
 
 <main id="main">
 
