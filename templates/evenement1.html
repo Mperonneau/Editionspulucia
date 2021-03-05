@@ -1,0 +1,599 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- for icon documentation: https://materializecss.com/icons.html-->
+{% endblock %}
+{% block content %}
+{% block extra_head %}
+<meta property="og:title" content="{{evenement.titre}}" />
+<meta property="og:description" content="{{evenement.description|truncatewords:20}}" />
+<meta property="og:image" content="{{evenement.image_cover.url}}" />
+
+{% endblock %}
+
+<style>
+    .profile-content {
+    overflow: hidden;
+    }
+    
+    .row:before, .row::after{
+                display:none !important;
+            }
+    
+    
+    .page-breadcrumb {
+    display: inline-block;
+    float: left;
+    margin: 0;
+    list-style: none;
+    background-color: transparent;
+    border-radius: 50px;
+    background: rgba(220, 208, 208, 0.5);
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 5px !important;
+    padding-bottom: 8px !important;
+    }
+    
+    .page-breadcrumb li a{
+        text-decoration: none;
+    }
+    
+    .page-breadcrumb:hover{
+        background: rgba(220, 208, 208, 0.7);
+    
+    }
+    .home {
+        position: relative;
+        top: 4px;
+        display: inline-block;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1; 
+    }
+    
+    .profile-sidebar {
+    float: left;
+    width: 350px;
+    margin-right: 20px;
+    }
+    
+    @media (max-width: 991px){
+    .profile-sidebar {
+    float: none;
+    width: 100% !important;
+    margin: 0;
+    }
+    
+    }
+    .card-topline-aqua {
+    border-top: 3px solid #00C0EF;
+    }
+    
+    .card {
+    position: relative;
+    margin-bottom: 24px;
+    margin-top: 10px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10);
+    }
+    
+    
+    
+    .card-body:last-child {
+    border-radius: 0 0 2px 2px;
+    }
+    
+    .card-body {
+    padding: 10px 24px 14px 24px;
+    position: relative;
+    }
+    
+    
+    
+    .img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    }
+    
+    
+    
+    
+    
+    .card-body:after {
+    clear: both;
+    }
+    
+    .card-body:before, .card-body:after {
+    content: " ";
+    display: table;
+    }
+    
+    .list-group .list-group-item {
+    display: block;
+    }
+    
+    .list-group-unbordered > .list-group-item {
+    border-left: 0px none;
+    border-right: 0px none;
+    border-radius: 0px 0px 0px 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    }
+    
+    .pull-right {
+    float: right!important;
+    }
+    
+    
+    .profile-userbuttons {
+    text-align: center;
+    margin-top: 10px;
+    }
+    
+    
+    .card-body:last-child {
+    border-radius: 0 0 2px 2px;
+    }
+    
+    .card-body {
+    padding: 10px 24px 14px 24px;
+    position: relative;
+    }
+    
+    .profile-userbuttons button {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+    }
+    
+    .btn-circle {
+    border-radius: 25px!important;
+    overflow: hidden;
+    outline: 0px !important;
+    }
+    
+    .btn-primary {
+    background-color: #188ae2 !important;
+    border: 1px solid #188ae2 !important;
+    color: #fff !important;
+    }
+    
+    .m-b-10 {
+    margin-bottom: 10px !important;
+    }
+    
+    
+    .mdl-js-button {
+    right: 10px;
+    }
+    
+    
+    
+    .card-topline-aqua {
+    border-top: 3px solid #00C0EF;
+    }
+    
+    .card-body:last-child {
+    border-radius: 0 0 2px 2px;
+    }
+    
+    .profile-desc {
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    }
+    
+    .card-head header {
+    display: inline-block;
+    padding: 11px 20px;
+    vertical-align: middle;
+    line-height: 17px;
+    font-size: 20px;
+    }
+    
+    .work-monitor .states {
+    width: 90%;
+    }
+    
+    .work-progress, .states {
+    width: 100%;
+    }
+    
+    .work-monitor .states .info {
+    display: inline-block;
+    width: 100%;
+    font-size: 15px;
+    margin: 10px 0 0 0;
+    font-weight: 500;
+    }
+    
+    .work-monitor .states .info {
+    display: inline-block;
+    width: 100%;
+    font-size: 13px;
+    }
+    
+    .pull-right {
+    float: right!important;
+    }
+    
+    
+    .profile-content {
+    overflow: hidden;
+    }
+    
+    .white-box {
+    background: #ffffff;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    }
+    
+    .customtab {
+    border-bottom: 2px solid #f7fafc;
+    }
+    
+    .nav-pills, .nav-tabs {
+    margin-bottom: 10px;
+    }
+    .nav-tabs>li {
+    float: left;
+    margin-bottom: -1px;
+    }
+    
+    .customtab.nav-tabs .nav-link.active, .customtab.nav-tabs .nav-link.active:focus {
+    border-bottom: 0px solid #36c6d3;
+    background-color: rgb(102, 115, 252) !important;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .2), 0 13px 24px -11px rgb(102, 115, 252);
+    color: #fff;
+    border-radius: 30px;
+    }
+    
+    .customtab.nav-tabs .nav-link {
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    color: #999;
+    }
+    
+    #biography {
+    padding: 0 20px;
+    }
+    .text-muted {
+    color: #919aa3!important;
+    margin-bottom: 10px;
+    }
+    
+    .font-bold {
+    font-weight: bold;
+    }
+    
+    .full-width {
+    float: left;
+    width: 100%;
+    }
+    #team-social li {
+        list-style-type: none;
+        display: inline-block;
+        margin-left:10px;
+    }
+    
+    #team-social li a{
+        text-decoration: none;
+        font-size:20px;
+    }
+    
+    #team-social{
+        margin-right:38px;
+    }
+    .expertise li{
+        list-style-type: square;
+        font-weight: 700;
+        margin-bottom: 10px;;
+    
+    }
+    
+    .mySlides {display:none}
+    
+    .modal-top-margin{
+        margin-top:6.5%
+    }
+    @media only screen
+            and (max-device-width : 768px)
+            and (max-device-width : 991px){
+        .modal-top-margin{
+        margin-top:11%
+    }}
+    
+    .content-margin{
+        margin-top:-6%
+    }
+    
+    @media (max-width: 991px){
+        .content-margin{
+        margin-top:1%
+    }}
+    
+    @media (min-width: 1200px){
+        .position-prev{
+        position:absolute;
+        top:-1300%;
+        left:-10%;
+    }}
+    
+    @media (min-width: 1200px){
+        .position-next{
+        position:absolute;
+        top:-1300%;
+        right:-10%
+    }}
+    
+    .evenement-style{
+        font-family: Galada; 
+        font-size: 50px; 
+        font-style: italic;
+    }
+    
+    @media (max-width: 991px){
+        .evenement-style{
+        font-family: Galada; 
+        font-size: 40px; 
+        font-style: italic;
+    }}
+    @media (min-width: 1200px){
+    .thumb{
+        height: 130px;
+        width: 400px;
+        overflow: hidden;
+    }}
+    
+    @media (min-width: 1200px){
+    .thumb img{
+        height: auto;
+        width: 400px;
+        overflow: hidden;
+    }}
+    
+    @media (max-width: 991px){
+    .thumb{
+        height: 100px;
+        overflow: hidden;
+    }}
+    
+    @media (min-width: 1200px){
+    .img_size{
+        width:100%;
+        height:500px;
+    }}
+    
+    @media (max-width: 991px){
+    .img_size{
+        width:100%;
+        height:260px;
+    }}
+    
+    @media (max-width: 991px){
+        .btn-share-dekstop{
+        visibility: hidden;
+    }}
+    
+    @media only screen
+        and (min-device-width : 768px)
+        and (min-device-width : 991px){
+        .share_count{
+        visibility: hidden;
+    }}
+    
+    @media only screen
+            and (max-device-width : 768px)
+            and (max-device-width : 991px){
+        .margin-top-main-page{
+          margin-top:-6%
+        
+        }
+        .font-size-head{
+          font-size:15px;
+        }
+      }
+      
+      @media only screen
+            and (min-device-width : 768px)
+            and (min-device-width : 991px){
+      .font-size-head{
+          font-size:28px;
+          margin-top: 2%
+        }}
+
+        @media only screen
+    and (max-device-width : 768px)
+    and (max-device-width : 991px){
+  .mobile-nav-toggle {
+    position:fixed;
+   top:8px
+     
+}}
+    
+    </style>
+<main id="main" class="margin-top-main-page" style="background-color:white;">
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+
+           
+    
+            <div class="d-flex justify-content-between align-items-center">
+                <p class="text-white font-size-head"> <strong>Evènement</strong></p>
+                <ol>
+                  <li>Evènements Editions Pulucia</li>
+                  
+                </ol>
+              </div>
+  
+        </div>
+      </section><!-- End Breadcrumbs -->
+
+
+
+
+
+<div class="container-fluid" style="margin-top:20px">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN PROFILE SIDEBAR -->
+            <div class="profile-sidebar">
+                <div class="card card-topline-aqua">
+                    <div class="card-body no-padding height-9" >
+                       
+                        <p class="text-center font-weight-bold h3" style="color: skyblue"> {{evenement.titre}}</p>
+                       
+                        <div class="profile-usertitle">
+                            
+                        </div>
+                        <hr>
+                        <p class="text-justify"> {{evenement.description|linebreaksbr}}</p>
+                        <hr>
+                        <button class="share-btn  font-weight-bold  btn btn-link  text-decoration-none visibilty-share share_count"
+                         type="submit" style="color:green; background-color: white;  background: transparent; margin-top:-7%; margin-bottom: -4%; "
+                      > <span  class="marge_share"><i class="fas fa-share-square"></i> Partager cet evenement </span></button>
+
+                        
+                        <!-- END SIDEBAR USER TITLE -->
+                        <!-- SIDEBAR BUTTONS -->
+                        
+                        <!-- END SIDEBAR BUTTONS -->
+                    </div>
+                </div>
+                
+               
+            </div>
+            <!-- END BEGIN PROFILE SIDEBAR -->
+            <!-- BEGIN PROFILE CONTENT -->
+            <div class="profile-content">
+              <div class="row"> 
+                <div class="container">
+                  <div class="section-title aos-init aos-animate" data-aos="fade-up">
+                    <h3 class="evenement-style">L'evènement en photos</h3>
+                  </div>
+                </div>
+              </div>
+                  <div class="row" > <!-- row gallery-->
+                    <div class="w3-container">
+                        
+
+                        <div class="w3-row-padding mb-3" style="margin:10px -16px;">
+                            {% for evenementphotos in evenement_photo %}
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb mb-5">
+                            <img src="{{evenementphotos.photo.url}}" style="width:100%; cursor:pointer"
+                            onclick="openModal();currentDiv({{evenementphotos.pk}})" class="w3-hover-shadow">
+                          </div>
+                
+                          {% endfor %}
+                        </div>
+                        
+                        <div id="myModal" class="w3-modal w3-black modal-top-margin" >
+                         <span class="w3-text-white w3-xxlarge w3-hover-text-grey w3-container w3-display-topright" onclick="closeModal()" style="cursor:pointer">×</span>
+                         <div class="w3-modal-content content-margin"> 
+                        
+                          <div class="w3-content" style="max-width:100%">
+                            {% for evenementphotos in evenement_photo %}
+                            <img class="mySlides img_size"  src="{{evenementphotos.photo.url}}">
+        
+                           {% endfor %}
+                           <div class="w3-row w3-black w3-center mb-5">
+
+                            <div class="w3-display-container">
+                             <p id="caption"></p>
+                             <span class="w3-display-left w3-btn carousel-control-prev-icon mt-1 position-prev " onclick="plusDivs(-1)"></span>
+                             <span class="w3-display-right w3-btn carousel-control-next-icon mt-1 position-next " onclick="plusDivs(1)"></span>
+                            </div>
+
+                            {% for evenementphotos in evenement_photo %}
+                            <div class="col-lg-3 col-md-4 col-xs-6 mb-3 thumb">
+                             <img class="demo w3-opacity w3-hover-opacity-off" src="{{evenementphotos.photo.url}}" style="width:100%" onclick="currentDiv({{evenementphotos.pk}})" alt="{{evenementphotos.note_photo}}">
+                            </div>
+                            {% endfor %}
+
+                           </div> <!-- End row -->
+                           
+                          </div> <!-- End w3-content -->
+                          
+                         </div> <!-- End modal content -->
+                        </div> <!-- End modal -->
+                       
+                        </div>
+                      </div> <!--end row picture-->
+                      
+                      <div class="sharethis-inline-share-buttons mb-5 btn-share-dekstop" style="z-index:0"></div>
+                      <script type="text/javascript" 
+              src="https://platform-api.sharethis.com/js/sharethis.js#property=5fe4098abf0cae00128712fb&product=inline-share-buttons" async="async">
+           </script>
+
+                           <!-- script for share mobile-->
+                          <script>
+                            $(document).on('click', '.share_count', function(event){
+                    
+                            if (navigator.share) { 
+                            navigator.share({
+                                title: 'WebShare API Demo',
+                            // text: 'This post may or may not contain the answer to the universe',
+                                url: window.location.href,
+                            }).then(() => {
+
+                                console.log('Thanks for sharing!');
+                            })
+                            .catch(console.error);
+                            } else {
+                                shareDialog.classList.add('is-open');
+                            }
+                            });
+                            </script>
+
+
+                      <script>
+                          function openModal() {
+                            document.getElementById('myModal').style.display = "block";
+                          }
+                          
+                          function closeModal() {
+                            document.getElementById('myModal').style.display = "none";
+                          }
+                          
+                          var slideIndex = 1;
+                          showDivs(slideIndex);
+                          
+                          function plusDivs(n) {
+                            showDivs(slideIndex += n);
+                          }
+                          
+                          function currentDiv(n) {
+                            showDivs(slideIndex = n);
+                          }
+                          
+                          function showDivs(n) {
+                            var i;
+                            var x = document.getElementsByClassName("mySlides");
+                            var dots = document.getElementsByClassName("demo");
+                            var captionText = document.getElementById("caption");
+                            if (n > x.length) {slideIndex = 1}
+                            if (n < 1) {slideIndex = x.length}
+                            for (i = 0; i < x.length; i++) {
+                              x[i].style.display = "none";
+                            }
+                            for (i = 0; i < dots.length; i++) {
+                              dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+                            }
+                            x[slideIndex-1].style.display = "block";
+                            dots[slideIndex-1].className += " w3-opacity-off";
+                            captionText.innerHTML = dots[slideIndex-1].alt;
+                          }
+                          </script>
+</div> <!-- end profile-content-->
+</div>
+</div>
+
+</main>
+
+{% endblock %}
