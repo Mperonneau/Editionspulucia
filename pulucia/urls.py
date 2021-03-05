@@ -29,7 +29,6 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', include('pwa.urls')),
-
     path('', views.index_page, name='index_page'),
     path('affiche/<int:pk>', views.affiche, name='affiche'),
 
@@ -87,10 +86,7 @@ urlpatterns = [
     path('a-propos/', views.a_propos, name='a_propos'),
 
     path('email/', views.email_info1, name='email-info'),
-
     path('legal/', views.confidentialite, name='confidentialite'),
-
-    
     path('admin/', admin.site.urls),
 
     #reset password=======================================================

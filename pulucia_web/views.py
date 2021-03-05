@@ -847,8 +847,8 @@ def email_info1(request):
     data['html_form'] = render_to_string('email.html',  request=request)
     return JsonResponse(data)
 
+
 def confidentialite(request):
      return render(request, 'confidentialite.html')
-
 
     

@@ -27,7 +27,7 @@ SECRET_KEY = '05yt^+j8snkvtutmmc=ox)v&2_qk(%7pv)-@3%o5ntz5^tfvp8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pulucia.herokuapp.com', '127.0.0.1','192.168.1.4', 'localhost', 'www.editionspulucia.com'] #192.168.1.5: test the web on phone....
+ALLOWED_HOSTS = ['pulucia.herokuapp.com',  'www.editionspulucia.com'] #192.168.1.5: test the web on phone....
 
 
 # Application definition
@@ -39,9 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pwa' ,
-    'dbbackup', 
     'widget_tweaks',
+    'pwa',
     "sslserver",
     'social_django',
     'django_filters',
@@ -60,27 +59,15 @@ MIDDLEWARE = [
 ]
 
 #redirect the app to HTTPS after configuring a SSL certificate (to add only in production not in developpement)
-#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-#SECURE_SSL_REDIRECT = True
-
-
-#backup database
-#DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
-#DBBACKUP_STORAGE_OPTIONS = {'location': '/Users/mperonneau/Desktop/dev_site/backup'}
-
-#Dropbox
-DBBACKUP_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-DBBACKUP_STORAGE_OPTIONS = {
-    'oauth2_access_token': 'X_aTWNofZtkAAAAAAAAAAexU3LaDxk2IOajdguclZAXw_rtMimigxg0dgqtGNFw0',
-}
-
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
 
 
 #---------------------------------------------------------------------------
 #social_app/settings.py
-#solve the issue Getting AuthStateMissing/social-auth/complete/{backend}/ error
-SESSION_COOKIE_SAMESITE = None
 
+
+SESSION_COOKIE_SAMESITE = None
 #add this
 AUTHENTICATION_BACKENDS = [
     'social_core.backends.facebook.FacebookOAuth2',
@@ -99,15 +86,13 @@ SOCIAL_AUTH_FACEBOOK_KEY = '3839180016106466'       # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '8542da8d2b513d6f77b002bb122beae5'  # App Secret
 
 # in way to get more infos from the account facebook user's
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link'] # add this 
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'public_profile'] # add this 
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {       # add this
-  'fields': 'id, name, email, picture.type(large), link'
+  'fields': 'id, name, email'
 }
 SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [                 # add this
     ('name', 'name'),
     ('email', 'email'),
-    ('picture', 'picture'),
-    ('link', 'profile_url'),
 ]
 
 #Google
@@ -125,41 +110,6 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
 
 
 #----------------------------------------------------------------------------
-
-# progressive Web app
-PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
-
-PWA_APP_NAME = 'Pulucia'
-PWA_APP_DESCRIPTION = "Pulucia PWA"
-PWA_APP_THEME_COLOR = '#000000'
-PWA_APP_BACKGROUND_COLOR = '#ffffff'
-PWA_APP_DISPLAY = 'standalone'
-PWA_APP_SCOPE = '/'
-PWA_APP_ORIENTATION = 'any'
-PWA_APP_START_URL = '/'
-PWA_APP_STATUS_BAR_COLOR = 'default'
-PWA_APP_ICONS = [
-    {
-        'src': 'static/img/pulucia-pwa.png',
-        'sizes': '160x160'
-   }
-]
-PWA_APP_ICONS_APPLE = [
-    {
-        'src': 'static/img/pulucia-pwa.png',
-        'sizes': '160x160'
-    }
-]
-PWA_APP_SPLASH_SCREEN = [
-    {
-        'src': 'static/img/logo_pulucia.png',
-        'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
-    }
-]
-PWA_APP_DIR = 'ltr'
-PWA_APP_LANG = 'en-US'
-
-#---------------------------------------------------------------------------------
 
 ROOT_URLCONF = 'pulucia.urls'
 
@@ -191,12 +141,8 @@ WSGI_APPLICATION = 'pulucia.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'pulucia_amazon',
-        'USER':'pulucia',
-        'PASSWORD':'Castille1',
-        'HOST':'database-1.c3eucxqe8chl.us-east-1.rds.amazonaws.com',
-        'PORT':'5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': str(BASE_DIR / 'db.sqlite3'),
     }
 }
 
@@ -277,3 +223,35 @@ EMAIL_USE_TLS = True
 # paypal payment 
 PAYPAL_CLIENT_ID  = "AWrTS0pPlZm2-lgpyS346AhjMRWmu1A8Q50ndMPU8JHSoXNGxU43L_490RYHNuBHXkB7H0l1QODgiDoH"
 PAYPAL_SECRET_ID  =  "ELKsvy7D4FWhCyZcW9IyDBEo_JEsmLokiTtUbcrXi7mbqSfqStj4LqG0hT7dK4N0ChfT_g15XADEejO-"
+
+
+#progressive web app configuration
+PWA_APP_NAME = 'Pulucia'
+PWA_APP_DESCRIPTION = "Pulucia PWA"
+PWA_APP_THEME_COLOR = '#000000'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_ICONS = [
+    {
+        'src': 'static/img/pulucia-pwa.png',
+        'sizes': '160x160'
+    }
+]
+PWA_APP_ICONS_APPLE = [
+    {
+        'src': 'static/img/pulucia-pwa.png',
+        'sizes': '160x160'
+    }
+]
+PWA_APP_SPLASH_SCREEN = [
+    {
+        'src': 'static/img/logo_pulucia.png',
+        'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+    }
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'
