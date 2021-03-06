@@ -125,7 +125,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
 #----------------------------------------------------------------------------
 
 # progressive Web app
-PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
+#PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
 
 PWA_APP_NAME = 'Pulucia'
 PWA_APP_DESCRIPTION = "Pulucia PWA"
