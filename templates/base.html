@@ -1,10 +1,13 @@
 {% load static %}
 {% load pwa %}
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+  
   {% progressive_web_app_meta %}
+  <link rel="manifest" href ="manifest.json">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -184,8 +187,12 @@
             </ul>
           
           </li>
+         
         </ul>
       </nav><!-- .nav-menu -->
+     
+      
+      
       <script> // make the nav green when selected....
        $(document).ready(function() {
   $('li.active').removeClass('active');
@@ -307,6 +314,7 @@
   </div>
 </div>
 
+
   {% block content %}
                   
 
@@ -329,7 +337,6 @@
               <strong>Email:</strong> peronneaumoliere@gmail.com<br>
               <strong><a class="text-white" href="#1">Contact</a></strong><br><br>
               <strong><a class="text-white" href="{% url 'confidentialite' %}">Politiques de confidentialité</a></strong>
-
             </p>
           </div>
 
