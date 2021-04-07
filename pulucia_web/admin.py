@@ -49,6 +49,9 @@ admin.site.register(affiche1)
 admin.site.register(don, read_only5)
 admin.site.register(livre_achat, read_only6)
 admin.site.register(email_info)
+admin.site.register(store_amazon)
+
+
 
 
 

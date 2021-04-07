@@ -27,7 +27,7 @@ SECRET_KEY = '05yt^+j8snkvtutmmc=ox)v&2_qk(%7pv)-@3%o5ntz5^tfvp8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pulucia.herokuapp.com',  'www.editionspulucia.com'] #192.168.1.5: test the web on phone....
+ALLOWED_HOSTS = ['pulucia.herokuapp.com', '127.0.0.1','192.168.1.4', '172.20.10.2','localhost', 'www.editionspulucia.com'] #192.168.1.5: test the web on phone....
 
 
 # Application definition
@@ -60,8 +60,8 @@ MIDDLEWARE = [
 ]
 
 #redirect the app to HTTPS after configuring a SSL certificate (to add only in production not in developpement)
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
+#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#SECURE_SSL_REDIRECT = True
 
 
 #backup database
@@ -125,7 +125,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
 #----------------------------------------------------------------------------
 
 # progressive Web app
-#PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
 
 PWA_APP_NAME = 'Pulucia'
 PWA_APP_DESCRIPTION = "Pulucia PWA"

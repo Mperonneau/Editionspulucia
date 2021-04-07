@@ -37,6 +37,7 @@ urlpatterns = [
     path('librairie/livre/<int:pk>', views.livre, name='livre'),
     path('librairie/search/<slug:slug>', views.librairie_search, name='librairie-search'),
     path('librairie/achat', views.achat_livre, name='achat-livre'),
+    path('store/', views.store, name='store'),
 
 
     path('bibliotheque', views.bibliotheque, name='bibliotheque'),
