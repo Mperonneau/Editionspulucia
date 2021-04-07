@@ -42,6 +42,13 @@ from django.core.mail import send_mail
 
 
 # Create your views here.
+def store(request):
+    amazon_product=store_amazon.objects.all()
+    context={
+        'amazon_product':amazon_product,
+    }
+    return render(request, 'store.html', context)
+
 
 def index_page(request):
     carousel=carousel_image.objects.all().order_by('-date')[:5]

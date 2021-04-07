@@ -228,6 +228,12 @@ class email_info(models.Model):
     def __str__(self):
         return self.email
 
+class store_amazon(models.Model):
+    date=models.DateTimeField(auto_now_add=True)
+    products=models.TextField(max_length=6000, blank=False)
+    def __str__(self):
+        return self.products
+
 
 
 
