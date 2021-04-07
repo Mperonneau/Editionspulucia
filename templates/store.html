@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %} <!-- load this in every page to solve the static file's problem-->
+
+{% block content %}
+<style>
+@media only screen
+      and (min-device-width : 768px)
+      and (min-device-width : 991px){
+  .margin-top-main-page{
+    margin-top:9%
+  
+  }}
+
+@media only screen
+      and (max-device-width : 768px)
+      and (max-device-width : 991px){
+  .margin-top-main-page{
+    margin-top:-2.9%
+  
+  }}
+</style>
+<main class="margin-top-main-page">
+    <div class="container">
+        <div class="row ">
+        {% for product in amazon_product %}
+        <div class="col-6 col-sm-3" style="margin-bottom:4%" >
+            {{product}}
+
+       
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+
+</main>
+
+{% endblock %}
