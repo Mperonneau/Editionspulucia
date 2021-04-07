@@ -59,11 +59,13 @@ def index_page(request):
     blog1=blog_pulucia.objects.all().order_by('-date')[:3]
     affiche=affiche1.objects.all().order_by('-date')[:3]
     evenement=evenement_main.objects.all().order_by('-date')[:4]
+    amazon_product=store_amazon.objects.all()[:4]
     context={
         'carousel':carousel,
         'blog1':blog1,
         'affiche':affiche,
         'evenement':evenement,
+        'amazon_product':amazon_product,
 
     }
     return render(request, 'index.html', context)
