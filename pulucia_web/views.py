@@ -49,6 +49,10 @@ def store(request):
     }
     return render(request, 'store.html', context)
 
+def confidentialite1(request):
+    
+    return render(request, 'confidentialite1.html')
+
 
 def index_page(request):
     carousel=carousel_image.objects.all().order_by('-date')[:5]

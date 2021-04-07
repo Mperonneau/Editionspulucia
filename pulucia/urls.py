@@ -90,6 +90,7 @@ urlpatterns = [
     path('email/', views.email_info1, name='email-info'),
 
     path('legal/', views.confidentialite, name='confidentialite'),
+    path('legal/clause/', views.confidentialite1, name='confidentialite1'),
 
     
     path('admin/', admin.site.urls),
