@@ -22,9 +22,14 @@
 </style>
 <main class="margin-top-main-page">
     <div class="container">
+      <a class="text-success" href="{% url 'confidentialite1' %}"> Clause de non-responsabilité des affiliés Amazon</a>
+      <hr>
         <div class="row ">
+         
         {% for product in amazon_product %}
         <div class="col-6 col-sm-3" style="margin-bottom:4%" >
+          
+
             {{product}}
 
        
